@@ -1,0 +1,130 @@
+[
+    {
+        "key": "group_burger_about_11",
+        "title": "Bloque: About 11",
+        "fields": [
+            {
+                "key": "field_about_11_tab_content",
+                "label": "Contenido",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_about_11_imagen",
+                "label": "Imagen",
+                "name": "imagen",
+                "type": "image",
+                "instructions": "Imagen principal de la columna izquierda. Se recomienda una proporción aproximada de 4:3.",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all"
+            },
+            {
+                "key": "field_about_11_sobre_titulo",
+                "label": "Sobre título",
+                "name": "sobre_titulo",
+                "type": "text",
+                "default_value": "SOMOS DCM"
+            },
+            {
+                "key": "field_about_11_titulo",
+                "label": "Título",
+                "name": "titulo",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "br",
+                "default_value": "Fabricamos, reparamos y acompañamos."
+            },
+            {
+                "key": "field_about_11_descripcion",
+                "label": "Descripción",
+                "name": "descripcion",
+                "type": "wysiwyg",
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0,
+                "default_value": "Desde hace más de 20 años diseñamos y fabricamos equipos robustos, brindamos servicio técnico especializado y soluciones neumáticas adaptadas a cada industria."
+            },
+            {
+                "key": "field_about_11_tab_items",
+                "label": "Características",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_about_11_items",
+                "label": "Características",
+                "name": "items",
+                "type": "repeater",
+                "instructions": "Ingresá la clase CSS del icono disponible en el tema, por ejemplo: tji-box.",
+                "required": 0,
+                "layout": "table",
+                "button_label": "Agregar característica",
+                "min": 0,
+                "max": 4,
+                "collapsed": "field_about_11_item_titulo",
+                "sub_fields": [
+                    {
+                        "key": "field_about_11_item_icono",
+                        "label": "Icono",
+                        "name": "icono",
+                        "type": "text",
+                        "default_value": "tji-box",
+                        "parent_repeater": "field_about_11_items"
+                    },
+                    {
+                        "key": "field_about_11_item_titulo",
+                        "label": "Título",
+                        "name": "titulo",
+                        "type": "text",
+                        "required": 1,
+                        "parent_repeater": "field_about_11_items"
+                    }
+                ]
+            },
+            {
+                "key": "field_about_11_tab_button",
+                "label": "Botón",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_about_11_boton_texto",
+                "label": "Texto del botón",
+                "name": "boton_texto",
+                "type": "text",
+                "default_value": "Conocé más sobre DCM"
+            },
+            {
+                "key": "field_about_11_boton_link",
+                "label": "Enlace del botón",
+                "name": "boton_link",
+                "type": "link",
+                "return_format": "array"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/about-11"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Campos del bloque About 11.",
+        "show_in_rest": 0
+    }
+]

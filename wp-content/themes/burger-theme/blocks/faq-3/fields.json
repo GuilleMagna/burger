@@ -1,0 +1,378 @@
+[
+  {
+    "key": "group_362936c06bc14",
+    "title": "Bloque: Faq 3",
+    "fields": [
+      {
+        "key": "field_fc92bcb62d71f",
+        "label": "Subtítulo",
+        "name": "subtitulo",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "OUR SOLUTIONS",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_9e77309f7e405",
+        "label": "Título",
+        "name": "titulo",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Find answers to the common questions",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_5965d858e72ca",
+        "label": "Descripción",
+        "name": "descripcion",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": 4,
+        "new_lines": "br"
+      },
+      {
+        "key": "field_d8a797361e806",
+        "label": "Texto Botón",
+        "name": "boton_texto",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "1-888-452-1505",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_bb4e51a1b3197",
+        "label": "URL Botón",
+        "name": "boton_url",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "tel:18884521505",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_our_solutions_6",
+        "label": "OUR SOLUTIONS",
+        "name": "texto_our_solutions",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "OUR SOLUTIONS",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_find_answers_to_the_common_questions_7",
+        "label": "Find answers to the common questions",
+        "name": "texto_find_answers_to_the_common_questions",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Find answers to the common questions",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_what_services_does_bexon_offer_to_clie_8",
+        "label": "What services does Bexon offer to clients?",
+        "name": "texto_what_services_does_bexon_offer_to_clie",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "What services does Bexon offer to clients?",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_getting_started_is_easy_simply_reach_o_9",
+        "label": "Getting started is easy! Simply reach out to us through our ",
+        "name": "texto_getting_started_is_easy_simply_reach_o",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_texto_how_do_i_get_started_with_corporate_bu_10",
+        "label": "How do I get started with Corporate Business?",
+        "name": "texto_how_do_i_get_started_with_corporate_bu",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "How do I get started with Corporate Business?",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_getting_started_is_easy_simply_reach_o_2_11",
+        "label": "Getting started is easy! Simply reach out to us through our ",
+        "name": "texto_getting_started_is_easy_simply_reach_o_2",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_texto_how_do_you_ensure_the_success_of_a_pro_12",
+        "label": "How do you ensure the success of a project?",
+        "name": "texto_how_do_you_ensure_the_success_of_a_pro",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "How do you ensure the success of a project?",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_getting_started_is_easy_simply_reach_o_3_13",
+        "label": "Getting started is easy! Simply reach out to us through our ",
+        "name": "texto_getting_started_is_easy_simply_reach_o_3",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_texto_how_long_will_it_take_to_complete_my_p_14",
+        "label": "How long will it take to complete my project?",
+        "name": "texto_how_long_will_it_take_to_complete_my_p",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "How long will it take to complete my project?",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_getting_started_is_easy_simply_reach_o_4_15",
+        "label": "Getting started is easy! Simply reach out to us through our ",
+        "name": "texto_getting_started_is_easy_simply_reach_o_4",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_texto_can_i_track_the_progress_of_my_project_16",
+        "label": "Can I track the progress of my project?",
+        "name": "texto_can_i_track_the_progress_of_my_project",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Can I track the progress of my project?",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_getting_started_is_easy_simply_reach_o_5_17",
+        "label": "Getting started is easy! Simply reach out to us through our ",
+        "name": "texto_getting_started_is_easy_simply_reach_o_5",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Getting started is easy! Simply reach out to us through our contact form or give us a call, and we’ll schedule a consultation to discuss your project and how we can best assist you. Our team keeps you informed throughout the process, ensuring quality control and timely delivery.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/faq-3"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

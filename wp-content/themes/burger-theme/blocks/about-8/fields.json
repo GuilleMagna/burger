@@ -1,0 +1,513 @@
+[
+  {
+    "key": "group_69838659bc501",
+    "title": "Bloque: About 7",
+    "fields": [
+      {
+        "key": "field_69976e5d62742",
+        "label": "Titulo Imagen Nosotros",
+        "name": "titulo_imagen_nosotros",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Sobre nosotros",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976e4d62741",
+        "label": "Imagen Nosotros",
+        "name": "imagen_nosotros",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium"
+      },
+      {
+        "key": "field_6983865d55ffe",
+        "label": "Titulo Nosotros",
+        "name": "titulo_nosotros",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Sobre nosotros",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976e7462743",
+        "label": "Título Mision",
+        "name": "titulo_mision",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Misión",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976e8862744",
+        "label": "Texto Misión",
+        "name": "texto_mision",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976e9162745",
+        "label": "Título Visión",
+        "name": "titulo_vision",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Visión",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976e9c62746",
+        "label": "Texto Visión",
+        "name": "texto_vision",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_69976ea962747",
+        "label": "Botón Nosotros",
+        "name": "boton_nosotros",
+        "aria-label": "",
+        "type": "link",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_about_h8_about_webp_9",
+        "label": "Imagen 1",
+        "name": "imagen_assets_images_about_h8_about_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/about/h8-about.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_1_webp_10",
+        "label": "Imagen 2",
+        "name": "imagen_assets_images_brands_brand_1_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-1.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_2_webp_11",
+        "label": "Imagen 3",
+        "name": "imagen_assets_images_brands_brand_2_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-2.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_3_webp_12",
+        "label": "Imagen 4",
+        "name": "imagen_assets_images_brands_brand_3_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-3.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_4_webp_13",
+        "label": "Imagen 5",
+        "name": "imagen_assets_images_brands_brand_4_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-4.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_5_webp_14",
+        "label": "Imagen 6",
+        "name": "imagen_assets_images_brands_brand_5_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-5.webp'"
+      },
+      {
+        "key": "field_auto_imagen_assets_images_brands_brand_6_webp_15",
+        "label": "Imagen 7",
+        "name": "imagen_assets_images_brands_brand_6_webp",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/brands/brand-6.webp'"
+      },
+      {
+        "key": "field_auto_texto_get_to_know_us_16",
+        "label": "Get to Know Us",
+        "name": "texto_get_to_know_us",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Get to Know Us",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_committed_delivering_our_measurable_re_17",
+        "label": "Committed Delivering Our Measurable Result and in Building f",
+        "name": "texto_committed_delivering_our_measurable_re",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Committed Delivering Our Measurable Result and in Building from the Lasting Relationships a through out trusts and innovation and shared",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_link_https_youtu_be_gxfatcwro_u_18",
+        "label": "Link 10",
+        "name": "link_https_youtu_be_gxfatcwro_u",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "https://youtu.be/gXFATcwrO-U",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_link_about_html_19",
+        "label": "Link 11",
+        "name": "link_about_html",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "about.html",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_years_of_corporate_experience_20",
+        "label": "Years of Corporate Experience.",
+        "name": "texto_years_of_corporate_experience",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Years of Corporate Experience.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_auto_texto_our_approach_to_customer_experience_co_21",
+        "label": "Our approach to customer experience comhensive and data-driv",
+        "name": "texto_our_approach_to_customer_experience_co",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Our approach to customer experience comhensive and data-driven. We begin assessing you current customer touchpoints, identifying areas for improvement, an using insights to develop strategies in that meet your customers’ evolving needs. From optimizing digital platforms.",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": "",
+        "rows": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_auto_texto_learn_more_22",
+        "label": "Learn More",
+        "name": "texto_learn_more",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Learn More",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/about-8"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

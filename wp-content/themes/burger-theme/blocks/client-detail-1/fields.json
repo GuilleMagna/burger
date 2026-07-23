@@ -1,0 +1,113 @@
+[
+    {
+        "key": "group_burger_client_detail_1",
+        "title": "Bloque: Client Detail 1",
+        "fields": [
+            {
+                "key": "field_client_detail_1_tab_heading",
+                "label": "Encabezado",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_client_detail_1_sobre_titulo",
+                "label": "Sobre título",
+                "name": "sobre_titulo",
+                "type": "text",
+                "default_value": "CLIENTES QUE CONFÍAN"
+            },
+            {
+                "key": "field_client_detail_1_titulo",
+                "label": "Título",
+                "name": "titulo",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "br",
+                "default_value": "Impulsamos industrias en todo el país."
+            },
+            {
+                "key": "field_client_detail_1_tab_testimonials",
+                "label": "Testimonios",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_client_detail_1_testimonios",
+                "label": "Testimonios",
+                "name": "testimonios",
+                "type": "repeater",
+                "required": 0,
+                "layout": "block",
+                "button_label": "Agregar testimonio",
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_client_detail_1_empresa",
+                "sub_fields": [
+                    {
+                        "key": "field_client_detail_1_testimonio",
+                        "label": "Testimonio",
+                        "name": "testimonio",
+                        "type": "textarea",
+                        "required": 1,
+                        "rows": 4,
+                        "new_lines": "wpautop",
+                        "parent_repeater": "field_client_detail_1_testimonios"
+                    },
+                    {
+                        "key": "field_client_detail_1_empresa",
+                        "label": "Empresa",
+                        "name": "empresa",
+                        "type": "text",
+                        "required": 1,
+                        "parent_repeater": "field_client_detail_1_testimonios"
+                    },
+                    {
+                        "key": "field_client_detail_1_sector",
+                        "label": "Sector o industria",
+                        "name": "sector",
+                        "type": "text",
+                        "parent_repeater": "field_client_detail_1_testimonios"
+                    },
+                    {
+                        "key": "field_client_detail_1_logo",
+                        "label": "Logo",
+                        "name": "logo",
+                        "type": "image",
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "parent_repeater": "field_client_detail_1_testimonios"
+                    },
+                    {
+                        "key": "field_client_detail_1_enlace",
+                        "label": "Enlace de la empresa",
+                        "name": "enlace",
+                        "type": "link",
+                        "return_format": "array",
+                        "parent_repeater": "field_client_detail_1_testimonios"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/client-detail-1"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Campos del bloque Client Detail 1.",
+        "show_in_rest": 0
+    }
+]

@@ -1,0 +1,334 @@
+[
+  {
+    "key": "group_06f8ae7b29b8",
+    "title": "Bloque: Project 3",
+    "fields": [
+      {
+        "key": "field_fc97079d5e93",
+        "label": "Encabezado",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_065cb51f0cd9",
+        "label": "Toptítulo",
+        "name": "toptitulo_proyectos",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Nuestros Proyectos",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_7a85035a36c5",
+        "label": "Título",
+        "name": "titulo_proyectos",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Breaking Boundaries, Building Dreams.",
+        "maxlength": "",
+        "rows": 3,
+        "placeholder": "",
+        "new_lines": "br"
+      },
+      {
+        "key": "field_c24b3c2ea5fb",
+        "label": "Texto",
+        "name": "texto_proyectos",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Soluciones desarrolladas para impulsar marcas, negocios y experiencias digitales.",
+        "maxlength": "",
+        "rows": 3,
+        "placeholder": "",
+        "new_lines": "br"
+      },
+      {
+        "key": "field_06375c8c8764",
+        "label": "Proyectos",
+        "name": "",
+        "aria-label": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_75b60aa0d0b9",
+        "label": "Proyectos",
+        "name": "proyectos",
+        "aria-label": "",
+        "type": "repeater",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "row",
+        "pagination": 0,
+        "min": 4,
+        "max": 0,
+        "collapsed": "",
+        "button_label": "Agregar proyecto",
+        "rows_per_page": 20,
+        "sub_fields": [
+          {
+            "key": "field_35b66313cfb4",
+            "label": "Título",
+            "name": "titulo",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "Event Management Platform",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+          },
+          {
+            "key": "field_16d5d2b863a7",
+            "label": "Categoría",
+            "name": "categoria",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "Branding",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+          },
+          {
+            "key": "field_a8f097356515",
+            "label": "Imagen",
+            "name": "imagen",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "default_value": ""
+          },
+          {
+            "key": "field_c9e62920df30",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "#",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+          }
+        ],
+        "default_value": [
+          {
+            "titulo": "Event Management Platform",
+            "categoria": "Branding",
+            "imagen": "assets/images/project/project-1.webp",
+            "link": "#"
+          },
+          {
+            "titulo": "Marketing Strategy",
+            "categoria": "Marketing",
+            "imagen": "assets/images/project/project-2.webp",
+            "link": "#"
+          },
+          {
+            "titulo": "Healthcare Consulting",
+            "categoria": "Consulting",
+            "imagen": "assets/images/project/project-3.webp",
+            "link": "#"
+          },
+          {
+            "titulo": "Business Development",
+            "categoria": "Business",
+            "imagen": "assets/images/project/project-4.webp",
+            "link": "#"
+          }
+        ]
+      },
+      {
+        "key": "field_7b86ef68b123",
+        "label": "Assets images shape pattern 2 svg",
+        "name": "imagen_assets_images_shape_pattern_2_svg",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg'"
+      },
+      {
+        "key": "field_3af7a8d36e37",
+        "label": "Assets images shape pattern 3 svg",
+        "name": "imagen_assets_images_shape_pattern_3_svg",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg'"
+      },
+      {
+        "key": "field_d8b8cc672a2c",
+        "label": "Assets images shape shape blur svg",
+        "name": "imagen_assets_images_shape_shape_blur_svg",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "preview_size": "medium",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "default_value": "NAKAMA_THEME_URL . '/assets/images/shape/shape-blur.svg'"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/project-3"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

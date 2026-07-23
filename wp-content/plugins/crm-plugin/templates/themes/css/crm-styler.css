@@ -1,0 +1,446 @@
+.customize-support .offcanvas.offcanvas-end {
+    top: 32px !important;
+}
+
+.section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-estado.active {
+    box-shadow: 3px 4px 5px black;
+}
+
+.logo-head {
+  max-width: 100px;
+}
+
+.text-small {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+.text-normal {
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.text-normal-dos {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.text-big {
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+.text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.6rem;
+}
+
+#sugerencias-productos {
+    cursor: pointer;
+}
+
+.italic {
+	font-style: oblique;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.xlight {
+  font-weight: 200;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.book {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.xbold {
+  font-weight: 800;
+}
+
+.black {
+  font-weight: 900;
+}
+
+.linea-tabla {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.linea-tabla:hover {
+  background-color: #ffeeda;
+}
+
+.list-group-item {
+  background-color: #ffffff;
+  transition: .3s all ease;
+}
+
+.list-group-item:hover {
+  background-color: #ffeeda;
+  transition: .3s all ease;
+}
+
+.dash.list-group-item:hover {
+  background-color: #daffe9;
+  transition: .3s all ease;
+}
+
+
+.user.list-group-item:hover {
+  background-color: #daf0ff;
+  transition: .3s all ease;
+}
+
+.exit.list-group-item:hover {
+  background-color: #ffdada;
+  transition: .3s all ease;
+}
+
+.comentarios-editar-borrar {
+  opacity: 0;
+  transition: 0.3s all ease;
+}
+
+.comentario:hover .comentarios-editar-borrar {
+  opacity: 1;
+  transition: 0.3s all ease;
+}
+
+.comentarios-guardar {
+  color: #000000;
+  transition: 0.1s all ease;
+  cursor: pointer;
+}
+
+.comentarios-editar {
+  color: #000000;
+  transition: 0.1s all ease;
+  cursor: pointer;
+}
+
+.comentarios-borrar {
+  color: #000000;
+  transition: 0.1s all ease;
+  cursor: pointer;
+}
+
+.comentarios-guardar:hover {
+  color: #1ba70f;
+  transition: 0.1s all ease;
+}
+
+.comentarios-editar:hover {
+  color: #1ba70f;
+  transition: 0.1s all ease;
+}
+
+.comentarios-borrar:hover {
+  color: #d42020;
+  transition: 0.1s all ease;
+}
+
+input.input-comment:disabled,
+textarea.input-comment:disabled {
+	background: #d2f4ea !important;
+	color: #000;
+}
+
+textarea.input-comment {
+    overflow: hidden;
+    resize: vertical;
+    width: 100%; 
+}
+
+.floating-placeholder {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #aaa;
+    transition: all 0.2s;
+}
+
+
+@media (max-width: 576px)
+{
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 0.9rem;
+    line-height: 1rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+  
+  .text-big {
+    font-size: 1.3rem;
+    line-height: 1.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+  }
+
+}
+
+@media  (min-width: 577px) and (max-width: 767px)
+{
+
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-big {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+
+  .text-parallax {
+    width: 50%;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-big {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-big {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+
+}
+
+@media  (min-width: 1200px) and (max-width: 1400px)
+{
+
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-big {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+
+}
+
+@media  (min-width: 1401px) and (max-width: 1600px){
+
+  .text-small {
+    font-size: 0.7rem;
+    line-height: 1.4rem;
+  }
+  
+  .text-normal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-normal-dos {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-big {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  
+  .text-ultra-big {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+
+  .text-parallax {
+    width: 50%;
+  }
+
+  .texto-inicio {
+    padding-top: 25%;
+    padding-bottom: 30%;
+  }
+
+}
+
+.scroll-parent {
+  position: relative;
+  overflow-x: hidden;
+  height: 35px;
+  width: 100%;
+}
+
+.scroll-element {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+.primary {
+  animation: primary 20s linear infinite;
+}
+
+.secondary {
+  animation: secondary 20s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+/* Efecto de Flotar */
+@keyframes floating {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.efecto-flotante {
+  display:block;
+  width:auto;
+  animation: 5s infinite alternate floating;
+}

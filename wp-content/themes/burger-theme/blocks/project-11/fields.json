@@ -1,0 +1,106 @@
+[
+    {
+        "key": "group_burger_project_11",
+        "title": "Bloque: Project 11",
+        "fields": [
+            {
+                "key": "field_project_11_tab_heading",
+                "label": "Encabezado",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_project_11_sobre_titulo",
+                "label": "Sobre título",
+                "name": "sobre_titulo",
+                "type": "text",
+                "default_value": "CATEGORÍAS"
+            },
+            {
+                "key": "field_project_11_titulo",
+                "label": "Título",
+                "name": "titulo",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "br",
+                "default_value": "Soluciones para cada necesidad industrial."
+            },
+            {
+                "key": "field_project_11_tab_items",
+                "label": "Tarjetas",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_project_11_items",
+                "label": "Tarjetas",
+                "name": "items",
+                "type": "repeater",
+                "required": 0,
+                "layout": "block",
+                "button_label": "Agregar tarjeta",
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_project_11_item_titulo",
+                "sub_fields": [
+                    {
+                        "key": "field_project_11_item_imagen",
+                        "label": "Imagen",
+                        "name": "imagen",
+                        "type": "image",
+                        "required": 0,
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "parent_repeater": "field_project_11_items"
+                    },
+                    {
+                        "key": "field_project_11_item_titulo",
+                        "label": "Título",
+                        "name": "titulo",
+                        "type": "text",
+                        "required": 1,
+                        "parent_repeater": "field_project_11_items"
+                    },
+                    {
+                        "key": "field_project_11_item_descripcion",
+                        "label": "Descripción",
+                        "name": "descripcion",
+                        "type": "textarea",
+                        "rows": 3,
+                        "new_lines": "wpautop",
+                        "parent_repeater": "field_project_11_items"
+                    },
+                    {
+                        "key": "field_project_11_item_enlace",
+                        "label": "Enlace",
+                        "name": "enlace",
+                        "type": "link",
+                        "return_format": "array",
+                        "parent_repeater": "field_project_11_items"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf/project-11"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Campos del bloque Project 11.",
+        "show_in_rest": 0
+    }
+]

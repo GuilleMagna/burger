@@ -1,0 +1,33 @@
+# WordPress secrets and environment-specific configuration
+/wp-config.php
+.env
+.env.*
+!.env.example
+
+# Database dumps and migration/site backups
+*.sql
+*.sql.gz
+*.wpress
+*.zip
+*.tar
+*.tar.gz
+/wp-content/ai1wm-backups/
+/wp-content/uploads/ithemes-security/backups/
+
+# User-generated content
+/wp-content/uploads/
+
+# Generated files, caches, logs, and temporary upgrades
+/wp-content/cache/
+/wp-content/et-cache/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/w3tc-config/
+/wp-content/debug.log
+*.log
+
+# Server and editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

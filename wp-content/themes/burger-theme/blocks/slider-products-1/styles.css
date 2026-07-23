@@ -1,0 +1,215 @@
+.slider-products-block {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.slider-products-block .container-fluid {
+    padding-left: clamp(16px, 4vw, 48px);
+    padding-right: clamp(16px, 4vw, 48px);
+}
+
+.slider-products-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.slider-products-title {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 500;
+    line-height: 1.15;
+    color: #111;
+}
+
+.slider-products-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.slider-products-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: #f5f5f5;
+    color: #111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.slider-products-arrow:hover {
+    background: #e5e5e5;
+}
+
+.slider-products-arrow:active {
+    transform: scale(.96);
+}
+
+.slider-products-arrow.disabled,
+.slider-products-arrow[disabled] {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.slider-products-carousel .owl-stage {
+    display: flex;
+}
+
+.slider-products-carousel .owl-item {
+    display: flex;
+}
+
+.slider-product-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-product-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.slider-product-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.slider-product-image-wrap {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform .35s ease;
+}
+
+.slider-product-card:hover .slider-product-image {
+    transform: scale(1.035);
+}
+
+.slider-product-content {
+    padding-top: 16px;
+    color: #111;
+}
+
+.slider-product-badge {
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.slider-product-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #111;
+}
+
+.slider-product-text {
+    margin: 2px 0 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: #707072;
+}
+
+.slider-product-price {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #111;
+}
+
+.slider-product-favorite {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: #111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.slider-product-favorite:hover {
+    background: #f5f5f5;
+}
+
+.slider-product-favorite:active {
+    transform: scale(.95);
+}
+
+.slider-product-heart-filled {
+    display: none;
+}
+
+.slider-product-favorite.is-active .slider-product-heart-empty {
+    display: none;
+}
+
+.slider-product-favorite.is-active .slider-product-heart-filled {
+    display: inline;
+}
+
+@media (max-width: 767.98px) {
+    .slider-products-block {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .slider-products-header {
+        margin-bottom: 18px;
+    }
+
+    .slider-products-nav {
+        display: none;
+    }
+
+    .slider-product-favorite {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 23px;
+    }
+
+    .slider-product-content {
+        padding-top: 12px;
+    }
+}
