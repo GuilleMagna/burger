@@ -14,13 +14,13 @@ function generate_dynamic_css() {
         --tj-color-theme-primary: $tj_color_theme_primary;
         --tj-color-theme-bg: $tj_color_theme_bg;
         --tj-color-heading-primary: $tj_color_heading_primary;
-        
+
         --tj-color-text-body: $tj_color_text_body;
         --tj-color-text-body-2: $tj_color_text_body_2;
         --tj-color-text-body-3: $tj_color_text_body_3;
         --tj-color-text-body-4: $tj_color_text_body_4;
         --tj-color-text-body-5: $tj_color_text_body_5;
-        
+
         --tj-color-theme-bg-2: $tj_color_theme_bg_2;
         --tj-color-theme-bg-3: $tj_color_theme_bg_3;
 
@@ -83,8 +83,8 @@ function nakama_enqueue_editor_styles() {
 add_action('admin_init', 'nakama_enqueue_editor_styles');
 
 add_action( 'after_setup_theme', function() {
-    add_theme_support( 'editor-styles' ); 
-    add_theme_support( 'block-templates' ); 
+    add_theme_support( 'editor-styles' );
+    add_theme_support( 'block-templates' );
 });
 
 add_action( 'init', 'nakama_extend_blocks' );
@@ -184,7 +184,7 @@ function nakama_extend_blocks() {
                 if( $bloque['activo'] == 0 ) continue;
                 $slug = sanitize_title($bloque['nombre']);
                 $nombre = $bloque['nombre'];
-    
+
                 acf_register_block( array(
                     'name'              => $slug,
                     'title'             => $nombre,
@@ -299,7 +299,7 @@ add_action( 'enqueue_block_editor_assets', function() {
         [],
         filemtime( get_stylesheet_directory() . '/assets/css/editor.css' )
     );
-    
+
 });
 
 function load_bootstrap_in_editor() {
@@ -345,7 +345,7 @@ function cargar_novedades() {
                     </a>
                 </div>
             </div>
-        </div>  
+        </div>
     <?php endwhile; wp_reset_postdata(); endif;
     wp_die();
 }
@@ -369,39 +369,10 @@ add_filter('acf/get_field_groups', function ($groups) {
     $slugs_permitidos = array_filter(array_map(fn($item) => $item['title'] ?? null, (array) $repetidor));
     return array_filter( $groups, function ($group) use ( $slugs_permitidos ) {
         foreach ($slugs_permitidos as $slug) {
-            if ( sanitize_title( $group['title'] ) == sanitize_title( $slug ) ) 
-                return true; 
+            if ( sanitize_title( $group['title'] ) == sanitize_title( $slug ) )
+                return true;
         }
-        return false; 
-    });
-    
-});
-
-function burger_block_cache_start($block, $ttl = 600) {
-
-    if (is_admin()) return false;
-
-    $cache_key = 'burger_block_' . get_the_ID() . '_' . md5($block['name'] . $block['id']);
-
-    $html = get_transient($cache_key);
-
-    if ($html !== false) {
-        echo $html;
         return false;
-    }
+    });
 
-    ob_start();
-
-    return $cache_key;
-}
-
-function burger_block_cache_end($cache_key, $ttl = 600) {
-
-    if (!$cache_key || is_admin()) return;
-
-    $html = ob_get_clean();
-
-    set_transient($cache_key, $html, $ttl);
-
-    echo $html;
-}
+});

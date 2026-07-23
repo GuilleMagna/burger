@@ -21,23 +21,23 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                 <div class="sec-heading-wrap">
 
-                    <? if( $toptitulo_proyectos ): ?>
+                    <?php if( $toptitulo_proyectos ): ?>
                         <div class="sec-heading style-3 m-0">
                             <span class="sub-title wow fadeInUp" data-wow-delay=".3s">
                                 <i class="tji-box"></i> <?= $toptitulo_proyectos ?>
                             </span>
                         </div>
-                    <? endif ?>
+                    <?php endif ?>
 
                     <div class="heading-wrap-content">
 
-                        <? if( $titulo_proyectos ): ?>
+                        <?php if( $titulo_proyectos ): ?>
                             <div class="sec-heading style-3">
                                 <h2 class="sec-title title-anim">
                                     <?= $titulo_proyectos ?>
                                 </h2>
                             </div>
-                        <? endif ?>
+                        <?php endif ?>
 
                         <div class="slider-navigation d-none d-md-inline-flex wow fadeInUp" data-wow-delay=".5s">
 
@@ -79,7 +79,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                         <div class="swiper-wrapper">
 
-                            <? foreach( $proyectos as $item ): extract( $item ) ?>
+                            <?php foreach( $proyectos as $item ): extract( $item ) ?>
 
                                 <div class="swiper-slide">
 
@@ -100,13 +100,13 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
                                                         </a>
                                                     </h3>
 
-                                                    <? if( $categoria ): ?>
+                                                    <?php if( $categoria ): ?>
                                                         <span class="categories">
                                                             <a href="" title="<?= $titulo ?>">
                                                                 <?= $categoria ?>
                                                             </a>
                                                         </span>
-                                                    <? endif ?>
+                                                    <?php endif ?>
 
                                                 </div>
 
@@ -117,12 +117,12 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
                                             </div>
 
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
 
-                            <? endforeach ?>
+                            <?php endforeach ?>
 
                         </div>
 
@@ -148,11 +148,3 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
 </section>
 <!-- end: Project Section 8 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

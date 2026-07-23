@@ -1,4 +1,4 @@
-            
+
             </main>
 
         </div>
@@ -27,7 +27,7 @@
 
     <?php wp_footer() ?>
 
-    <?php echo $GLOBALS['NAKAMA_OPTIONS']['footer_scripts'] ?>
+    <?php echo $GLOBALS['NAKAMA_OPTIONS']['footer_scripts'] ?? '' ?>
 
 </body>
 </html>

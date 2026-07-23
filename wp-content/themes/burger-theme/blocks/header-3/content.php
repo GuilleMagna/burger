@@ -1,15 +1,4 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
@@ -49,7 +38,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                             <div class="info-item">
 
                                 <div class="social-links style-2">
-                                    
+
                                     <ul>
                                         <li>
                                             <a href="<?php echo esc_url( $burger_get( 'link_https_www_facebook_com', 'https://www.facebook.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
@@ -85,14 +74,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <div class="row">
                 <div class="col-12">
                     <div class="header-wrapper">
-                            
+
                         <div class="site_logo">
                             <a class="logo" href="<?= NAKAMA_URL ?>">
                                 <img src="<?= NAKAMA_OPTIONS['logo'] ?>" alt="logo">
                             </a>
                         </div>
 
-                        <? if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
+                        <?php if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
 
                             <div class="menu-area d-none d-lg-inline-flex align-items-center">
 
@@ -100,20 +89,20 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                     <ul>
 
-                                        <? foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
+                                        <?php foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
 
-                                            <? 
+                                            <?php
                                             $current_url = home_url( add_query_arg( null, null ) );
-                                            $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : ''; 
+                                            $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : '';
                                             ?>
 
-                                            <li class="<? if( $subenlaces ): ?>has-dropdown<? endif ?> <?= $menu_class_active ?>">
-                                                
+                                            <li class="<?php if( $subenlaces ): ?>has-dropdown<?php endif ?> <?= $menu_class_active ?>">
+
                                                 <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                     <?= $item['title'] ?>
                                                 </a>
 
-                                                <? if( $menu_imagenes && $submenu_imagenes ): ?>
+                                                <?php if( $menu_imagenes && $submenu_imagenes ): ?>
 
                                                     <ul class="sub-menu header__mega-menu mega-menu">
 
@@ -125,9 +114,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                     <div class="row">
 
-                                                                        <? foreach( $submenu_imagenes as $menu ): extract($menu) ?>
+                                                                        <?php foreach( $submenu_imagenes as $menu ): extract($menu) ?>
 
-                                                                            <? if( empty( $item ) ) continue ?>
+                                                                            <?php if( empty( $item ) ) continue ?>
 
                                                                             <div class="col-xl-3 col-lg-3 col-12">
 
@@ -155,7 +144,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                             </div>
 
-                                                                        <? endforeach ?>
+                                                                        <?php endforeach ?>
 
                                                                     </div>
 
@@ -167,9 +156,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                     </ul>
 
-                                                <? endif ?>
+                                                <?php endif ?>
 
-                                                <? if( $menu_supermenu && $submenu_supermenu ): ?>
+                                                <?php if( $menu_supermenu && $submenu_supermenu ): ?>
 
                                                     <ul class="sub-menu header__mega-menu mega-menu mega-menu-pages">
 
@@ -177,11 +166,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                             <div class="mega-menu-wrapper">
 
-                                                                <? foreach( $submenu_supermenu as $menu ): extract($menu) ?>
+                                                                <?php foreach( $submenu_supermenu as $menu ): extract($menu) ?>
 
-                                                                    <? if( empty( $columnas ) ) continue ?>
+                                                                    <?php if( empty( $columnas ) ) continue ?>
 
-                                                                    <? foreach( $columnas as $columna ): extract($columna) ?>
+                                                                    <?php foreach( $columnas as $columna ): extract($columna) ?>
 
                                                                         <div class="mega-menu-pages-single">
 
@@ -193,25 +182,25 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                                 <div class="mega-menu-list">
 
-                                                                                    <? foreach( $menu as $_value ): extract($_value) ?>
+                                                                                    <?php foreach( $menu as $_value ): extract($_value) ?>
 
-                                                                                        <? if( empty( $item ) ) continue ?>
+                                                                                        <?php if( empty( $item ) ) continue ?>
 
                                                                                         <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                                                             <?= $item['title'] ?>
                                                                                         </a>
 
-                                                                                    <? endforeach ?>
+                                                                                    <?php endforeach ?>
 
                                                                                 </div>
 
                                                                             </div>
-                                                                        
-                                                                        </div>    
 
-                                                                    <? endforeach ?>
+                                                                        </div>
 
-                                                                <? endforeach ?>
+                                                                    <?php endforeach ?>
+
+                                                                <?php endforeach ?>
 
                                                                 <div class="col-12 col-lg-3 mega-menu-pages-single">
 
@@ -241,7 +230,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                                                             </div>
 
                                                                         </div>
-                                                                        
+
                                                                     </div>
 
                                                                 </div>
@@ -252,33 +241,33 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                     </ul>
 
-                                                <? endif ?>
+                                                <?php endif ?>
 
-                                                <? if( $menu_iconos && $submenu_iconos ): ?>
+                                                <?php if( $menu_iconos && $submenu_iconos ): ?>
 
                                                     <ul class="sub-menu mega-menu-service">
 
-                                                        <? foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
+                                                        <?php foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
 
-                                                            <? if( empty( $item ) ) continue ?>
+                                                            <?php if( empty( $item ) ) continue ?>
 
-                                                            <li> 
-                                                                <a class="mega-menu-service-single" href="<?= $item['url'] ?>"> 
-                                                                    <span class="mega-menu-service-icon"><?= $icono ?></span> 
-                                                                    <span class="mega-menu-service-title"><?= $item['title'] ?></span> 
+                                                            <li>
+                                                                <a class="mega-menu-service-single" href="<?= $item['url'] ?>">
+                                                                    <span class="mega-menu-service-icon"><?= $icono ?></span>
+                                                                    <span class="mega-menu-service-title"><?= $item['title'] ?></span>
                                                                     <span class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i class="tji-arrow-right-long"></i></span>
                                                                 </a>
                                                             </li>
 
-                                                        <? endforeach ?>
+                                                        <?php endforeach ?>
 
                                                     </ul>
 
-                                                <? endif ?>
+                                                <?php endif ?>
 
                                             </li>
 
-                                        <? endforeach ?>
+                                        <?php endforeach ?>
 
                                     </ul>
 
@@ -286,7 +275,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                             </div>
 
-                        <? endif ?>
+                        <?php endif ?>
 
                         <!--div class="menu-area d-none d-lg-inline-flex align-items-center">
                             <nav id="mobile-menu" class="mainmenu">
@@ -685,7 +674,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 </header>
 
 <header class="header-area header-3 header-duplicate header-sticky section-gap-x">
-    
+
     <div class="container-fluid">
 
         <div class="row">
@@ -700,7 +689,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         </a>
                     </div>
 
-                    <? if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
+                    <?php if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
 
                         <div class="menu-area d-none d-lg-inline-flex align-items-center">
 
@@ -708,20 +697,20 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                 <ul>
 
-                                    <? foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
+                                    <?php foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
 
-                                        <? 
+                                        <?php
                                         $current_url = home_url( add_query_arg( null, null ) );
-                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : ''; 
+                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : '';
                                         ?>
 
-                                        <li class="<? if( $subenlaces ): ?>has-dropdown<? endif ?> <?= $menu_class_active ?>">
-                                            
+                                        <li class="<?php if( $subenlaces ): ?>has-dropdown<?php endif ?> <?= $menu_class_active ?>">
+
                                             <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                 <?= $item['title'] ?>
                                             </a>
 
-                                            <? if( $menu_imagenes && $submenu_imagenes ): ?>
+                                            <?php if( $menu_imagenes && $submenu_imagenes ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu">
 
@@ -733,9 +722,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                 <div class="row">
 
-                                                                    <? foreach( $submenu_imagenes as $menu ): extract($menu) ?>
+                                                                    <?php foreach( $submenu_imagenes as $menu ): extract($menu) ?>
 
-                                                                        <? if( empty( $item ) ) continue ?>
+                                                                        <?php if( empty( $item ) ) continue ?>
 
                                                                         <div class="col-xl-3 col-lg-3 col-12">
 
@@ -763,7 +752,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                         </div>
 
-                                                                    <? endforeach ?>
+                                                                    <?php endforeach ?>
 
                                                                 </div>
 
@@ -775,9 +764,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_supermenu && $submenu_supermenu ): ?>
+                                            <?php if( $menu_supermenu && $submenu_supermenu ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu mega-menu-pages">
 
@@ -785,11 +774,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                         <div class="mega-menu-wrapper">
 
-                                                            <? foreach( $submenu_supermenu as $menu ): extract($menu) ?>
+                                                            <?php foreach( $submenu_supermenu as $menu ): extract($menu) ?>
 
-                                                                <? if( empty( $columnas ) ) continue ?>
+                                                                <?php if( empty( $columnas ) ) continue ?>
 
-                                                                <? foreach( $columnas as $columna ): extract($columna) ?>
+                                                                <?php foreach( $columnas as $columna ): extract($columna) ?>
 
                                                                     <div class="mega-menu-pages-single">
 
@@ -801,25 +790,25 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                             <div class="mega-menu-list">
 
-                                                                                <? foreach( $menu as $_value ): extract($_value) ?>
+                                                                                <?php foreach( $menu as $_value ): extract($_value) ?>
 
-                                                                                    <? if( empty( $item ) ) continue ?>
+                                                                                    <?php if( empty( $item ) ) continue ?>
 
                                                                                     <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                                                         <?= $item['title'] ?>
                                                                                     </a>
 
-                                                                                <? endforeach ?>
+                                                                                <?php endforeach ?>
 
                                                                             </div>
 
                                                                         </div>
-                                                                    
-                                                                    </div>    
 
-                                                                <? endforeach ?>
+                                                                    </div>
 
-                                                            <? endforeach ?>
+                                                                <?php endforeach ?>
+
+                                                            <?php endforeach ?>
 
                                                             <div class="col-12 col-lg-3 mega-menu-pages-single">
 
@@ -849,7 +838,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                                                         </div>
 
                                                                     </div>
-                                                                    
+
                                                                 </div>
 
                                                             </div>
@@ -860,33 +849,33 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_iconos && $submenu_iconos ): ?>
+                                            <?php if( $menu_iconos && $submenu_iconos ): ?>
 
                                                 <ul class="sub-menu mega-menu-service">
 
-                                                    <? foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
+                                                    <?php foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
 
-                                                        <? if( empty( $item ) ) continue ?>
+                                                        <?php if( empty( $item ) ) continue ?>
 
-                                                        <li> 
-                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>"> 
-                                                                <span class="mega-menu-service-icon"><?= $icono ?></span> 
-                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span> 
+                                                        <li>
+                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>">
+                                                                <span class="mega-menu-service-icon"><?= $icono ?></span>
+                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span>
                                                                 <span class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i class="tji-arrow-right-long"></i></span>
                                                             </a>
                                                         </li>
 
-                                                    <? endforeach ?>
+                                                    <?php endforeach ?>
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
                                         </li>
 
-                                    <? endforeach ?>
+                                    <?php endforeach ?>
 
                                 </ul>
 
@@ -894,7 +883,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
                     <div class="header-right-item d-none d-lg-inline-flex">
 
@@ -927,7 +916,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         <span></span>
                         <span></span>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -961,11 +950,3 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
 </header>
 <!-- end: Header Area 3 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

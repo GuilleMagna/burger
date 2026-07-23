@@ -1,17 +1,10 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
+};
+$burger_extract = function( $value, $defaults = array() ) {
+    return array_merge( $defaults, is_array( $value ) ? $value : array() );
 };
 ?>
 
@@ -30,14 +23,14 @@ global $post;
             <div class="col-12">
 
                 <div class="header-wrapper">
-                
+
                     <div class="site_logo">
                         <a class="logo" href="<?= NAKAMA_URL ?>">
                             <img src="<?= NAKAMA_OPTIONS['logo'] ?>" alt="logo">
                         </a>
                     </div>
 
-                    <? if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
+                    <?php if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
 
                         <div class="menu-area d-none d-lg-inline-flex align-items-center">
 
@@ -45,20 +38,28 @@ global $post;
 
                                 <ul>
 
-                                    <? foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
+                                    <?php foreach( (array) ( NAKAMA_OPTIONS['menu'] ?? array() ) as $value ): extract( $burger_extract( $value, array(
+                                        'item' => array(), 'subenlaces' => false,
+                                        'menu_imagenes' => false, 'submenu_imagenes' => array(),
+                                        'menu_supermenu' => false, 'submenu_supermenu' => array(),
+                                        'menu_iconos' => false, 'submenu_iconos' => array(),
+                                        'titulo_supermenu' => '', 'subtitulo_supermenu' => '', 'imagen_supermenu' => '',
+                                    ) ) ) ?>
 
-                                        <? 
+                                        <?php if ( empty( $item ) || ! is_array( $item ) ) continue ?>
+
+                                        <?php
                                         $current_url = home_url( add_query_arg( null, null ) );
-                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : ''; 
+                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : '';
                                         ?>
 
-                                        <li class="<? if( $subenlaces ): ?>has-dropdown<? endif ?> <?= $menu_class_active ?>">
-                                            
+                                        <li class="<?php if( $subenlaces ): ?>has-dropdown<?php endif ?> <?= $menu_class_active ?>">
+
                                             <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                 <?= $item['title'] ?>
                                             </a>
 
-                                            <? if( $menu_imagenes && $submenu_imagenes ): ?>
+                                            <?php if( $menu_imagenes && $submenu_imagenes ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu">
 
@@ -70,9 +71,9 @@ global $post;
 
                                                                 <div class="row">
 
-                                                                    <? foreach( $submenu_imagenes as $menu ): extract($menu) ?>
+                                                                    <?php foreach( (array) $submenu_imagenes as $menu ): extract( $burger_extract( $menu, array( 'item' => array(), 'imagen' => '' ) ) ) ?>
 
-                                                                        <? if( empty( $item ) ) continue ?>
+                                                                        <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
                                                                         <div class="col-xl-3 col-lg-3 col-12">
 
@@ -100,7 +101,7 @@ global $post;
 
                                                                         </div>
 
-                                                                    <? endforeach ?>
+                                                                    <?php endforeach ?>
 
                                                                 </div>
 
@@ -112,9 +113,9 @@ global $post;
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_supermenu && $submenu_supermenu ): ?>
+                                            <?php if( $menu_supermenu && $submenu_supermenu ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu mega-menu-pages">
 
@@ -122,11 +123,11 @@ global $post;
 
                                                         <div class="mega-menu-wrapper">
 
-                                                            <? foreach( $submenu_supermenu as $menu ): extract($menu) ?>
+                                                            <?php foreach( (array) $submenu_supermenu as $menu ): extract( $burger_extract( $menu, array( 'columnas' => array() ) ) ) ?>
 
-                                                                <? if( empty( $columnas ) ) continue ?>
+                                                                <?php if( empty( $columnas ) ) continue ?>
 
-                                                                <? foreach( $columnas as $columna ): extract($columna) ?>
+                                                                <?php foreach( (array) $columnas as $columna ): extract( $burger_extract( $columna, array( 'titulo' => '', 'menu' => array() ) ) ) ?>
 
                                                                     <div class="mega-menu-pages-single">
 
@@ -138,25 +139,25 @@ global $post;
 
                                                                             <div class="mega-menu-list">
 
-                                                                                <? foreach( $menu as $_value ): extract($_value) ?>
+                                                                                <?php foreach( (array) $menu as $_value ): extract( $burger_extract( $_value, array( 'item' => array() ) ) ) ?>
 
-                                                                                    <? if( empty( $item ) ) continue ?>
+                                                                                    <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
                                                                                     <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                                                         <?= $item['title'] ?>
                                                                                     </a>
 
-                                                                                <? endforeach ?>
+                                                                                <?php endforeach ?>
 
                                                                             </div>
 
                                                                         </div>
-                                                                    
-                                                                    </div>    
 
-                                                                <? endforeach ?>
+                                                                    </div>
 
-                                                            <? endforeach ?>
+                                                                <?php endforeach ?>
+
+                                                            <?php endforeach ?>
 
                                                             <div class="col-12 col-lg-3 mega-menu-pages-single">
 
@@ -186,7 +187,7 @@ global $post;
                                                                         </div>
 
                                                                     </div>
-                                                                    
+
                                                                 </div>
 
                                                             </div>
@@ -197,33 +198,33 @@ global $post;
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_iconos && $submenu_iconos ): ?>
+                                            <?php if( $menu_iconos && $submenu_iconos ): ?>
 
                                                 <ul class="sub-menu mega-menu-service">
 
-                                                    <? foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
+                                                    <?php foreach( (array) $submenu_iconos as $menu ): extract( $burger_extract( $menu, array( 'item' => array(), 'icono' => '' ) ) ) ?>
 
-                                                        <? if( empty( $item ) ) continue ?>
+                                                        <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
-                                                        <li> 
-                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>"> 
-                                                                <span class="mega-menu-service-icon"><?= $icono ?></span> 
-                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span> 
+                                                        <li>
+                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>">
+                                                                <span class="mega-menu-service-icon"><?= $icono ?></span>
+                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span>
                                                                 <span class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i class="tji-arrow-right-long"></i></span>
                                                             </a>
                                                         </li>
 
-                                                    <? endforeach ?>
+                                                    <?php endforeach ?>
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
                                         </li>
 
-                                    <? endforeach ?>
+                                    <?php endforeach ?>
 
                                 </ul>
 
@@ -231,7 +232,7 @@ global $post;
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
                     <div class="header-right-item d-none d-lg-inline-flex">
 
@@ -336,7 +337,7 @@ global $post;
                         </a>
                     </div>
 
-                    <? if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
+                    <?php if( !empty(NAKAMA_OPTIONS['menu']) && count(NAKAMA_OPTIONS['menu']) > 0 ): ?>
 
                         <div class="menu-area d-none d-lg-inline-flex align-items-center">
 
@@ -344,20 +345,28 @@ global $post;
 
                                 <ul>
 
-                                    <? foreach( NAKAMA_OPTIONS['menu'] as $value ): extract( $value ) ?>
+                                    <?php foreach( (array) ( NAKAMA_OPTIONS['menu'] ?? array() ) as $value ): extract( $burger_extract( $value, array(
+                                        'item' => array(), 'subenlaces' => false,
+                                        'menu_imagenes' => false, 'submenu_imagenes' => array(),
+                                        'menu_supermenu' => false, 'submenu_supermenu' => array(),
+                                        'menu_iconos' => false, 'submenu_iconos' => array(),
+                                        'titulo_supermenu' => '', 'subtitulo_supermenu' => '', 'imagen_supermenu' => '',
+                                    ) ) ) ?>
 
-                                        <? 
+                                        <?php if ( empty( $item ) || ! is_array( $item ) ) continue ?>
+
+                                        <?php
                                         $current_url = home_url( add_query_arg( null, null ) );
-                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : ''; 
+                                        $menu_class_active = ( $item['url'] === $current_url ) ? 'current-menu-ancestor' : '';
                                         ?>
 
-                                        <li class="<? if( $subenlaces ): ?>has-dropdown<? endif ?> <?= $menu_class_active ?>">
-                                            
+                                        <li class="<?php if( $subenlaces ): ?>has-dropdown<?php endif ?> <?= $menu_class_active ?>">
+
                                             <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                 <?= $item['title'] ?>
                                             </a>
 
-                                            <? if( $menu_imagenes && $submenu_imagenes ): ?>
+                                            <?php if( $menu_imagenes && $submenu_imagenes ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu">
 
@@ -369,9 +378,9 @@ global $post;
 
                                                                 <div class="row">
 
-                                                                    <? foreach( $submenu_imagenes as $menu ): extract($menu) ?>
+                                                                    <?php foreach( (array) $submenu_imagenes as $menu ): extract( $burger_extract( $menu, array( 'item' => array(), 'imagen' => '' ) ) ) ?>
 
-                                                                        <? if( empty( $item ) ) continue ?>
+                                                                        <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
                                                                         <div class="col-xl-3 col-lg-3 col-12">
 
@@ -399,7 +408,7 @@ global $post;
 
                                                                         </div>
 
-                                                                    <? endforeach ?>
+                                                                    <?php endforeach ?>
 
                                                                 </div>
 
@@ -411,9 +420,9 @@ global $post;
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_supermenu && $submenu_supermenu ): ?>
+                                            <?php if( $menu_supermenu && $submenu_supermenu ): ?>
 
                                                 <ul class="sub-menu header__mega-menu mega-menu mega-menu-pages">
 
@@ -421,11 +430,11 @@ global $post;
 
                                                         <div class="mega-menu-wrapper">
 
-                                                            <? foreach( $submenu_supermenu as $menu ): extract($menu) ?>
+                                                            <?php foreach( (array) $submenu_supermenu as $menu ): extract( $burger_extract( $menu, array( 'columnas' => array() ) ) ) ?>
 
-                                                                <? if( empty( $columnas ) ) continue ?>
+                                                                <?php if( empty( $columnas ) ) continue ?>
 
-                                                                <? foreach( $columnas as $columna ): extract($columna) ?>
+                                                                <?php foreach( (array) $columnas as $columna ): extract( $burger_extract( $columna, array( 'titulo' => '', 'menu' => array() ) ) ) ?>
 
                                                                     <div class="mega-menu-pages-single">
 
@@ -437,25 +446,25 @@ global $post;
 
                                                                             <div class="mega-menu-list">
 
-                                                                                <? foreach( $menu as $_value ): extract($_value) ?>
+                                                                                <?php foreach( (array) $menu as $_value ): extract( $burger_extract( $_value, array( 'item' => array() ) ) ) ?>
 
-                                                                                    <? if( empty( $item ) ) continue ?>
+                                                                                    <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
                                                                                     <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
                                                                                         <?= $item['title'] ?>
                                                                                     </a>
 
-                                                                                <? endforeach ?>
+                                                                                <?php endforeach ?>
 
                                                                             </div>
 
                                                                         </div>
-                                                                    
-                                                                    </div>    
 
-                                                                <? endforeach ?>
+                                                                    </div>
 
-                                                            <? endforeach ?>
+                                                                <?php endforeach ?>
+
+                                                            <?php endforeach ?>
 
                                                             <div class="col-12 col-lg-3 mega-menu-pages-single">
 
@@ -485,7 +494,7 @@ global $post;
                                                                         </div>
 
                                                                     </div>
-                                                                    
+
                                                                 </div>
 
                                                             </div>
@@ -496,33 +505,33 @@ global $post;
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
-                                            <? if( $menu_iconos && $submenu_iconos ): ?>
+                                            <?php if( $menu_iconos && $submenu_iconos ): ?>
 
                                                 <ul class="sub-menu mega-menu-service">
 
-                                                    <? foreach( $submenu_iconos as $menu ): extract( $menu ) ?>
+                                                    <?php foreach( (array) $submenu_iconos as $menu ): extract( $burger_extract( $menu, array( 'item' => array(), 'icono' => '' ) ) ) ?>
 
-                                                        <? if( empty( $item ) ) continue ?>
+                                                        <?php if( empty( $item ) || ! is_array( $item ) ) continue ?>
 
-                                                        <li> 
-                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>"> 
-                                                                <span class="mega-menu-service-icon"><?= $icono ?></span> 
-                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span> 
+                                                        <li>
+                                                            <a class="mega-menu-service-single" href="<?= $item['url'] ?>">
+                                                                <span class="mega-menu-service-icon"><?= $icono ?></span>
+                                                                <span class="mega-menu-service-title"><?= $item['title'] ?></span>
                                                                 <span class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i class="tji-arrow-right-long"></i></span>
                                                             </a>
                                                         </li>
 
-                                                    <? endforeach ?>
+                                                    <?php endforeach ?>
 
                                                 </ul>
 
-                                            <? endif ?>
+                                            <?php endif ?>
 
                                         </li>
 
-                                    <? endforeach ?>
+                                    <?php endforeach ?>
 
                                 </ul>
 
@@ -530,7 +539,7 @@ global $post;
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
                     <div class="header-right-item d-none d-lg-inline-flex">
 
@@ -622,11 +631,3 @@ global $post;
 
 </header>
 <!-- end: Header Area -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

@@ -1,15 +1,4 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
@@ -182,7 +171,7 @@ end: Careers Details Section -->
                 <div class="tj-post-wrapper">
 
                     <div class="tj-post-single-post">
-                            
+
                         <!-- top content -->
                         <div class="tj-careers-top mb-30">
                             <img src="<?php echo esc_url( $burger_get( 'imagen_https_demo_nakamatesting_com_ar_wp_conten', 'https://demo.nakamatesting.com.ar/wp-content/uploads/2026/04/MOTOBOMBA-AUTOCEBANTE-DE-12-VOLTS.jpeg' ) ); ?>" alt="" class="w-100 img-fluid rounded-3">
@@ -217,21 +206,21 @@ end: Careers Details Section -->
                                         <?php echo esc_html( $burger_get( 'texto_compartir', 'Compartir:' ) ); ?>
                                     </li>
 
-                                    <li> 
+                                    <li>
                                         <a href="<?php echo esc_url( $burger_get( 'link_https_www_facebook_com_2', 'https://www.facebook.com/' ) ); ?>" title="Facebook">
                                             <i class="fa-brands fa-facebook-f"></i>
                                         </a>
                                     </li>
 
-                                    <li> 
+                                    <li>
                                         <a href="<?php echo esc_url( $burger_get( 'link_https_x_com_2', 'https://x.com/' ) ); ?>" title="Twitter"><i class="fab fa-x-twitter"></i></a>
                                     </li>
 
-                                    <li> 
+                                    <li>
                                         <a href="<?php echo esc_url( $burger_get( 'link_https_www_linkedin_com_2', 'https://www.linkedin.com/' ) ); ?>" title="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
                                     </li>
 
-                                    <li> 
+                                    <li>
                                         <a href="<?php echo esc_url( $burger_get( 'link_https_www_pinterest_com_2', 'https://www.pinterest.com/' ) ); ?>" title="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
                                     </li>
 
@@ -330,11 +319,3 @@ end: Careers Details Section -->
 
 </section>
 <!-- end: Careers Details Section -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>
