@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/nakamate/public_html/demo.nakamatesting.com.ar/
+    - /usr/bin/rsync -av --exclude='.git/' --exclude='.cpanel.yml' --exclude='wp-config.php' --exclude='wp-content/uploads/' --exclude='wp-content/cache/' --exclude='wp-content/ai1wm-backups/' --exclude='wp-content/uploads/ithemes-security/backups/' ./ $DEPLOYPATH
