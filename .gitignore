@@ -25,6 +25,10 @@
 /wp-content/w3tc-config/
 /wp-content/debug.log
 *.log
+*.bak
+
+# Local setup scratch files
+/work/
 
 # Server and editor artifacts
 .DS_Store
