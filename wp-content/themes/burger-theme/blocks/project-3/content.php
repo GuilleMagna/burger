@@ -1,22 +1,11 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
 };
 ?>
 
-<?
+<?php
 $toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
 $titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
 $texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
@@ -79,12 +68,12 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
             <div class="col-12">
 
                 <div class="project-wrapper wow fadeInUp" data-wow-delay=".4s">
-                    
+
                     <div class="swiper project-slider-2">
 
                         <div class="swiper-wrapper">
 
-                            <? foreach( $proyectos as $item ): extract( $item ) ?>
+                            <?php foreach( $proyectos as $item ): extract( $item ) ?>
 
                                 <div class="swiper-slide">
 
@@ -113,16 +102,16 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
                                                 <a class="project-btn" href="">
                                                     <i class="tji-arrow-right-big"></i>
                                                 </a>
-                                                
+
                                             </div>
 
                                         </div>
-                                        
+
                                     </div>
 
                                 </div>
 
-                            <? endforeach ?>
+                            <?php endforeach ?>
 
                         </div>
 
@@ -152,11 +141,3 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
 </section>
 <!-- end: Project Section 3 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

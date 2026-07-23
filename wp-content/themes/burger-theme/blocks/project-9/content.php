@@ -1,22 +1,11 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
 };
 ?>
 
-<?
+<?php
 $toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
 $titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
 $texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
@@ -27,7 +16,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 <section class="tj-project-section-3 h9-project section-gap section-gap-x">
 
     <div class="container">
-    
+
         <div class="row">
 
             <div class="col-12">
@@ -38,17 +27,17 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                         <div class="sec-heading style-8">
 
-                            <? if( $toptitulo_proyectos ): ?>
+                            <?php if( $toptitulo_proyectos ): ?>
                                 <span class="sub-title wow fadeInUp" data-wow-delay=".3s">
                                     <?= $toptitulo_proyectos ?>
                                 </span>
-                            <? endif ?>
+                            <?php endif ?>
 
-                            <? if( $titulo_proyectos ): ?>
+                            <?php if( $titulo_proyectos ): ?>
                                 <h2 class="sec-title title-anim">
                                     <?= $titulo_proyectos ?>
                                 </h2>
-                            <? endif ?>
+                            <?php endif ?>
 
                         </div>
 
@@ -92,7 +81,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                         <div class="swiper-wrapper">
 
-                            <? foreach( $proyectos as $item ): extract( $item ) ?>
+                            <?php foreach( $proyectos as $item ): extract( $item ) ?>
 
                                 <div class="swiper-slide">
 
@@ -104,13 +93,13 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                                         <div class="project-content">
 
-                                            <? if( $categoria ): ?>
+                                            <?php if( $categoria ): ?>
                                                 <span class="categories">
                                                     <a href="" title="<?= $titulo ?>">
                                                         <?= $categoria ?>
                                                     </a>
                                                 </span>
-                                            <? endif ?>
+                                            <?php endif ?>
 
                                             <div class="project-text">
                                                 <h4 class="title">
@@ -124,12 +113,12 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                                 </div>
 
-                            <? endforeach ?>
+                            <?php endforeach ?>
 
                         </div>
 
                         <div class="swiper-pagination-area"></div>
-                        
+
                     </div>
 
                 </div>
@@ -150,11 +139,3 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
 </section>
 <!-- end: Project Section 9 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

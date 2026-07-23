@@ -1,15 +1,4 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
@@ -27,9 +16,9 @@ $proyectos              = get_field( 'proyectos' );
     <div class="container">
 
         <div class="row">
-            
+
             <div class="col-12">
-                    
+
                 <div class="heading-wrap-content">
                     <div class="sec-heading style-2 style-6">
 
@@ -62,8 +51,8 @@ $proyectos              = get_field( 'proyectos' );
 
                 <div class="h6-project-inner wow fadeInUp" data-wow-delay="0.6s">
 
-                    <? foreach( $proyectos as $item ): extract( $item ) ?>
-                    
+                    <?php foreach( $proyectos as $item ): extract( $item ) ?>
+
                         <div class=" project-item h6-project-item ">
 
                             <div class="project-item-inner h6-project-item-inner" data-bg-image="<?= $imagen ?>">
@@ -94,7 +83,7 @@ $proyectos              = get_field( 'proyectos' );
 
                         </div>
 
-                    <? endforeach ?>
+                    <?php endforeach ?>
 
                 </div>
 
@@ -118,11 +107,3 @@ $proyectos              = get_field( 'proyectos' );
 
 </section>
 <!-- end: Project Section 6 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

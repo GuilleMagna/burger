@@ -52,7 +52,6 @@ if (empty($productos)) {
 
 $block_id = 'slider-products-' . uniqid();
 
-$cache_key = burger_block_cache_start($block, 10 * MINUTE_IN_SECONDS);
 if (!$cache_key) return;
 ?>
 
@@ -166,5 +165,3 @@ if (!$cache_key) return;
     </div>
 
 </section>
-
-<?php burger_block_cache_end($cache_key, 10 * MINUTE_IN_SECONDS); ?>

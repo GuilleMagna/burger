@@ -8,6 +8,17 @@ $toptitulo_proyectos    = get_field( 'toptitulo_proyectos' );
 $titulo_proyectos       = get_field( 'titulo_proyectos' );
 $texto_proyectos        = get_field( 'texto_proyectos' );
 $proyectos              = get_field( 'proyectos' );
+
+$proyectos = is_array( $proyectos ) ? array_values( $proyectos ) : array();
+for ( $project_index = 0; $project_index < 4; $project_index++ ) {
+    $project = isset( $proyectos[ $project_index ] ) && is_array( $proyectos[ $project_index ] )
+        ? $proyectos[ $project_index ]
+        : array();
+    $proyectos[ $project_index ] = array_merge(
+        array( 'imagen' => '', 'categoria' => '', 'titulo' => '' ),
+        $project
+    );
+}
 ?>
 
 <!-- start: Project Section -->
@@ -21,27 +32,27 @@ $proyectos              = get_field( 'proyectos' );
 
                 <div class="sec-heading-wrap">
 
-                    <? if( $toptitulo_proyectos ): ?>
+                    <?php if( $toptitulo_proyectos ): ?>
                         <span class="sub-title wow fadeInUp" data-wow-delay=".3s">
                             <i class="tji-box"></i> <?= $toptitulo_proyectos ?>
                         </span>
-                    <? endif ?>
+                    <?php endif ?>
 
                     <div class="heading-wrap-content">
 
-                        <? if( $titulo_proyectos ): ?>
+                        <?php if( $titulo_proyectos ): ?>
                             <div class="sec-heading">
                                 <h2 class="sec-title title-anim">
                                     <span><?= $titulo_proyectos ?></span>
                                 </h2>
                             </div>
-                        <? endif ?>
+                        <?php endif ?>
 
-                        <? if( $texto_proyectos ): ?>
+                        <?php if( $texto_proyectos ): ?>
                             <p class="desc wow fadeInUp" data-wow-delay=".5s">
                                 <?= $texto_proyectos ?>
                             </p>
-                        <? endif ?>
+                        <?php endif ?>
 
                         <div class="btn-wrap wow fadeInUp" data-wow-delay=".6s">
                             <a class="tj-primary-btn" href="">
@@ -64,7 +75,7 @@ $proyectos              = get_field( 'proyectos' );
 
                 <div class="project-area tj-arrange-container">
 
-                    <? if( !empty($proyectos[0]['imagen']) ): ?>
+                    <?php if( !empty($proyectos[0]['imagen']) ): ?>
 
                         <div class="project-item tj-arrange-item">
 
@@ -72,13 +83,13 @@ $proyectos              = get_field( 'proyectos' );
 
                             <div class="project-content">
 
-                                <? if( $proyectos[0]['categoria'] ): ?>
+                                <?php if( $proyectos[0]['categoria'] ): ?>
                                     <span class="categories">
                                         <a href="">
                                             <?= $proyectos[0]['categoria'] ?>
                                         </a>
                                     </span>
-                                <? endif ?>
+                                <?php endif ?>
 
                                 <div class="project-text">
 
@@ -98,9 +109,9 @@ $proyectos              = get_field( 'proyectos' );
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
-                    <? if( !empty($proyectos[1]['imagen']) ): ?>
+                    <?php if( !empty($proyectos[1]['imagen']) ): ?>
 
                         <div class="project-item tj-arrange-item">
 
@@ -108,13 +119,13 @@ $proyectos              = get_field( 'proyectos' );
 
                             <div class="project-content">
 
-                                <? if( $proyectos[1]['categoria'] ): ?>
+                                <?php if( $proyectos[1]['categoria'] ): ?>
                                     <span class="categories">
                                         <a href="">
                                             <?= $proyectos[1]['categoria'] ?>
                                         </a>
                                     </span>
-                                <? endif ?>
+                                <?php endif ?>
 
                                 <div class="project-text">
 
@@ -134,9 +145,9 @@ $proyectos              = get_field( 'proyectos' );
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
-                    <? if( !empty($proyectos[2]['imagen']) ): ?>
+                    <?php if( !empty($proyectos[2]['imagen']) ): ?>
 
                         <div class="project-item tj-arrange-item">
 
@@ -144,13 +155,13 @@ $proyectos              = get_field( 'proyectos' );
 
                             <div class="project-content">
 
-                                <? if( $proyectos[2]['categoria'] ): ?>
+                                <?php if( $proyectos[2]['categoria'] ): ?>
                                     <span class="categories">
                                         <a href="">
                                             <?= $proyectos[2]['categoria'] ?>
                                         </a>
                                     </span>
-                                <? endif ?>
+                                <?php endif ?>
 
                                 <div class="project-text">
 
@@ -170,9 +181,9 @@ $proyectos              = get_field( 'proyectos' );
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
-                    <? if( !empty($proyectos[3]['imagen']) ): ?>
+                    <?php if( !empty($proyectos[3]['imagen']) ): ?>
 
                         <div class="project-item tj-arrange-item">
 
@@ -180,13 +191,13 @@ $proyectos              = get_field( 'proyectos' );
 
                             <div class="project-content">
 
-                                <? if( $proyectos[3]['categoria'] ): ?>
+                                <?php if( $proyectos[3]['categoria'] ): ?>
                                     <span class="categories">
                                         <a href="">
                                             <?= $proyectos[3]['categoria'] ?>
                                         </a>
                                     </span>
-                                <? endif ?>
+                                <?php endif ?>
 
                                 <div class="project-text">
 
@@ -206,7 +217,7 @@ $proyectos              = get_field( 'proyectos' );
 
                         </div>
 
-                    <? endif ?>
+                    <?php endif ?>
 
                 </div>
 

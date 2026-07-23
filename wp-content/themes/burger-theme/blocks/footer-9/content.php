@@ -1,15 +1,4 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
@@ -23,7 +12,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     <div class="footer-main-area  h7-footer-main h9-footer-main">
 
         <div class="container">
-                
+
             <div class="row justify-content-between">
 
                 <div class="col-xl-4 col-lg-4 col-md-6">
@@ -51,9 +40,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         </h5>
 
                         <ul>
-                            <? foreach( NAKAMA_OPTIONS['menu_footer_1'] as $menu ): extract($menu) ?>
+                            <?php foreach( NAKAMA_OPTIONS['menu_footer_1'] as $menu ): extract($menu) ?>
 
-                                <? if( empty($item) ) continue ?>
+                                <?php if( empty($item) ) continue ?>
 
                                 <li>
                                     <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
@@ -61,7 +50,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                     </a>
                                 </li>
 
-                            <? endforeach ?>    
+                            <?php endforeach ?>
                         </ul>
 
                     </div>
@@ -77,9 +66,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         </h5>
 
                         <ul>
-                            <? foreach( NAKAMA_OPTIONS['menu_footer_2'] as $menu ): extract($menu) ?>
+                            <?php foreach( NAKAMA_OPTIONS['menu_footer_2'] as $menu ): extract($menu) ?>
 
-                                <? if( empty($item) ) continue ?>
+                                <?php if( empty($item) ) continue ?>
 
                                 <li>
                                     <a href="<?= $item['url'] ?>" title="<?= $item['title'] ?>" target="<?= $item['target'] ?>">
@@ -87,9 +76,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                     </a>
                                 </li>
 
-                            <? endforeach ?>    
+                            <?php endforeach ?>
                         </ul>
-                        
+
                     </div>
 
                 </div>
@@ -231,11 +220,3 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
 </footer>
 <!-- end: Footer Section 9 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>

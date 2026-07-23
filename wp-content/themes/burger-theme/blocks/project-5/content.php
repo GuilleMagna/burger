@@ -1,22 +1,11 @@
 <?php
-$__block_fields = function_exists('get_fields') ? (array) get_fields() : [];
-$__block_cache_key = 'acf_block_' . md5(($block['id'] ?? basename(__DIR__)) . serialize($__block_fields));
-
-if (($__block_cached_html = get_transient($__block_cache_key)) !== false) {
-    echo $__block_cached_html;
-    return;
-}
-
-ob_start();
-?>
-<?php
 $burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
 $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
 };
 ?>
 
-<?
+<?php
 $toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
 $titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
 $texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
@@ -36,21 +25,21 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                     <div class="sec-heading-wrap style-3">
 
-                        <? if( $toptitulo_proyectos ): ?>
+                        <?php if( $toptitulo_proyectos ): ?>
                             <span class="sub-title wow fadeInUp" data-wow-delay=".3s">
                                 <i class="tji-box"></i> <?= $toptitulo_proyectos ?>
                             </span>
-                        <? endif ?>
+                        <?php endif ?>
 
                         <div class="heading-wrap-content">
 
-                            <? if( $titulo_proyectos ): ?>
+                            <?php if( $titulo_proyectos ): ?>
                                 <div class="sec-heading style-3">
                                     <h2 class="sec-title text-anim">
                                         <?= $titulo_proyectos ?>
                                     </h2>
                                 </div>
-                            <? endif ?>
+                            <?php endif ?>
 
                             <div class="btn-area wow fadeInUp" data-wow-delay=".8s">
                                 <a class="tj-primary-btn" href="">
@@ -73,7 +62,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                     <div class="project-wrapper h5-project-wrapper">
 
-                        <? foreach( $proyectos as $item ): extract( $item ) ?>
+                        <?php foreach( $proyectos as $item ): extract( $item ) ?>
 
                             <div class="h5-project-item-wrapper tj-scroll-slider-item">
 
@@ -85,13 +74,13 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                                     <div class="project-content">
 
-                                        <? if( $categoria ): ?>
+                                        <?php if( $categoria ): ?>
                                             <span class="categories">
                                                 <a href="" title="<?= $titulo ?>">
                                                     <?= $categoria ?>
                                                 </a>
                                             </span>
-                                        <? endif ?>
+                                        <?php endif ?>
 
                                         <div class="project-text">
                                             <h3 class="title">
@@ -101,24 +90,24 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
                                             </h3>
                                         </div>
 
-                                        <? if( $categoria ): ?>
+                                        <?php if( $categoria ): ?>
                                             <p class="desc">
                                                 <?= $texto ?>
                                             </p>
-                                        <? endif ?>
+                                        <?php endif ?>
 
                                         <a class="tj-primary-btn" href="">
                                             <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas', 'Ver más' ) ); ?></span></span>
                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                         </a>
-                                        
+
                                     </div>
 
                                 </div>
 
                             </div>
-                            
-                        <? endforeach ?>
+
+                        <?php endforeach ?>
 
                     </div>
                 </div>
@@ -131,11 +120,3 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
 </section>
 <!-- end: Project Section 5 -->
-
-<?php
-$__block_html = ob_get_clean();
-
-set_transient($__block_cache_key, $__block_html, 10 * MINUTE_IN_SECONDS);
-
-echo $__block_html;
-?>
