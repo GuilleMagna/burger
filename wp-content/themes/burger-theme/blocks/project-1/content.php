@@ -1,14 +1,14 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'toptitulo_proyectos' => '',
+    'titulo_proyectos' => '',
+    'texto_proyectos' => '',
+    'proyectos' => array(),
+    'texto_mas_proyectos' => 'Más Proyectos',
+);
 
-$toptitulo_proyectos    = get_field( 'toptitulo_proyectos' );
-$titulo_proyectos       = get_field( 'titulo_proyectos' );
-$texto_proyectos        = get_field( 'texto_proyectos' );
-$proyectos              = get_field( 'proyectos' );
-
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
 $proyectos = is_array( $proyectos ) ? array_values( $proyectos ) : array();
 for ( $project_index = 0; $project_index < 4; $project_index++ ) {
     $project = isset( $proyectos[ $project_index ] ) && is_array( $proyectos[ $project_index ] )
@@ -56,7 +56,7 @@ for ( $project_index = 0; $project_index < 4; $project_index++ ) {
 
                         <div class="btn-wrap wow fadeInUp" data-wow-delay=".6s">
                             <a class="tj-primary-btn" href="">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_mas_proyectos', 'Más Proyectos' ) ); ?></span></span>
+                                <span class="btn-text"><span><?php echo esc_html( $texto_mas_proyectos ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                             </a>
                         </div>

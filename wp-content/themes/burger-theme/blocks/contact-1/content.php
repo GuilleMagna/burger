@@ -1,8 +1,24 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'imagen_assets_images_bg_map_svg' => NAKAMA_THEME_URL . '/assets/images/bg/map.svg',
+    'texto_head_office' => 'Head office:',
+    'texto_993_renner_burg_west_rond_mt_94251_030' => '993 Renner Burg, West Rond, MT 94251-030, USA.',
+    'texto_p_1_009_544_7818' => 'P: +1 (009) 544-7818',
+    'texto_m_support_bexon_com' => 'M: support@bexon.com',
+    'texto_regional_office' => 'Regional office:',
+    'texto_hessisch_lichtenau_37235_kassel_german' => 'Hessisch Lichtenau 37235, Kassel, Germany.',
+    'texto_p_1_009_880_1810' => 'P: +1 (009) 880-1810',
+    'texto_m_support_bexon_com_2' => 'M: support@bexon.com',
+    'texto_argentina' => 'Argentina:',
+    'texto_contactanos' => 'Contáctanos',
+    'texto_dejanos_tu_mensaje' => 'Dejanos tu mensaje',
+    'imagen_assets_images_shape_pattern_2_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Contact Section -->
@@ -18,31 +34,31 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                     <div class="global-map-img">
 
-                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_bg_map_svg', NAKAMA_THEME_URL . '/assets/images/bg/map.svg' ) ); ?>" alt="Image">
+                        <img src="<?php echo esc_url( $imagen_assets_images_bg_map_svg ); ?>" alt="Image">
 
                         <!--div class="location-indicator loc-1">
 
                             <div class="location-tooltip">
-                                <span><?php echo esc_html( $burger_get( 'texto_head_office', 'Head office:' ) ); ?></span>
-                                <p><?php echo esc_html( $burger_get( 'texto_993_renner_burg_west_rond_mt_94251_030', '993 Renner Burg, West Rond, MT 94251-030, USA.' ) ); ?></p>
-                                <a href="tel:10095447818"><?php echo esc_html( $burger_get( 'texto_p_1_009_544_7818', 'P: +1 (009) 544-7818' ) ); ?></a>
-                                <a href="mailto:support@bexon.com"><?php echo esc_html( $burger_get( 'texto_m_support_bexon_com', 'M: support@bexon.com' ) ); ?></a>
+                                <span><?php echo esc_html( $texto_head_office ); ?></span>
+                                <p><?php echo esc_html( $texto_993_renner_burg_west_rond_mt_94251_030 ); ?></p>
+                                <a href="tel:10095447818"><?php echo esc_html( $texto_p_1_009_544_7818 ); ?></a>
+                                <a href="mailto:support@bexon.com"><?php echo esc_html( $texto_m_support_bexon_com ); ?></a>
                             </div>
 
                         </div>
 
                         <div class="location-indicator loc-2">
                             <div class="location-tooltip">
-                                <span><?php echo esc_html( $burger_get( 'texto_regional_office', 'Regional office:' ) ); ?></span>
-                                <p><?php echo esc_html( $burger_get( 'texto_hessisch_lichtenau_37235_kassel_german', 'Hessisch Lichtenau 37235, Kassel, Germany.' ) ); ?></p>
-                                <a href="tel:10098801810"><?php echo esc_html( $burger_get( 'texto_p_1_009_880_1810', 'P: +1 (009) 880-1810' ) ); ?></a>
-                                <a href="mailto:support@bexon.com"><?php echo esc_html( $burger_get( 'texto_m_support_bexon_com_2', 'M: support@bexon.com' ) ); ?></a>
+                                <span><?php echo esc_html( $texto_regional_office ); ?></span>
+                                <p><?php echo esc_html( $texto_hessisch_lichtenau_37235_kassel_german ); ?></p>
+                                <a href="tel:10098801810"><?php echo esc_html( $texto_p_1_009_880_1810 ); ?></a>
+                                <a href="mailto:support@bexon.com"><?php echo esc_html( $texto_m_support_bexon_com_2 ); ?></a>
                             </div>
                         </div-->
 
                         <div class="location-indicator loc-3">
                             <div class="location-tooltip">
-                                <span><?php echo esc_html( $burger_get( 'texto_argentina', 'Argentina:' ) ); ?></span>
+                                <span><?php echo esc_html( $texto_argentina ); ?></span>
                                 <p><?= NAKAMA_OPTIONS['direccion'] ?></p>
                                 <a href="tel:<?= str_replace( [' ','+','-','(',')'], '', NAKAMA_OPTIONS['telefono'] ) ?>"><?= NAKAMA_OPTIONS['telefono'] ?></a>
                                 <a href="mailto:<?= NAKAMA_OPTIONS['direccion'] ?>"><?= NAKAMA_OPTIONS['correo'] ?></a>
@@ -62,11 +78,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <div class="sec-heading">
 
                         <span class="sub-title text-white">
-                            <i class="tji-box"></i> <?php echo esc_html( $burger_get( 'texto_contactanos', 'Contáctanos' ) ); ?>
+                            <i class="tji-box"></i> <?php echo esc_html( $texto_contactanos ); ?>
                         </span>
 
                         <h2 class="sec-title title-anim">
-                            <?php echo esc_html( $burger_get( 'texto_dejanos_tu_mensaje', 'Dejanos tu mensaje' ) ); ?> <span></span>
+                            <?php echo esc_html( $texto_dejanos_tu_mensaje ); ?> <span></span>
                         </h2>
 
                     </div>
@@ -84,11 +100,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     </div>
 
     <div class="bg-shape-1">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_2_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_2_svg ); ?>" alt="">
     </div>
 
     <div class="bg-shape-2">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 
 </section>

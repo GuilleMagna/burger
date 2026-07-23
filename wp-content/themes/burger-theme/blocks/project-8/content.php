@@ -1,13 +1,15 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'toptitulo_proyectos' => '',
+    'titulo_proyectos' => '',
+    'texto_proyectos' => '',
+    'proyectos' => [],
+    'imagen_assets_images_shape_pattern_2_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
 
-$toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
-$titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
-$texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
-$proyectos              = get_field( 'proyectos' ) ?? [];
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
 ?>
 
 <!-- start: Project Section 8 -->
@@ -139,11 +141,11 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
     </div>
 
     <div class="bg-shape-1">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_2_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_2_svg ); ?>" alt="">
     </div>
 
     <div class="bg-shape-2">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 
 </section>

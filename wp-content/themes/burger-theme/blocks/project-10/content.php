@@ -1,16 +1,19 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'toptitulo_proyectos' => '',
+    'titulo_proyectos' => '',
+    'texto_proyectos' => '',
+    'filtros_proyectos' => [],
+    'proyectos' => [],
+    'texto_todos' => 'Todos',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <?php
-$toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
-$titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
-$texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
-$filtros_proyectos      = get_field( 'filtros_proyectos' ) ?? [];
-$proyectos              = get_field( 'proyectos' ) ?? [];
 ?>
 
 <!-- start: Project Section 10 -->
@@ -42,7 +45,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                             <div class="button-group h10-project-button-group filter-button-group">
 
-                                <button data-filter="*" class="active"><?php echo esc_html( $burger_get( 'texto_todos', 'Todos' ) ); ?></button>
+                                <button data-filter="*" class="active"><?php echo esc_html( $texto_todos ); ?></button>
                                 <?php foreach( $filtros_proyectos as $item ): extract( $item ) ?>
                                     <button data-filter=".<?= sanitize_title($categoria) ?>"><?= $categoria ?></button>
                                 <?php endforeach ?>

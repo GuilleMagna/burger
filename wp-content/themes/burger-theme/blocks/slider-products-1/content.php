@@ -1,7 +1,13 @@
 <?php
+$content_fields = array(
+    'titulo_seccion_slider_products' => 'Lo nuevo',
+    'productos_slider_products' => array(),
+);
 
-$titulo    = get_field('titulo_seccion_slider_products') ?: 'Lo nuevo';
-$productos = get_field('productos_slider_products');
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+$titulo = $titulo_seccion_slider_products;
+$productos = $productos_slider_products;
 
 $productos_demo = [
     [

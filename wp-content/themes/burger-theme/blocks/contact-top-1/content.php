@@ -1,8 +1,16 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_informacion_de_contacto' => 'Información de contacto',
+    'texto_llega_a' => 'Llegá a',
+    'texto_nosotros' => 'nosotros',
+    'texto_direccion' => 'Dirección',
+    'texto_email' => 'Email',
+    'texto_telefonos' => 'Teléfonos',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Contact Top Section -->
@@ -15,10 +23,10 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                 <div class="sec-heading text-center">
                     <span class="sub-title wow fadeInUp" data-wow-delay=".1s">
-                        <i class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_informacion_de_contacto', 'Información de contacto' ) ); ?>
+                        <i class="tji-box"></i><?php echo esc_html( $texto_informacion_de_contacto ); ?>
                     </span>
                     <h2 class="sec-title title-anim">
-                        <?php echo esc_html( $burger_get( 'texto_llega_a', 'Llegá a' ) ); ?> <span><?php echo esc_html( $burger_get( 'texto_nosotros', 'nosotros' ) ); ?></span>
+                        <?php echo esc_html( $texto_llega_a ); ?> <span><?php echo esc_html( $texto_nosotros ); ?></span>
                     </h2>
                 </div>
 
@@ -37,7 +45,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     </div>
 
                     <h3 class="contact-title">
-                        <?php echo esc_html( $burger_get( 'texto_direccion', 'Dirección' ) ); ?>
+                        <?php echo esc_html( $texto_direccion ); ?>
                     </h3>
 
                     <p>
@@ -56,7 +64,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     </div>
 
                     <h3 class="contact-title">
-                        <?php echo esc_html( $burger_get( 'texto_email', 'Email' ) ); ?>
+                        <?php echo esc_html( $texto_email ); ?>
                     </h3>
 
                     <ul class="contact-list">
@@ -85,7 +93,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     </div>
 
                     <h3 class="contact-title">
-                        <?php echo esc_html( $burger_get( 'texto_telefonos', 'Teléfonos' ) ); ?>
+                        <?php echo esc_html( $texto_telefonos ); ?>
                     </h3>
 
                     <ul class="contact-list">

@@ -1,8 +1,30 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_construyendo_negocios_juntos' => '¿Construyendo negocios juntos?',
+    'imagen_assets_images_testimonial_client_1_webp' => NAKAMA_THEME_URL . '/assets/images/testimonial/client-1.webp',
+    'imagen_assets_images_testimonial_client_2_webp' => NAKAMA_THEME_URL . '/assets/images/testimonial/client-2.webp',
+    'imagen_assets_images_testimonial_client_3_webp' => NAKAMA_THEME_URL . '/assets/images/testimonial/client-3.webp',
+    'texto_contacto' => 'Contacto',
+    'texto_subscribe' => 'Subscribe',
+    'texto_agree_to_our' => 'Agree to our',
+    'texto_terms_condition' => 'Terms & Condition?',
+    'texto_subscribe_2' => 'Subscribe',
+    'imagen_assets_images_footer_award_logo_1_webp' => NAKAMA_THEME_URL . '/assets/images/footer/award-logo-1.webp',
+    'imagen_assets_images_footer_award_logo_2_webp' => NAKAMA_THEME_URL . '/assets/images/footer/award-logo-2.webp',
+    'texto_todos_los_derechos_reservados' => 'Todos los derechos reservados.',
+    'link_https_www_facebook_com' => 'https://www.facebook.com/',
+    'link_https_www_instagram_com' => 'https://www.instagram.com/',
+    'link_https_x_com' => 'https://x.com/',
+    'link_https_www_linkedin_com' => 'https://www.linkedin.com/',
+    'texto_politica_de_privacidad' => 'Política de Privacidad',
+    'texto_terminos_condiciones' => 'Términos & Condiciones',
+    'imagen_assets_images_shape_pattern_2_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 
@@ -20,21 +42,21 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <div class="footer-cta">
 
                         <h2 class="cta-title title-anim">
-                            <?php echo esc_html( $burger_get( 'texto_construyendo_negocios_juntos', '¿Construyendo negocios juntos?' ) ); ?>
+                            <?php echo esc_html( $texto_construyendo_negocios_juntos ); ?>
                         </h2>
 
                         <a class="cta-btn wow fadeInUp" data-wow-delay=".3s" href="">
 
                             <div class="customers">
                                 <ul>
-                                    <li><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_testimonial_client_1_webp', NAKAMA_THEME_URL . '/assets/images/testimonial/client-1.webp' ) ); ?>" alt=""></li>
-                                    <li><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_testimonial_client_2_webp', NAKAMA_THEME_URL . '/assets/images/testimonial/client-2.webp' ) ); ?>" alt=""></li>
-                                    <li><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_testimonial_client_3_webp', NAKAMA_THEME_URL . '/assets/images/testimonial/client-3.webp' ) ); ?>" alt=""></li>
+                                    <li><img src="<?php echo esc_url( $imagen_assets_images_testimonial_client_1_webp ); ?>" alt=""></li>
+                                    <li><img src="<?php echo esc_url( $imagen_assets_images_testimonial_client_2_webp ); ?>" alt=""></li>
+                                    <li><img src="<?php echo esc_url( $imagen_assets_images_testimonial_client_3_webp ); ?>" alt=""></li>
                                 </ul>
                             </div>
 
                             <span class="btn-text">
-                                <span><?php echo esc_html( $burger_get( 'texto_contacto', 'Contacto' ) ); ?></span> <i class="tji-arrow-right-long"></i>
+                                <span><?php echo esc_html( $texto_contacto ); ?></span> <i class="tji-arrow-right-long"></i>
                             </span>
 
                         </a>
@@ -56,12 +78,12 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                             <form action="#">
                                 <input type="email" name="email" placeholder="Enter email">
                                 <button class="tj-primary-btn d-none d-sm-flex" type="submit">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_subscribe', 'Subscribe' ) ); ?></span></span>
+                                <span class="btn-text"><span><?php echo esc_html( $texto_subscribe ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                 </button>
-                                <label for="agree"><input id="agree" type="checkbox"><?php echo esc_html( $burger_get( 'texto_agree_to_our', 'Agree to our' ) ); ?> <a href="#"><?php echo esc_html( $burger_get( 'texto_terms_condition', 'Terms & Condition?' ) ); ?></a></label>
+                                <label for="agree"><input id="agree" type="checkbox"><?php echo esc_html( $texto_agree_to_our ); ?> <a href="#"><?php echo esc_html( $texto_terms_condition ); ?></a></label>
                                 <button class="tj-primary-btn d-flex d-sm-none " type="submit">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_subscribe_2', 'Subscribe' ) ); ?></span></span>
+                                <span class="btn-text"><span><?php echo esc_html( $texto_subscribe_2 ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                 </button>
                             </form>
@@ -101,10 +123,10 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         <div class="award-logo-area">
 
                             <div class="award-logo">
-                                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_footer_award_logo_1_webp', NAKAMA_THEME_URL . '/assets/images/footer/award-logo-1.webp' ) ); ?>" alt="">
+                                <img src="<?php echo esc_url( $imagen_assets_images_footer_award_logo_1_webp ); ?>" alt="">
                             </div>
                             <div class="award-logo">
-                                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_footer_award_logo_2_webp', NAKAMA_THEME_URL . '/assets/images/footer/award-logo-2.webp' ) ); ?>" alt="">
+                                <img src="<?php echo esc_url( $imagen_assets_images_footer_award_logo_2_webp ); ?>" alt="">
                             </div>
 
                         </div>
@@ -219,7 +241,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="copyright-text">
                             <p>
-                                &copy; <?= date('Y') ?> <a href="<?= NAKAMA_URL ?>" target="_blank"><?= NAKAMA_TITLE ?></a> <?php echo esc_html( $burger_get( 'texto_todos_los_derechos_reservados', 'Todos los derechos reservados.' ) ); ?>
+                                &copy; <?= date('Y') ?> <a href="<?= NAKAMA_URL ?>" target="_blank"><?= NAKAMA_TITLE ?></a> <?php echo esc_html( $texto_todos_los_derechos_reservados ); ?>
                             </p>
                         </div>
 
@@ -227,16 +249,16 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                             <ul>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_facebook_com', 'https://www.facebook.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_facebook_com ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_instagram_com', 'https://www.instagram.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_instagram_com ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_x_com', 'https://x.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_x_com ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_linkedin_com', 'https://www.linkedin.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_linkedin_com ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                                 </li>
                             </ul>
 
@@ -244,8 +266,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="copyright-menu">
                             <ul>
-                                <li><a href=""><?php echo esc_html( $burger_get( 'texto_politica_de_privacidad', 'Política de Privacidad' ) ); ?></a></li>
-                                <li><a href=""><?php echo esc_html( $burger_get( 'texto_terminos_condiciones', 'Términos & Condiciones' ) ); ?></a></li>
+                                <li><a href=""><?php echo esc_html( $texto_politica_de_privacidad ); ?></a></li>
+                                <li><a href=""><?php echo esc_html( $texto_terminos_condiciones ); ?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -257,11 +279,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     </div>
 
     <div class="bg-shape-1">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_2_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_2_svg ); ?>" alt="">
     </div>
 
     <div class="bg-shape-2">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 
 </footer>

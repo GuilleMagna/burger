@@ -1,4 +1,13 @@
 <?php
+$content_fields = array(
+    'sobre_titulo' => 'CATEGORÍAS',
+    'titulo' => 'Soluciones para cada necesidad industrial.',
+    'items' => array(),
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 /**
  * Block Name: Project 11
  *
@@ -14,11 +23,6 @@ $classes = 'tj-project-section project-11 section-gap';
 if ( ! empty( $block['className'] ) ) {
 	$classes .= ' ' . $block['className'];
 }
-
-$sobre_titulo = get_field( 'sobre_titulo' ) ?: 'CATEGORÍAS';
-$titulo       = get_field( 'titulo' ) ?: 'Soluciones para cada necesidad industrial.';
-$items        = get_field( 'items' );
-
 if ( empty( $items ) ) {
 	$items = [
 		[

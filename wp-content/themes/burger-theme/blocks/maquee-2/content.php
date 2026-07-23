@@ -1,8 +1,22 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_innovation' => 'Innovation',
+    'texto_success' => 'Success',
+    'texto_leadership' => 'Leadership',
+    'texto_enterprise' => 'Enterprise',
+    'texto_business_growth' => 'Business Growth',
+    'texto_corporate' => 'Corporate',
+    'texto_results' => 'Results',
+    'texto_innovation_2' => 'Innovation',
+    'texto_success_2' => 'Success',
+    'texto_leadership_2' => 'Leadership',
+    'texto_enterprise_2' => 'Enterprise',
+    'texto_business_growth_2' => 'Business Growth',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Maquee Area 2 -->
@@ -16,7 +30,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_innovation', 'Innovation' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_innovation ); ?></h4>
             </div>
             </div>
         </div>
@@ -26,7 +40,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_success', 'Success' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_success ); ?></h4>
             </div>
             </div>
         </div>
@@ -36,7 +50,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_leadership', 'Leadership' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_leadership ); ?></h4>
             </div>
             </div>
         </div>
@@ -46,7 +60,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_enterprise', 'Enterprise' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_enterprise ); ?></h4>
             </div>
             </div>
         </div>
@@ -56,7 +70,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_business_growth', 'Business Growth' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_business_growth ); ?></h4>
             </div>
             </div>
         </div>
@@ -66,7 +80,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_corporate', 'Corporate' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_corporate ); ?></h4>
             </div>
             </div>
         </div>
@@ -76,7 +90,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_results', 'Results' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_results ); ?></h4>
             </div>
             </div>
         </div>
@@ -86,7 +100,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_innovation_2', 'Innovation' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_innovation_2 ); ?></h4>
             </div>
             </div>
         </div>
@@ -96,7 +110,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_success_2', 'Success' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_success_2 ); ?></h4>
             </div>
             </div>
         </div>
@@ -106,7 +120,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_leadership_2', 'Leadership' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_leadership_2 ); ?></h4>
             </div>
             </div>
         </div>
@@ -116,7 +130,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_enterprise_2', 'Enterprise' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_enterprise_2 ); ?></h4>
             </div>
             </div>
         </div>
@@ -126,7 +140,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 <div class="marquee-icon">//</div>
             </div>
             <div class="marquee-title">
-                <h4 class="title"><?php echo esc_html( $burger_get( 'texto_business_growth_2', 'Business Growth' ) ); ?></h4>
+                <h4 class="title"><?php echo esc_html( $texto_business_growth_2 ); ?></h4>
             </div>
             </div>
         </div>

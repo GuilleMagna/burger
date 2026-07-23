@@ -1,4 +1,13 @@
 <?php
+$content_fields = array(
+    'sobre_titulo' => 'CLIENTES QUE CONFÍAN',
+    'titulo' => 'Impulsamos industrias en todo el país.',
+    'testimonios' => array(),
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 /**
  * Block Name: Client Detail 1
  *
@@ -14,11 +23,6 @@ $classes = 'tj-client-section client-detail-1 section-gap';
 if ( ! empty( $block['className'] ) ) {
 	$classes .= ' ' . $block['className'];
 }
-
-$sobre_titulo = get_field( 'sobre_titulo' ) ?: 'CLIENTES QUE CONFÍAN';
-$titulo       = get_field( 'titulo' ) ?: 'Impulsamos industrias en todo el país.';
-$testimonios  = get_field( 'testimonios' );
-
 if ( empty( $testimonios ) ) {
 	$testimonios = [
 		[

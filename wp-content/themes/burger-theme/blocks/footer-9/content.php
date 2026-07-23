@@ -1,8 +1,21 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'imagen_assets_images_footer_award_logo_1_webp' => NAKAMA_THEME_URL . '/assets/images/footer/award-logo-1.webp',
+    'imagen_assets_images_footer_award_logo_2_webp' => NAKAMA_THEME_URL . '/assets/images/footer/award-logo-2.webp',
+    'texto_todos_los_derechos_reservados' => 'Todos los derechos reservados.',
+    'link_https_www_facebook_com' => 'https://www.facebook.com/',
+    'link_https_www_instagram_com' => 'https://www.instagram.com/',
+    'link_https_x_com' => 'https://x.com/',
+    'link_https_www_linkedin_com' => 'https://www.linkedin.com/',
+    'texto_politica_de_privacidad' => 'Política de Privacidad',
+    'texto_terminos_condiciones' => 'Términos & Condiciones',
+    'imagen_assets_images_shape_pattern_2_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 
@@ -141,10 +154,10 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="award-logo-area h9-footer-award">
                             <div class="award-logo">
-                                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_footer_award_logo_1_webp', NAKAMA_THEME_URL . '/assets/images/footer/award-logo-1.webp' ) ); ?>" alt="">
+                                <img src="<?php echo esc_url( $imagen_assets_images_footer_award_logo_1_webp ); ?>" alt="">
                             </div>
                             <div class="award-logo">
-                                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_footer_award_logo_2_webp', NAKAMA_THEME_URL . '/assets/images/footer/award-logo-2.webp' ) ); ?>" alt="">
+                                <img src="<?php echo esc_url( $imagen_assets_images_footer_award_logo_2_webp ); ?>" alt="">
                             </div>
                         </div>
 
@@ -170,7 +183,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="copyright-text">
                             <p>
-                                &copy; <?= date('Y') ?> <a href="<?= NAKAMA_URL ?>" target="_blank"><?= NAKAMA_TITLE ?></a> <?php echo esc_html( $burger_get( 'texto_todos_los_derechos_reservados', 'Todos los derechos reservados.' ) ); ?>
+                                &copy; <?= date('Y') ?> <a href="<?= NAKAMA_URL ?>" target="_blank"><?= NAKAMA_TITLE ?></a> <?php echo esc_html( $texto_todos_los_derechos_reservados ); ?>
                             </p>
                         </div>
 
@@ -178,16 +191,16 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                             <ul>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_facebook_com', 'https://www.facebook.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_facebook_com ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_instagram_com', 'https://www.instagram.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_instagram_com ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_x_com', 'https://x.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_x_com ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo esc_url( $burger_get( 'link_https_www_linkedin_com', 'https://www.linkedin.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="<?php echo esc_url( $link_https_www_linkedin_com ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                                 </li>
                             </ul>
 
@@ -195,8 +208,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="copyright-menu">
                             <ul>
-                                <li><a href=""><?php echo esc_html( $burger_get( 'texto_politica_de_privacidad', 'Política de Privacidad' ) ); ?></a></li>
-                                <li><a href=""><?php echo esc_html( $burger_get( 'texto_terminos_condiciones', 'Términos & Condiciones' ) ); ?></a></li>
+                                <li><a href=""><?php echo esc_html( $texto_politica_de_privacidad ); ?></a></li>
+                                <li><a href=""><?php echo esc_html( $texto_terminos_condiciones ); ?></a></li>
                             </ul>
                         </div>
 
@@ -211,11 +224,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     </div>
 
     <div class="bg-shape-1">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_2_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_2_svg ); ?>" alt="">
     </div>
 
     <div class="bg-shape-2">
-        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+        <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 
 </footer>

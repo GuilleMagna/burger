@@ -1,18 +1,35 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'subtitulo' => 'Para quién es',
+    'descripcion' => 'Intia Hub está diseñado para empresas que quieren escalar con inteligencia.',
+    'boton' => [],
+    'items' => [],
+    'texto_our_solutions' => 'Our Solutions',
+    'texto_tailor_business_solutions_for_corporat' => 'Tailor Business Solutions for Corporates.',
+    'texto_recognized_by_industry_leaders_our_awa' => 'Recognized by industry leaders, our award winning team has a proven.',
+    'link_service_html' => 'service.html',
+    'texto_more_services' => 'More services',
+    'link_service_details_html' => 'service-details.html',
+    'texto_business_strategy_development' => 'Business Strategy Development',
+    'link_service_details_html_2' => 'service-details.html',
+    'link_service_details_html_3' => 'service-details.html',
+    'texto_customer_experience_solutions' => 'Customer Experience Solutions',
+    'link_service_details_html_4' => 'service-details.html',
+    'link_service_details_html_5' => 'service-details.html',
+    'texto_sustainability_and_esg_consulting' => 'Sustainability and ESG Consulting',
+    'link_service_details_html_6' => 'service-details.html',
+    'link_service_details_html_7' => 'service-details.html',
+    'texto_marketing_strategy_campaigns' => 'Marketing Strategy & Campaigns',
+    'link_service_details_html_8' => 'service-details.html',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <?php
 // Block Name: Service Section 7
-
-$subtitulo   = get_field('subtitulo') ?? 'Para quién es';
-$descripcion = get_field('descripcion') ?? 'Intia Hub está diseñado para empresas que quieren escalar con inteligencia.';
-$boton       = get_field('boton') ?? [];
-
-$items       = get_field('items') ?? [];
 ?>
 
 <!--section class="h7-service section-gap slidebar-stickiy-container">
@@ -144,10 +161,10 @@ $items       = get_field('items') ?? [];
         <div class="sec-heading style-2 style-7">
             <div class="row">
             <div class="col-12 col-lg-4 col-xl-3"><span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i
-                    class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_our_solutions', 'Our Solutions' ) ); ?></span></div>
+                    class="tji-box"></i><?php echo esc_html( $texto_our_solutions ); ?></span></div>
             <div class="col-12 col-lg-8 col-xl-9">
                 <div class="sec-title-wrapper">
-                <h2 class="sec-title text-anim"><?php echo esc_html( $burger_get( 'texto_tailor_business_solutions_for_corporat', 'Tailor Business Solutions for Corporates.' ) ); ?></h2>
+                <h2 class="sec-title text-anim"><?php echo esc_html( $texto_tailor_business_solutions_for_corporat ); ?></h2>
                 </div>
 
             </div>
@@ -158,10 +175,10 @@ $items       = get_field('items') ?? [];
     <div class="row">
         <div class="col-12 col-lg-4 col-xl-3">
         <div class="section-desc-wrapper  slidebar-stickiy">
-            <p class="desc"><?php echo esc_html( $burger_get( 'texto_recognized_by_industry_leaders_our_awa', 'Recognized by industry leaders, our award winning team has a proven.' ) ); ?></p>
+            <p class="desc"><?php echo esc_html( $texto_recognized_by_industry_leaders_our_awa ); ?></p>
             <div class=" wow fadeInUp" data-wow-delay=".3s">
-            <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_service_html', 'service.html' ) ); ?>">
-                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_more_services', 'More services' ) ); ?></span></span>
+            <a class="tj-primary-btn" href="<?php echo esc_url( $link_service_html ); ?>">
+                <span class="btn-text"><span><?php echo esc_html( $texto_more_services ); ?></span></span>
                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
             </a>
             </div>
@@ -176,10 +193,10 @@ $items       = get_field('items') ?? [];
                 <div class="service-icon">
                     <i class="tji-service-5"></i>
                 </div>
-                <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_business_strategy_development', 'Business Strategy Development' ) ); ?></a></h4>
+                <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html ); ?>"><?php echo esc_html( $texto_business_strategy_development ); ?></a></h4>
                 </div>
                 <div class="h7-service-action">
-                <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_2', 'service-details.html' ) ); ?>">
+                <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_2 ); ?>">
                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                 </a>
                 </div>
@@ -191,10 +208,10 @@ $items       = get_field('items') ?? [];
                 <div class="service-icon">
                     <i class="tji-service-2"></i>
                 </div>
-                <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_3', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_customer_experience_solutions', 'Customer Experience Solutions' ) ); ?></a></h4>
+                <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_3 ); ?>"><?php echo esc_html( $texto_customer_experience_solutions ); ?></a></h4>
                 </div>
                 <div class="h7-service-action">
-                <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_4', 'service-details.html' ) ); ?>">
+                <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_4 ); ?>">
                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                 </a>
                 </div>
@@ -207,10 +224,10 @@ $items       = get_field('items') ?? [];
                 <div class="service-icon">
                     <i class="tji-service-3"></i>
                 </div>
-                <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_5', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_sustainability_and_esg_consulting', 'Sustainability and ESG Consulting' ) ); ?></a></h4>
+                <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_5 ); ?>"><?php echo esc_html( $texto_sustainability_and_esg_consulting ); ?></a></h4>
                 </div>
                 <div class="h7-service-action">
-                <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_6', 'service-details.html' ) ); ?>">
+                <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_6 ); ?>">
                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                 </a>
                 </div>
@@ -223,10 +240,10 @@ $items       = get_field('items') ?? [];
                 <div class="service-icon">
                     <i class="tji-service-4"></i>
                 </div>
-                <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_7', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_marketing_strategy_campaigns', 'Marketing Strategy & Campaigns' ) ); ?></a></h4>
+                <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_7 ); ?>"><?php echo esc_html( $texto_marketing_strategy_campaigns ); ?></a></h4>
                 </div>
                 <div class="h7-service-action">
-                <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_8', 'service-details.html' ) ); ?>">
+                <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_8 ); ?>">
                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                 </a>
                 </div>

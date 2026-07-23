@@ -1,8 +1,13 @@
 <?php
-$subtitulo  = get_field( 'subtitulo' ) ?: 'Nuestros productos';
-$titulo     = get_field( 'titulo' ) ?: 'Tailor Business Solutions for Corporates.';
-$boton      = get_field( 'boton' ) ?? [];
-$servicios  = get_field( 'servicios' ) ?? [];
+$content_fields = array(
+    'subtitulo' => 'Nuestros productos',
+    'titulo' => 'Tailor Business Solutions for Corporates.',
+    'boton' => [],
+    'servicios' => [],
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
 
 ?>
 
