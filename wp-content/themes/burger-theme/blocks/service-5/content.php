@@ -1,8 +1,34 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_our_solutions' => 'Our Solutions',
+    'texto_tailor_business_solutions_for_corporat' => 'Tailor Business Solutions for Corporates.',
+    'link_contact_html' => 'contact.html',
+    'texto_explore_more' => 'Explore More',
+    'link_service_details_html' => 'service-details.html',
+    'texto_business_strategy_development' => 'Business Strategy Development',
+    'texto_through_a_combination_of_data_driven_i' => 'Through a combination of data-driven insights and innovative approaches business.',
+    'link_service_details_html_2' => 'service-details.html',
+    'texto_learn_more' => 'Learn More',
+    'link_service_details_html_3' => 'service-details.html',
+    'texto_customer_experience_solutions' => 'Customer Experience Solutions',
+    'texto_developing_personalized_customer_journ' => 'Developing personalized customer journeys to increase satisfaction and loyalty.',
+    'link_service_details_html_4' => 'service-details.html',
+    'texto_learn_more_2' => 'Learn More',
+    'link_service_details_html_5' => 'service-details.html',
+    'texto_sustainability_esg_consulting' => 'Sustainability & ESG Consulting',
+    'texto_provide_tailored_strategies_that_not_o' => 'Provide tailored strategies that not only drive long-term value but also build trust.',
+    'link_service_details_html_6' => 'service-details.html',
+    'texto_learn_more_3' => 'Learn More',
+    'link_service_details_html_7' => 'service-details.html',
+    'texto_training_development_programs' => 'Training Development Programs',
+    'texto_training_development_programs_designed' => 'Training Development Programs designed empower employees with skills, knowledge.',
+    'link_service_details_html_8' => 'service-details.html',
+    'texto_learn_more_4' => 'Learn More',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Service Section 5 -->
@@ -11,14 +37,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     <div class="row">
         <div class="col-12">
         <div class="sec-heading-wrap style-3">
-            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_our_solutions', 'Our Solutions' ) ); ?></span>
+            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $texto_our_solutions ); ?></span>
             <div class="heading-wrap-content">
             <div class="sec-heading style-3">
-                <h2 class="sec-title text-anim"><?php echo esc_html( $burger_get( 'texto_tailor_business_solutions_for_corporat', 'Tailor Business Solutions for Corporates.' ) ); ?></h2>
+                <h2 class="sec-title text-anim"><?php echo esc_html( $texto_tailor_business_solutions_for_corporat ); ?></h2>
             </div>
             <div class="btn-area wow fadeInUp" data-wow-delay=".8s">
-                <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_contact_html', 'contact.html' ) ); ?>">
-                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_explore_more', 'Explore More' ) ); ?></span></span>
+                <a class="tj-primary-btn" href="<?php echo esc_url( $link_contact_html ); ?>">
+                <span class="btn-text"><span><?php echo esc_html( $texto_explore_more ); ?></span></span>
                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                 </a>
             </div>
@@ -35,14 +61,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                 <div class="service-item style-6">
-                    <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_business_strategy_development', 'Business Strategy Development' ) ); ?></a></h4>
+                    <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html ); ?>"><?php echo esc_html( $texto_business_strategy_development ); ?></a></h4>
                     <div class="service-icon">
                     <i class="tji-service-1"></i>
                     </div>
                     <div class="service-content">
-                    <p class="desc"><?php echo esc_html( $burger_get( 'texto_through_a_combination_of_data_driven_i', 'Through a combination of data-driven insights and innovative approaches business.' ) ); ?></p>
-                    <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_2', 'service-details.html' ) ); ?>">
-                        <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_learn_more', 'Learn More' ) ); ?></span></span>
+                    <p class="desc"><?php echo esc_html( $texto_through_a_combination_of_data_driven_i ); ?></p>
+                    <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_2 ); ?>">
+                        <span class="btn-text"><span><?php echo esc_html( $texto_learn_more ); ?></span></span>
                         <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                     </a>
                     </div>
@@ -50,15 +76,15 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 </div>
                 <div class="swiper-slide">
                 <div class="service-item style-6">
-                    <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_3', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_customer_experience_solutions', 'Customer Experience Solutions' ) ); ?></a></h4>
+                    <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_3 ); ?>"><?php echo esc_html( $texto_customer_experience_solutions ); ?></a></h4>
                     <div class="service-icon">
                     <i class="tji-service-2"></i>
                     </div>
                     <div class="service-content">
-                    <p class="desc"><?php echo esc_html( $burger_get( 'texto_developing_personalized_customer_journ', 'Developing personalized customer journeys to increase satisfaction and loyalty.' ) ); ?>
+                    <p class="desc"><?php echo esc_html( $texto_developing_personalized_customer_journ ); ?>
                     </p>
-                    <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_4', 'service-details.html' ) ); ?>">
-                        <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_learn_more_2', 'Learn More' ) ); ?></span></span>
+                    <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_4 ); ?>">
+                        <span class="btn-text"><span><?php echo esc_html( $texto_learn_more_2 ); ?></span></span>
                         <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                     </a>
                     </div>
@@ -66,14 +92,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 </div>
                 <div class="swiper-slide">
                 <div class="service-item style-6">
-                    <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_5', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_sustainability_esg_consulting', 'Sustainability & ESG Consulting' ) ); ?></a></h4>
+                    <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_5 ); ?>"><?php echo esc_html( $texto_sustainability_esg_consulting ); ?></a></h4>
                     <div class="service-icon">
                     <i class="tji-service-3"></i>
                     </div>
                     <div class="service-content">
-                    <p class="desc"><?php echo esc_html( $burger_get( 'texto_provide_tailored_strategies_that_not_o', 'Provide tailored strategies that not only drive long-term value but also build trust.' ) ); ?></p>
-                    <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_6', 'service-details.html' ) ); ?>">
-                        <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_learn_more_3', 'Learn More' ) ); ?></span></span>
+                    <p class="desc"><?php echo esc_html( $texto_provide_tailored_strategies_that_not_o ); ?></p>
+                    <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_6 ); ?>">
+                        <span class="btn-text"><span><?php echo esc_html( $texto_learn_more_3 ); ?></span></span>
                         <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                     </a>
                     </div>
@@ -81,15 +107,15 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 </div>
                 <div class="swiper-slide">
                 <div class="service-item style-6">
-                    <h4 class="title"><a href="<?php echo esc_url( $burger_get( 'link_service_details_html_7', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_training_development_programs', 'Training Development Programs' ) ); ?></a></h4>
+                    <h4 class="title"><a href="<?php echo esc_url( $link_service_details_html_7 ); ?>"><?php echo esc_html( $texto_training_development_programs ); ?></a></h4>
                     <div class="service-icon">
                     <i class="tji-service-4"></i>
                     </div>
                     <div class="service-content">
-                    <p class="desc"><?php echo esc_html( $burger_get( 'texto_training_development_programs_designed', 'Training Development Programs designed empower employees with skills, knowledge.' ) ); ?>
+                    <p class="desc"><?php echo esc_html( $texto_training_development_programs_designed ); ?>
                     </p>
-                    <a class="text-btn" href="<?php echo esc_url( $burger_get( 'link_service_details_html_8', 'service-details.html' ) ); ?>">
-                        <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_learn_more_4', 'Learn More' ) ); ?></span></span>
+                    <a class="text-btn" href="<?php echo esc_url( $link_service_details_html_8 ); ?>">
+                        <span class="btn-text"><span><?php echo esc_html( $texto_learn_more_4 ); ?></span></span>
                         <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                     </a>
                     </div>

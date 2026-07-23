@@ -1,8 +1,32 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_our_achievements' => 'Our Achievements',
+    'texto_our_pursuit_of_perfection_has_recogniz' => 'Our pursuit of perfection has recognized',
+    'imagen_assets_images_award_award_1_png' => NAKAMA_THEME_URL . '/assets/images/award/award-1.png',
+    'imagen_assets_images_award_award_1_white_png' => NAKAMA_THEME_URL . '/assets/images/award/award-1-white.png',
+    'texto_inspire' => 'Inspire',
+    'texto_growth_award' => 'Growth Award',
+    'texto_winner' => 'Winner',
+    'imagen_assets_images_award_award_2_png' => NAKAMA_THEME_URL . '/assets/images/award/award-2.png',
+    'imagen_assets_images_award_award_2_white_png' => NAKAMA_THEME_URL . '/assets/images/award/award-2-white.png',
+    'texto_pinnacle' => 'Pinnacle',
+    'texto_excellence_award' => 'Excellence Award',
+    'texto_nominee' => 'Nominee',
+    'imagen_assets_images_award_award_3_png' => NAKAMA_THEME_URL . '/assets/images/award/award-3.png',
+    'imagen_assets_images_award_award_3_white_png' => NAKAMA_THEME_URL . '/assets/images/award/award-3-white.png',
+    'texto_mastermind' => 'Mastermind',
+    'texto_excellence_award_2' => 'Excellence Award',
+    'texto_distinguished' => 'Distinguished',
+    'imagen_assets_images_award_award_4_png' => NAKAMA_THEME_URL . '/assets/images/award/award-4.png',
+    'imagen_assets_images_award_award_4_white_png' => NAKAMA_THEME_URL . '/assets/images/award/award-4-white.png',
+    'texto_game' => 'Game',
+    'texto_changer_award' => 'Changer Award',
+    'texto_champion' => 'Champion',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Award Section -->
@@ -11,8 +35,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     <div class="row">
         <div class="col-12">
         <div class="sec-heading sec-heading-centered style-2 style-6 ">
-            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_our_achievements', 'Our Achievements' ) ); ?></span>
-            <h2 class="sec-title title-anim"><?php echo esc_html( $burger_get( 'texto_our_pursuit_of_perfection_has_recogniz', 'Our pursuit of perfection has recognized' ) ); ?></h2>
+            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $texto_our_achievements ); ?></span>
+            <h2 class="sec-title title-anim"><?php echo esc_html( $texto_our_pursuit_of_perfection_has_recogniz ); ?></h2>
         </div>
         </div>
     </div>
@@ -26,18 +50,18 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <h6 class="tj-award-index">
                     01.
                     </h6>
-                    <div class="tj-award-img"><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_1_png', NAKAMA_THEME_URL . '/assets/images/award/award-1.png' ) ); ?>" alt=""><img
-                        src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_1_white_png', NAKAMA_THEME_URL . '/assets/images/award/award-1-white.png' ) ); ?>" alt=""></div>
+                    <div class="tj-award-img"><img src="<?php echo esc_url( $imagen_assets_images_award_award_1_png ); ?>" alt=""><img
+                        src="<?php echo esc_url( $imagen_assets_images_award_award_1_white_png ); ?>" alt=""></div>
                 </div>
                 <div class="col-md-4 col-lg-3 tj-award-title-wrapper">
                     <h5 class="tj-award-title">
-                    <?php echo esc_html( $burger_get( 'texto_inspire', 'Inspire' ) ); ?><br>
-                    <?php echo esc_html( $burger_get( 'texto_growth_award', 'Growth Award' ) ); ?>
+                    <?php echo esc_html( $texto_inspire ); ?><br>
+                    <?php echo esc_html( $texto_growth_award ); ?>
                     </h5>
                 </div>
                 <div class="col-md-4 tj-award-date-wrapper">
                     <h6 class="tj-award-result">
-                    <?php echo esc_html( $burger_get( 'texto_winner', 'Winner' ) ); ?>
+                    <?php echo esc_html( $texto_winner ); ?>
                     </h6>
                     <h6 class="tj-award-date">
                     2010
@@ -53,19 +77,19 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <h6 class="tj-award-index">
                     02.
                     </h6>
-                    <div class="tj-award-img"><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_2_png', NAKAMA_THEME_URL . '/assets/images/award/award-2.png' ) ); ?>" alt="">
-                    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_2_white_png', NAKAMA_THEME_URL . '/assets/images/award/award-2-white.png' ) ); ?>" alt="">
+                    <div class="tj-award-img"><img src="<?php echo esc_url( $imagen_assets_images_award_award_2_png ); ?>" alt="">
+                    <img src="<?php echo esc_url( $imagen_assets_images_award_award_2_white_png ); ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 tj-award-title-wrapper">
                     <h5 class="tj-award-title">
-                    <?php echo esc_html( $burger_get( 'texto_pinnacle', 'Pinnacle' ) ); ?><br>
-                    <?php echo esc_html( $burger_get( 'texto_excellence_award', 'Excellence Award' ) ); ?>
+                    <?php echo esc_html( $texto_pinnacle ); ?><br>
+                    <?php echo esc_html( $texto_excellence_award ); ?>
                     </h5>
                 </div>
                 <div class="col-md-4 tj-award-date-wrapper">
                     <h6 class="tj-award-result">
-                    <?php echo esc_html( $burger_get( 'texto_nominee', 'Nominee' ) ); ?>
+                    <?php echo esc_html( $texto_nominee ); ?>
                     </h6>
                     <h6 class="tj-award-date">
                     2016
@@ -81,18 +105,18 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <h6 class="tj-award-index">
                     03.
                     </h6>
-                    <div class="tj-award-img"><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_3_png', NAKAMA_THEME_URL . '/assets/images/award/award-3.png' ) ); ?>" alt="">
-                    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_3_white_png', NAKAMA_THEME_URL . '/assets/images/award/award-3-white.png' ) ); ?>" alt="">
+                    <div class="tj-award-img"><img src="<?php echo esc_url( $imagen_assets_images_award_award_3_png ); ?>" alt="">
+                    <img src="<?php echo esc_url( $imagen_assets_images_award_award_3_white_png ); ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 tj-award-title-wrapper">
                     <h5 class="tj-award-title">
-                    <?php echo esc_html( $burger_get( 'texto_mastermind', 'Mastermind' ) ); ?> <br> <?php echo esc_html( $burger_get( 'texto_excellence_award_2', 'Excellence Award' ) ); ?>
+                    <?php echo esc_html( $texto_mastermind ); ?> <br> <?php echo esc_html( $texto_excellence_award_2 ); ?>
                     </h5>
                 </div>
                 <div class="col-md-4 tj-award-date-wrapper">
                     <h6 class="tj-award-result">
-                    <?php echo esc_html( $burger_get( 'texto_distinguished', 'Distinguished' ) ); ?>
+                    <?php echo esc_html( $texto_distinguished ); ?>
                     </h6>
                     <h6 class="tj-award-date">
                     2020
@@ -108,19 +132,19 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <h6 class="tj-award-index">
                     04.
                     </h6>
-                    <div class="tj-award-img"><img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_4_png', NAKAMA_THEME_URL . '/assets/images/award/award-4.png' ) ); ?>" alt="">
-                    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_award_award_4_white_png', NAKAMA_THEME_URL . '/assets/images/award/award-4-white.png' ) ); ?>" alt="">
+                    <div class="tj-award-img"><img src="<?php echo esc_url( $imagen_assets_images_award_award_4_png ); ?>" alt="">
+                    <img src="<?php echo esc_url( $imagen_assets_images_award_award_4_white_png ); ?>" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 tj-award-title-wrapper">
                     <h5 class="tj-award-title">
-                    <?php echo esc_html( $burger_get( 'texto_game', 'Game' ) ); ?> <br>
-                    <?php echo esc_html( $burger_get( 'texto_changer_award', 'Changer Award' ) ); ?>
+                    <?php echo esc_html( $texto_game ); ?> <br>
+                    <?php echo esc_html( $texto_changer_award ); ?>
                     </h5>
                 </div>
                 <div class="col-md-4 tj-award-date-wrapper">
                     <h6 class="tj-award-result">
-                    <?php echo esc_html( $burger_get( 'texto_champion', 'Champion' ) ); ?>
+                    <?php echo esc_html( $texto_champion ); ?>
                     </h6>
                     <h6 class="tj-award-date">
                     2025

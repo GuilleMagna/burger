@@ -1,15 +1,19 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'toptitulo_proyectos' => '',
+    'titulo_proyectos' => '',
+    'texto_proyectos' => '',
+    'proyectos' => [],
+    'texto_conocer_mas' => 'Conocer más',
+    'texto_ver_mas' => 'Ver más',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <?php
-$toptitulo_proyectos    = get_field( 'toptitulo_proyectos' ) ?? '';
-$titulo_proyectos       = get_field( 'titulo_proyectos' ) ?? '';
-$texto_proyectos        = get_field( 'texto_proyectos' ) ?? '';
-$proyectos              = get_field( 'proyectos' ) ?? [];
 ?>
 
 <!-- start: Project Section 5 -->
@@ -43,7 +47,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
 
                             <div class="btn-area wow fadeInUp" data-wow-delay=".8s">
                                 <a class="tj-primary-btn" href="">
-                                    <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_conocer_mas', 'Conocer más' ) ); ?></span></span>
+                                    <span class="btn-text"><span><?php echo esc_html( $texto_conocer_mas ); ?></span></span>
                                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                 </a>
                             </div>
@@ -97,7 +101,7 @@ $proyectos              = get_field( 'proyectos' ) ?? [];
                                         <?php endif ?>
 
                                         <a class="tj-primary-btn" href="">
-                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas', 'Ver más' ) ); ?></span></span>
+                                            <span class="btn-text"><span><?php echo esc_html( $texto_ver_mas ); ?></span></span>
                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                         </a>
 

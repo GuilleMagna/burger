@@ -1,8 +1,17 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_we_re_proud_to_partner_with_best_in_cl' => 'we’re proud to partner with best-in-class clients',
+    'imagen_assets_images_brands_brand_1_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-1-light.webp',
+    'imagen_assets_images_brands_brand_2_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-2-light.webp',
+    'imagen_assets_images_brands_brand_3_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-3-light.webp',
+    'imagen_assets_images_brands_brand_4_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-4-light.webp',
+    'imagen_assets_images_brands_brand_5_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-5-light.webp',
+    'imagen_assets_images_brands_brand_6_light_webp' => NAKAMA_THEME_URL . '/assets/images/brands/brand-6-light.webp',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Client Section 4 -->
@@ -11,7 +20,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     <div class="row">
         <div class="col-12">
         <div class="h6-client-title-wrapper">
-            <h6 class="h6-client-title"><?php echo esc_html( $burger_get( 'texto_we_re_proud_to_partner_with_best_in_cl', 'we’re proud to partner with best-in-class clients' ) ); ?></h6>
+            <h6 class="h6-client-title"><?php echo esc_html( $texto_we_re_proud_to_partner_with_best_in_cl ); ?></h6>
         </div>
         </div>
         <div class="col-12">
@@ -19,32 +28,32 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <div class="swiper-wrapper">
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_1_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-1-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_1_light_webp ); ?>" alt="">
                 </div>
             </div>
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_2_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-2-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_2_light_webp ); ?>" alt="">
                 </div>
             </div>
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_3_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-3-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_3_light_webp ); ?>" alt="">
                 </div>
             </div>
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_4_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-4-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_4_light_webp ); ?>" alt="">
                 </div>
             </div>
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_5_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-5-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_5_light_webp ); ?>" alt="">
                 </div>
             </div>
             <div class="swiper-slide client-item">
                 <div class="client-logo">
-                <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_brands_brand_6_light_webp', NAKAMA_THEME_URL . '/assets/images/brands/brand-6-light.webp' ) ); ?>" alt="">
+                <img src="<?php echo esc_url( $imagen_assets_images_brands_brand_6_light_webp ); ?>" alt="">
                 </div>
             </div>
             </div>

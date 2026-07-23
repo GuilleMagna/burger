@@ -1,8 +1,20 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'imagen_assets_images_choose_h8_choose_bnner_webp' => NAKAMA_THEME_URL . '/assets/images/choose/h8-choose-bnner.webp',
+    'texto_choose_the_best' => 'Choose the Best',
+    'texto_empowering_business_with_expertise' => 'Empowering Business with Expertise.',
+    'texto_innovative_solutions' => 'Innovative Solutions',
+    'texto_our_team_is_always_available_to_addres' => 'Our team is always available to address your concerns, providing quick and effective solution to keep your business expert option.',
+    'texto_winning_expertise' => 'Winning Expertise',
+    'texto_recognized_by_industry_leaders_our_awa' => 'Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects base work',
+    'texto_dedicated_support' => 'Dedicated Support',
+    'texto_our_team_is_always_available_to_addres_2' => 'Our team is always available to address your concerns, providing quick and effective solution to keep your business for any business.',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Choose Section 6 -->
@@ -12,15 +24,15 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
         <div class="col-12 col-lg-6 align-self-stretch">
         <div class="h8-choose-banner">
             <img data-speed=".8" class="wow fadeInLeftBig" data-wow-delay=".3s"
-            src="<?php echo esc_url( $burger_get( 'imagen_assets_images_choose_h8_choose_bnner_webp', NAKAMA_THEME_URL . '/assets/images/choose/h8-choose-bnner.webp' ) ); ?>" alt="">
+            src="<?php echo esc_url( $imagen_assets_images_choose_h8_choose_bnner_webp ); ?>" alt="">
         </div>
         </div>
 
         <div class="col-12 col-lg-6">
         <div class="h8-choose-content-wrapper">
             <div class="sec-heading style-3">
-            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_choose_the_best', 'Choose the Best' ) ); ?></span>
-            <h2 class="sec-title title-anim"><?php echo esc_html( $burger_get( 'texto_empowering_business_with_expertise', 'Empowering Business with Expertise.' ) ); ?></h2>
+            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $texto_choose_the_best ); ?></span>
+            <h2 class="sec-title title-anim"><?php echo esc_html( $texto_empowering_business_with_expertise ); ?></h2>
             </div>
             <div class="h8-choose-box-wrapper ">
             <div class="choose-box h6-choose-box h8-choose-box  wow fadeInUp" data-wow-delay=".3s">
@@ -29,8 +41,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <i class="tji-innovative"></i>
                 </div>
                 <div>
-                    <h4 class="title"><?php echo esc_html( $burger_get( 'texto_innovative_solutions', 'Innovative Solutions' ) ); ?></h4>
-                    <p class="desc"><?php echo wp_kses_post( $burger_get( 'texto_our_team_is_always_available_to_addres', 'Our team is always available to address your concerns, providing quick and effective solution to keep your business expert option.' ) ); ?></p>
+                    <h4 class="title"><?php echo esc_html( $texto_innovative_solutions ); ?></h4>
+                    <p class="desc"><?php echo wp_kses_post( $texto_our_team_is_always_available_to_addres ); ?></p>
                 </div>
                 </div>
             </div>
@@ -40,8 +52,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <i class="tji-award"></i>
                 </div>
                 <div>
-                    <h4 class="title"><?php echo esc_html( $burger_get( 'texto_winning_expertise', 'Winning Expertise' ) ); ?></h4>
-                    <p class="desc"><?php echo wp_kses_post( $burger_get( 'texto_recognized_by_industry_leaders_our_awa', 'Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects base work' ) ); ?></p>
+                    <h4 class="title"><?php echo esc_html( $texto_winning_expertise ); ?></h4>
+                    <p class="desc"><?php echo wp_kses_post( $texto_recognized_by_industry_leaders_our_awa ); ?></p>
                 </div>
                 </div>
             </div>
@@ -51,8 +63,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <i class="tji-support"></i>
                 </div>
                 <div>
-                    <h4 class="title"><?php echo esc_html( $burger_get( 'texto_dedicated_support', 'Dedicated Support' ) ); ?></h4>
-                    <p class="desc"><?php echo wp_kses_post( $burger_get( 'texto_our_team_is_always_available_to_addres_2', 'Our team is always available to address your concerns, providing quick and effective solution to keep your business for any business.' ) ); ?></p>
+                    <h4 class="title"><?php echo esc_html( $texto_dedicated_support ); ?></h4>
+                    <p class="desc"><?php echo wp_kses_post( $texto_our_team_is_always_available_to_addres_2 ); ?></p>
                 </div>
 
                 </div>
@@ -65,7 +77,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     </div>
     </div>
     <div class="bg-shape-2">
-    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 </section>
 <!-- end: Choose Section 6 -->

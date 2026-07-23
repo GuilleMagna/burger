@@ -1,8 +1,18 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_our_fun_fact' => 'OUR FUN FACT',
+    'texto_numbers_and_facts_that_define_performa' => 'Numbers and facts that define performance.',
+    'texto_increased_revenue_in_the_last_6_months' => 'Increased revenue in the last 6 months.',
+    'texto_faster_growth' => 'Faster Growth',
+    'texto_reach_worldwide' => 'Reach Worldwide',
+    'texto_projects_completed' => 'Projects Completed.',
+    'imagen_assets_images_shape_pattern_2_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg',
+    'imagen_assets_images_shape_pattern_3_svg' => NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Fun fact Section -->
@@ -12,8 +22,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
         <div class="col-lg-12">
         <div class="heading-wrap-content">
             <div class="sec-heading style-4">
-            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $burger_get( 'texto_our_fun_fact', 'OUR FUN FACT' ) ); ?></span>
-            <h2 class="sec-title title-anim"><?php echo esc_html( $burger_get( 'texto_numbers_and_facts_that_define_performa', 'Numbers and facts that define performance.' ) ); ?></h2>
+            <span class="sub-title wow fadeInUp" data-wow-delay=".3s"><i class="tji-box"></i><?php echo esc_html( $texto_our_fun_fact ); ?></span>
+            <h2 class="sec-title title-anim"><?php echo esc_html( $texto_numbers_and_facts_that_define_performa ); ?></h2>
             </div>
             <div class="progress-item">
             <div class="progress-circle">
@@ -22,7 +32,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                 data-readonly="true" disabled>
             </div>
             <div class="progress-text">
-                <span class="sub-title"><?php echo esc_html( $burger_get( 'texto_increased_revenue_in_the_last_6_months', 'Increased revenue in the last 6 months.' ) ); ?></span>
+                <span class="sub-title"><?php echo esc_html( $texto_increased_revenue_in_the_last_6_months ); ?></span>
             </div>
             </div>
         </div>
@@ -34,7 +44,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <span class="count-icon"><i class="tji-growth"></i></span>
             <span class="steps">01.</span>
             <div class="count-inner">
-            <span class="count-text"><?php echo esc_html( $burger_get( 'texto_faster_growth', 'Faster Growth' ) ); ?></span>
+            <span class="count-text"><?php echo esc_html( $texto_faster_growth ); ?></span>
             <div class="inline-content">
                 <span class="odometer countup-number" data-count="8.5"></span>
                 <span class="count-plus">X</span>
@@ -47,7 +57,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <span class="count-icon"><i class="tji-worldwide"></i></span>
             <span class="steps">02.</span>
             <div class="count-inner">
-            <span class="count-text"><?php echo esc_html( $burger_get( 'texto_reach_worldwide', 'Reach Worldwide' ) ); ?></span>
+            <span class="count-text"><?php echo esc_html( $texto_reach_worldwide ); ?></span>
             <div class="inline-content">
                 <span class="odometer countup-number" data-count="20"></span>
                 <span class="count-plus">M</span>
@@ -60,7 +70,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
             <span class="count-icon"><i class="tji-complete"></i></span>
             <span class="steps">03.</span>
             <div class="count-inner">
-            <span class="count-text"><?php echo esc_html( $burger_get( 'texto_projects_completed', 'Projects Completed.' ) ); ?></span>
+            <span class="count-text"><?php echo esc_html( $texto_projects_completed ); ?></span>
             <div class="inline-content">
                 <span class="odometer countup-number" data-count="93"></span>
                 <span class="count-plus">%</span>
@@ -71,10 +81,10 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
     </div>
     </div>
     <div class="bg-shape-1">
-    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_2_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-2.svg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_2_svg ); ?>" alt="">
     </div>
     <div class="bg-shape-2">
-    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pattern_3_svg', NAKAMA_THEME_URL . '/assets/images/shape/pattern-3.svg' ) ); ?>" alt="">
+    <img src="<?php echo esc_url( $imagen_assets_images_shape_pattern_3_svg ); ?>" alt="">
     </div>
 </section>
 <!-- end: Fun fact Section -->

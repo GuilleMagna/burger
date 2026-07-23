@@ -1,15 +1,20 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'toptitulo_proyectos' => '',
+    'titulo_proyectos' => '',
+    'texto_proyectos' => '',
+    'proyectos' => array(),
+    'link_portfolio_html' => 'portfolio.html',
+    'texto_mas_productos' => 'Más productos',
+    'link_portfolio_details_html' => 'portfolio-details.html',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <?php
-$toptitulo_proyectos    = get_field( 'toptitulo_proyectos' );
-$titulo_proyectos       = get_field( 'titulo_proyectos' );
-$texto_proyectos        = get_field( 'texto_proyectos' );
-$proyectos              = get_field( 'proyectos' );
 ?>
 
 <!-- start: Project Section 7 -->
@@ -32,8 +37,8 @@ $proyectos              = get_field( 'proyectos' );
                     </h2>
 
                     <div class=" wow fadeInUp" data-wow-delay=".3s">
-                        <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_portfolio_html', 'portfolio.html' ) ); ?>">
-                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_mas_productos', 'Más productos' ) ); ?> </span></span>
+                        <a class="tj-primary-btn" href="<?php echo esc_url( $link_portfolio_html ); ?>">
+                            <span class="btn-text"><span><?php echo esc_html( $texto_mas_productos ); ?> </span></span>
                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                         </a>
                     </div>
@@ -60,7 +65,7 @@ $proyectos              = get_field( 'proyectos' );
 
                                     <div>
                                         <h3 class="title">
-                                            <a href="<?php echo esc_url( $burger_get( 'link_portfolio_details_html', 'portfolio-details.html' ) ); ?>">
+                                            <a href="<?php echo esc_url( $link_portfolio_details_html ); ?>">
                                                 <?= $titulo ?>
                                             </a>
                                         </h3>

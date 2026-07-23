@@ -1,4 +1,17 @@
 <?php
+$content_fields = array(
+    'imagen' => '',
+    'sobre_titulo' => 'SOMOS DCM',
+    'titulo' => 'Fabricamos, reparamos y acompañamos.',
+    'descripcion' => 'Desde hace más de 20 años diseñamos y fabricamos equipos robustos, brindamos servicio técnico especializado y soluciones neumáticas adaptadas a cada industria.',
+    'items' => [],
+    'boton_texto' => 'Conocé más sobre DCM',
+    'boton_link' => [],
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 /**
  * Block Name: About 12
  *
@@ -18,17 +31,8 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$classes .= ' align' . sanitize_html_class( $block['align'] );
 }
-
-$imagen       = get_field( 'imagen' );
 $imagen_url   = is_array( $imagen ) ? ( $imagen['url'] ?? '' ) : $imagen;
 $imagen_alt   = is_array( $imagen ) ? ( $imagen['alt'] ?? '' ) : '';
-$sobre_titulo = get_field( 'sobre_titulo' ) ?? 'SOMOS DCM';
-$titulo       = get_field( 'titulo' ) ?? 'Fabricamos, reparamos y acompañamos.';
-$descripcion  = get_field( 'descripcion' ) ?? 'Desde hace más de 20 años diseñamos y fabricamos equipos robustos, brindamos servicio técnico especializado y soluciones neumáticas adaptadas a cada industria.';
-$items        = get_field( 'items' ) ?? [];
-$boton_texto  = get_field( 'boton_texto' ) ?? 'Conocé más sobre DCM';
-$boton_link   = get_field( 'boton_link' ) ?? [];
-
 $boton_url    = is_array( $boton_link ) ? ( $boton_link['url'] ?? '' ) : $boton_link;
 $boton_target = is_array( $boton_link ) ? ( $boton_link['target'] ?? '_self' ) : '_self';
 

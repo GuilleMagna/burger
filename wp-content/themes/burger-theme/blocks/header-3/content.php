@@ -1,8 +1,176 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_contacto' => 'Contacto',
+    'texto_visitanos' => 'Visítanos!',
+    'link_https_www_facebook_com' => 'https://www.facebook.com/',
+    'link_https_www_instagram_com' => 'https://www.instagram.com/',
+    'link_https_x_com' => 'https://x.com/',
+    'link_https_www_linkedin_com' => 'https://www.linkedin.com/',
+    'texto_ver_mas' => 'Ver más',
+    'texto_inicio' => 'Inicio',
+    'imagen_assets_images_header_demo_home_1_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-1.webp',
+    'link_index_html' => 'index.html',
+    'texto_view_demo' => 'View demo',
+    'link_index_html_2' => 'index.html',
+    'texto_homepage_01' => 'Homepage - 01',
+    'imagen_assets_images_header_demo_home_2_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-2.webp',
+    'link_index_2_html' => 'index-2.html',
+    'texto_view_demo_2' => 'View demo',
+    'link_index_2_html_2' => 'index-2.html',
+    'texto_homepage_02' => 'Homepage - 02',
+    'imagen_assets_images_header_demo_home_3_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-3.webp',
+    'link_index_3_html' => 'index-3.html',
+    'texto_view_demo_3' => 'View demo',
+    'link_index_3_html_2' => 'index-3.html',
+    'texto_homepage_03' => 'Homepage - 03',
+    'imagen_assets_images_header_demo_home_4_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-4.webp',
+    'link_index_4_html' => 'index-4.html',
+    'texto_view_demo_4' => 'View demo',
+    'link_index_4_html_2' => 'index-4.html',
+    'texto_homepage_04' => 'Homepage - 04',
+    'imagen_assets_images_header_demo_home_5_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-5.webp',
+    'link_index_5_html' => 'index-5.html',
+    'texto_view_demo_5' => 'View demo',
+    'link_index_5_html_2' => 'index-5.html',
+    'texto_homepage_05' => 'Homepage - 05',
+    'imagen_assets_images_header_demo_home_6_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-6.webp',
+    'link_index_6_html' => 'index-6.html',
+    'texto_view_demo_6' => 'View demo',
+    'link_index_6_html_2' => 'index-6.html',
+    'texto_homepage_06' => 'Homepage - 06',
+    'imagen_assets_images_header_demo_home_7_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-7.webp',
+    'link_index_7_html' => 'index-7.html',
+    'texto_view_demo_7' => 'View demo',
+    'link_index_7_html_2' => 'index-7.html',
+    'texto_homepage_07' => 'Homepage - 07',
+    'imagen_assets_images_header_demo_home_8_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-8.webp',
+    'texto_new' => 'New',
+    'link_index_8_html' => 'index-8.html',
+    'texto_view_demo_8' => 'View demo',
+    'link_index_8_html_2' => 'index-8.html',
+    'texto_homepage_08' => 'Homepage - 08',
+    'imagen_assets_images_header_demo_home_9_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-9.webp',
+    'texto_new_2' => 'New',
+    'link_index_9_html' => 'index-9.html',
+    'texto_view_demo_9' => 'View demo',
+    'link_index_9_html_2' => 'index-9.html',
+    'texto_homepage_09' => 'Homepage - 09',
+    'imagen_assets_images_header_demo_home_10_webp' => NAKAMA_THEME_URL . '/assets/images/header/demo/home-10.webp',
+    'texto_new_3' => 'New',
+    'link_index_10_html' => 'index-10.html',
+    'texto_view_demo_10' => 'View demo',
+    'link_index_10_html_2' => 'index-10.html',
+    'texto_homepage_10' => 'Homepage - 10',
+    'link_about_html' => 'about.html',
+    'texto_paginas' => 'Paginas',
+    'texto_main_pages' => 'Main Pages',
+    'link_about_html_2' => 'about.html',
+    'texto_about_us' => 'About us',
+    'link_history_html' => 'history.html',
+    'texto_our_history' => 'Our history',
+    'texto_hot' => 'HOT',
+    'link_team_html' => 'team.html',
+    'texto_team' => 'Team',
+    'link_team_details_html' => 'team-details.html',
+    'texto_team_details' => 'Team details',
+    'link_careers_html' => 'careers.html',
+    'texto_careers' => 'Careers',
+    'texto_new_4' => 'NEW',
+    'link_careers_details_html' => 'careers-details.html',
+    'texto_careers_details' => 'Careers details',
+    'link_pricing_html' => 'pricing.html',
+    'texto_pricing_plan' => 'Pricing plan',
+    'texto_feedbacks' => 'Feedbacks',
+    'link_faq_html' => 'faq.html',
+    'texto_faq' => 'Faq',
+    'link_contact_html' => 'contact.html',
+    'texto_contact' => 'Contact',
+    'texto_other_pages' => 'Other Pages',
+    'link_service_html' => 'service.html',
+    'texto_services' => 'Services',
+    'link_service_details_html' => 'service-details.html',
+    'texto_service_details' => 'Service details',
+    'link_portfolio_html' => 'portfolio.html',
+    'texto_portfolio' => 'Portfolio',
+    'link_portfolio_details_html' => 'portfolio-details.html',
+    'texto_portfolio_details' => 'Portfolio details',
+    'link_error_html' => 'error.html',
+    'texto_error_404' => 'Error 404',
+    'link_blog_grid_html' => 'blog-grid.html',
+    'texto_blog_grid' => 'Blog grid',
+    'texto_new_5' => 'NEW',
+    'link_blog_html' => 'blog.html',
+    'texto_blog_standard' => 'Blog standard',
+    'link_blog_details_html' => 'blog-details.html',
+    'texto_blog_details' => 'Blog details',
+    'link_terms_and_conditions_html' => 'terms-and-conditions.html',
+    'texto_term_conditions' => 'Term & conditions',
+    'texto_recognition' => 'Recognition',
+    'texto_new_6' => 'NEW',
+    'texto_shop_pages' => 'Shop Pages',
+    'link_shop_html' => 'shop.html',
+    'texto_shop' => 'Shop',
+    'texto_hot_2' => 'HOT',
+    'link_shop_details_html' => 'shop-details.html',
+    'texto_shop_details' => 'Shop details',
+    'link_cart_html' => 'cart.html',
+    'texto_cart' => 'Cart',
+    'link_checkout_html' => 'checkout.html',
+    'texto_checkout' => 'Checkout',
+    'link_wishlist_html' => 'wishlist.html',
+    'texto_wishlist' => 'Wishlist',
+    'texto_new_7' => 'NEW',
+    'link_login_html' => 'login.html',
+    'texto_login' => 'Login',
+    'texto_tracking' => 'Tracking',
+    'texto_order_confirm' => 'Order confirm',
+    'link_login_html_2' => 'login.html',
+    'texto_registration' => 'Registration',
+    'texto_coming_soon' => 'Coming soon',
+    'texto_modern' => 'Modern',
+    'texto_home_makeover' => 'Home Makeover',
+    'imagen_assets_images_service_service_ad_webp' => NAKAMA_THEME_URL . '/assets/images/service/service-ad.webp',
+    'link_service_html_2' => 'service.html',
+    'texto_servicios' => 'Servicios',
+    'link_service_details_html_2' => 'service-details.html',
+    'texto_business_strategy_development' => 'Business Strategy Development',
+    'link_service_details_html_3' => 'service-details.html',
+    'texto_customer_experience_solutions' => 'Customer Experience Solutions',
+    'link_service_details_html_4' => 'service-details.html',
+    'texto_sustainability_and_esg_consulting' => 'Sustainability and ESG Consulting',
+    'link_service_details_html_5' => 'service-details.html',
+    'texto_training_and_development_programs' => 'Training and Development Programs',
+    'link_service_details_html_6' => 'service-details.html',
+    'texto_it_support_maintenance' => 'IT Support & Maintenance',
+    'link_service_details_html_7' => 'service-details.html',
+    'texto_marketing_strategy_campaigns' => 'Marketing Strategy & Campaigns',
+    'link_portfolio_html_2' => 'portfolio.html',
+    'texto_productos' => 'Productos',
+    'link_portfolio_html_3' => 'portfolio.html',
+    'texto_portfolio_2' => 'Portfolio',
+    'link_portfolio_details_html_2' => 'portfolio-details.html',
+    'texto_portfolio_details_2' => 'Portfolio Details',
+    'link_blog_html_2' => 'blog.html',
+    'texto_blog' => 'Blog',
+    'link_blog_html_3' => 'blog.html',
+    'texto_blog_2' => 'Blog',
+    'link_blog_grid_html_2' => 'blog-grid.html',
+    'texto_blog_grid_2' => 'Blog Grid',
+    'link_blog_right_sidebar_html' => 'blog-right-sidebar.html',
+    'texto_blog_right_sidebar' => 'Blog Right Sidebar',
+    'link_blog_details_html_2' => 'blog-details.html',
+    'texto_blog_details_2' => 'Blog Details',
+    'link_contacto' => 'contacto',
+    'texto_contacto_2' => 'Contacto',
+    'link_contact_html_2' => 'contact.html',
+    'texto_contacto_3' => 'Contacto',
+    'texto_ver_mas_2' => 'Ver más',
+    'texto_contacto_4' => 'Contacto',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 
@@ -20,14 +188,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                     <div class="header-top-content">
 
                         <p class="topbar-text">
-                            <a href=""><?php echo esc_html( $burger_get( 'texto_contacto', 'Contacto' ) ); ?></a>
+                            <a href=""><?php echo esc_html( $texto_contacto ); ?></a>
                         </p>
 
                         <div class="header-info">
 
                             <div class="info-item">
                                 <span><i class="tji-location"></i></span>
-                                <a href="#"><?php echo esc_html( $burger_get( 'texto_visitanos', 'Visítanos!' ) ); ?></a>
+                                <a href="#"><?php echo esc_html( $texto_visitanos ); ?></a>
                             </div>
 
                             <div class="info-item">
@@ -41,15 +209,15 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                     <ul>
                                         <li>
-                                            <a href="<?php echo esc_url( $burger_get( 'link_https_www_facebook_com', 'https://www.facebook.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                            <a href="<?php echo esc_url( $link_https_www_facebook_com ); ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo esc_url( $burger_get( 'link_https_www_instagram_com', 'https://www.instagram.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                            <a href="<?php echo esc_url( $link_https_www_instagram_com ); ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                                         </li>
                                         <li>
-                                            <a href="<?php echo esc_url( $burger_get( 'link_https_x_com', 'https://x.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                            <a href="<?php echo esc_url( $link_https_x_com ); ?>" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
                                         <li>
-                                            <a href="<?php echo esc_url( $burger_get( 'link_https_www_linkedin_com', 'https://www.linkedin.com/' ) ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="<?php echo esc_url( $link_https_www_linkedin_com ); ?>" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                                         </li>
                                     </ul>
 
@@ -128,7 +296,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                                         <div class="tj-demo-button">
                                                                                             <a href="<?= $item['url'] ?>" class="tj-primary-btn header_btn">
-                                                                                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas', 'Ver más' ) ); ?></span></span>
+                                                                                                <span class="btn-text"><span><?php echo esc_html( $texto_ver_mas ); ?></span></span>
                                                                                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                                                             </a>
                                                                                         </div>
@@ -280,7 +448,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                         <!--div class="menu-area d-none d-lg-inline-flex align-items-center">
                             <nav id="mobile-menu" class="mainmenu">
                                 <ul>
-                                    <li class="has-dropdown current-menu-ancestor"><a href=""><?php echo esc_html( $burger_get( 'texto_inicio', 'Inicio' ) ); ?></a>
+                                    <li class="has-dropdown current-menu-ancestor"><a href=""><?php echo esc_html( $texto_inicio ); ?></a>
                                         <ul class="sub-menu header__mega-menu mega-menu  ">
                                         <li>
                                             <div class="mega-menu-wrapper">
@@ -289,161 +457,161 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb ">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_1_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-1.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_1_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_html', 'index.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
 
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_html_2', 'index.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_01', 'Homepage - 01' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_html_2 ); ?>"><?php echo esc_html( $texto_homepage_01 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_2_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-2.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_2_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_2_html', 'index-2.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_2', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_2_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_2 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
 
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_2_html_2', 'index-2.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_02', 'Homepage - 02' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_2_html_2 ); ?>"><?php echo esc_html( $texto_homepage_02 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_3_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-3.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_3_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_3_html', 'index-3.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_3', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_3_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_3 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_3_html_2', 'index-3.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_03', 'Homepage - 03' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_3_html_2 ); ?>"><?php echo esc_html( $texto_homepage_03 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb ">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_4_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-4.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_4_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_4_html', 'index-4.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_4', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_4_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_4 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_4_html_2', 'index-4.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_04', 'Homepage - 04' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_4_html_2 ); ?>"><?php echo esc_html( $texto_homepage_04 ); ?></a></h6>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_5_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-5.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_5_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_5_html', 'index-5.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_5', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_5_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_5 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_5_html_2', 'index-5.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_05', 'Homepage - 05' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_5_html_2 ); ?>"><?php echo esc_html( $texto_homepage_05 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_6_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-6.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_6_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_6_html', 'index-6.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_6', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_6_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_6 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
 
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_6_html_2', 'index-6.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_06', 'Homepage - 06' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_6_html_2 ); ?>"><?php echo esc_html( $texto_homepage_06 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb ">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_7_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-7.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_7_webp ); ?>" alt="">
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_7_html', 'index-7.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_7', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_7_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_7 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_7_html_2', 'index-7.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_07', 'Homepage - 07' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_7_html_2 ); ?>"><?php echo esc_html( $texto_homepage_07 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_8_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-8.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_8_webp ); ?>" alt="">
                                                         <h6 class="tj-demo-badge tj-zoom-in-out-anim">
-                                                        <?php echo esc_html( $burger_get( 'texto_new', 'New' ) ); ?>
+                                                        <?php echo esc_html( $texto_new ); ?>
                                                         </h6>
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_8_html', 'index-8.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_8', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_8_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_8 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_8_html_2', 'index-8.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_08', 'Homepage - 08' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_8_html_2 ); ?>"><?php echo esc_html( $texto_homepage_08 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_9_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-9.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_9_webp ); ?>" alt="">
                                                         <h6 class="tj-demo-badge tj-zoom-in-out-anim">
-                                                        <?php echo esc_html( $burger_get( 'texto_new_2', 'New' ) ); ?>
+                                                        <?php echo esc_html( $texto_new_2 ); ?>
                                                         </h6>
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_9_html', 'index-9.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_9', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_9_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_9 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_9_html_2', 'index-9.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_09', 'Homepage - 09' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_9_html_2 ); ?>"><?php echo esc_html( $texto_homepage_09 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-12">
                                                     <div class="tj-demo-thumb ">
                                                     <div class="image">
-                                                        <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_header_demo_home_10_webp', NAKAMA_THEME_URL . '/assets/images/header/demo/home-10.webp' ) ); ?>" alt="">
+                                                        <img src="<?php echo esc_url( $imagen_assets_images_header_demo_home_10_webp ); ?>" alt="">
                                                         <h6 class="tj-demo-badge tj-zoom-in-out-anim">
-                                                        <?php echo esc_html( $burger_get( 'texto_new_3', 'New' ) ); ?>
+                                                        <?php echo esc_html( $texto_new_3 ); ?>
                                                         </h6>
                                                         <div class="tj-demo-button">
-                                                        <a href="<?php echo esc_url( $burger_get( 'link_index_10_html', 'index-10.html' ) ); ?>" class="tj-primary-btn header_btn">
-                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_view_demo_10', 'View demo' ) ); ?></span></span>
+                                                        <a href="<?php echo esc_url( $link_index_10_html ); ?>" class="tj-primary-btn header_btn">
+                                                            <span class="btn-text"><span><?php echo esc_html( $texto_view_demo_10 ); ?></span></span>
                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                         </a>
                                                         </div>
                                                     </div>
-                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $burger_get( 'link_index_10_html_2', 'index-10.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_homepage_10', 'Homepage - 10' ) ); ?></a></h6>
+                                                    <h6 class="tj-demo-title"><a href="<?php echo esc_url( $link_index_10_html_2 ); ?>"><?php echo esc_html( $texto_homepage_10 ); ?></a></h6>
 
                                                     </div>
                                                 </div>
@@ -454,27 +622,27 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                         </li>
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="<?php echo esc_url( $burger_get( 'link_about_html', 'about.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_paginas', 'Paginas' ) ); ?></a>
+                                    <li class="has-dropdown"><a href="<?php echo esc_url( $link_about_html ); ?>"><?php echo esc_html( $texto_paginas ); ?></a>
                                         <ul class="sub-menu header__mega-menu mega-menu mega-menu-pages">
                                         <li>
                                             <div class="mega-menu-wrapper">
 
                                             <div class="mega-menu-pages-single">
                                                 <div class="mega-menu-pages-single-inner">
-                                                <h6 class="mega-menu-title"><?php echo esc_html( $burger_get( 'texto_main_pages', 'Main Pages' ) ); ?></h6>
+                                                <h6 class="mega-menu-title"><?php echo esc_html( $texto_main_pages ); ?></h6>
                                                 <div class="mega-menu-list">
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_about_html_2', 'about.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_about_us', 'About us' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_history_html', 'history.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_our_history', 'Our history' ) ); ?> <span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim mega-menu-badge-hot "><?php echo esc_html( $burger_get( 'texto_hot', 'HOT' ) ); ?></span></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_team_html', 'team.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_team', 'Team' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_team_details_html', 'team-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_team_details', 'Team details' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_careers_html', 'careers.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_careers', 'Careers' ) ); ?> <span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $burger_get( 'texto_new_4', 'NEW' ) ); ?></span></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_careers_details_html', 'careers-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_careers_details', 'Careers details' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_pricing_html', 'pricing.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_pricing_plan', 'Pricing plan' ) ); ?></a>
-                                                    <a href="#"><?php echo esc_html( $burger_get( 'texto_feedbacks', 'Feedbacks' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_faq_html', 'faq.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_faq', 'Faq' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_contact_html', 'contact.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_contact', 'Contact' ) ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_about_html_2 ); ?>"><?php echo esc_html( $texto_about_us ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_history_html ); ?>"><?php echo esc_html( $texto_our_history ); ?> <span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim mega-menu-badge-hot "><?php echo esc_html( $texto_hot ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_team_html ); ?>"><?php echo esc_html( $texto_team ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_team_details_html ); ?>"><?php echo esc_html( $texto_team_details ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_careers_html ); ?>"><?php echo esc_html( $texto_careers ); ?> <span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $texto_new_4 ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_careers_details_html ); ?>"><?php echo esc_html( $texto_careers_details ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_pricing_html ); ?>"><?php echo esc_html( $texto_pricing_plan ); ?></a>
+                                                    <a href="#"><?php echo esc_html( $texto_feedbacks ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_faq_html ); ?>"><?php echo esc_html( $texto_faq ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_contact_html ); ?>"><?php echo esc_html( $texto_contact ); ?></a>
 
 
                                                 </div>
@@ -483,20 +651,20 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                             </div>
                                             <div class="mega-menu-pages-single">
                                                 <div class="mega-menu-pages-single-inner">
-                                                <h6 class="mega-menu-title"><?php echo esc_html( $burger_get( 'texto_other_pages', 'Other Pages' ) ); ?></h6>
+                                                <h6 class="mega-menu-title"><?php echo esc_html( $texto_other_pages ); ?></h6>
                                                 <div class="mega-menu-list">
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_service_html', 'service.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_services', 'Services' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_service_details_html', 'service-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_service_details', 'Service details' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_portfolio_html', 'portfolio.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_portfolio', 'Portfolio' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_portfolio_details_html', 'portfolio-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_portfolio_details', 'Portfolio details' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_error_html', 'error.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_error_404', 'Error 404' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_blog_grid_html', 'blog-grid.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_grid', 'Blog grid' ) ); ?> <span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $burger_get( 'texto_new_5', 'NEW' ) ); ?></span></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_blog_html', 'blog.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_standard', 'Blog standard' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_blog_details_html', 'blog-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_details', 'Blog details' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_terms_and_conditions_html', 'terms-and-conditions.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_term_conditions', 'Term & conditions' ) ); ?></a>
-                                                    <a href="#"><?php echo esc_html( $burger_get( 'texto_recognition', 'Recognition' ) ); ?> <span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $burger_get( 'texto_new_6', 'NEW' ) ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_service_html ); ?>"><?php echo esc_html( $texto_services ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_service_details_html ); ?>"><?php echo esc_html( $texto_service_details ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_portfolio_html ); ?>"><?php echo esc_html( $texto_portfolio ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_portfolio_details_html ); ?>"><?php echo esc_html( $texto_portfolio_details ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_error_html ); ?>"><?php echo esc_html( $texto_error_404 ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_blog_grid_html ); ?>"><?php echo esc_html( $texto_blog_grid ); ?> <span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $texto_new_5 ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_blog_html ); ?>"><?php echo esc_html( $texto_blog_standard ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_blog_details_html ); ?>"><?php echo esc_html( $texto_blog_details ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_terms_and_conditions_html ); ?>"><?php echo esc_html( $texto_term_conditions ); ?></a>
+                                                    <a href="#"><?php echo esc_html( $texto_recognition ); ?> <span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $texto_new_6 ); ?></span></a>
 
 
                                                 </div>
@@ -505,21 +673,21 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                             </div>
                                             <div class=" mega-menu-pages-single">
                                                 <div class="mega-menu-pages-single-inner">
-                                                <h6 class="mega-menu-title"><?php echo esc_html( $burger_get( 'texto_shop_pages', 'Shop Pages' ) ); ?></h6>
+                                                <h6 class="mega-menu-title"><?php echo esc_html( $texto_shop_pages ); ?></h6>
                                                 <div class="mega-menu-list">
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_shop_html', 'shop.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_shop', 'Shop' ) ); ?> <span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim mega-menu-badge-hot "><?php echo esc_html( $burger_get( 'texto_hot_2', 'HOT' ) ); ?></span></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_shop_details_html', 'shop-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_shop_details', 'Shop details' ) ); ?> </a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_cart_html', 'cart.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_cart', 'Cart' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_checkout_html', 'checkout.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_checkout', 'Checkout' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_wishlist_html', 'wishlist.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_wishlist', 'Wishlist' ) ); ?><span
-                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $burger_get( 'texto_new_7', 'NEW' ) ); ?></span></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_login_html', 'login.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_login', 'Login' ) ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_shop_html ); ?>"><?php echo esc_html( $texto_shop ); ?> <span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim mega-menu-badge-hot "><?php echo esc_html( $texto_hot_2 ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_shop_details_html ); ?>"><?php echo esc_html( $texto_shop_details ); ?> </a>
+                                                    <a href="<?php echo esc_url( $link_cart_html ); ?>"><?php echo esc_html( $texto_cart ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_checkout_html ); ?>"><?php echo esc_html( $texto_checkout ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_wishlist_html ); ?>"><?php echo esc_html( $texto_wishlist ); ?><span
+                                                        class="mega-menu-badge tj-zoom-in-out-anim "><?php echo esc_html( $texto_new_7 ); ?></span></a>
+                                                    <a href="<?php echo esc_url( $link_login_html ); ?>"><?php echo esc_html( $texto_login ); ?></a>
 
-                                                    <a href="#"><?php echo esc_html( $burger_get( 'texto_tracking', 'Tracking' ) ); ?></a>
-                                                    <a href="#"><?php echo esc_html( $burger_get( 'texto_order_confirm', 'Order confirm' ) ); ?></a>
-                                                    <a href="<?php echo esc_url( $burger_get( 'link_login_html_2', 'login.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_registration', 'Registration' ) ); ?></a>
-                                                    <a href="#"><?php echo esc_html( $burger_get( 'texto_coming_soon', 'Coming soon' ) ); ?></a>
+                                                    <a href="#"><?php echo esc_html( $texto_tracking ); ?></a>
+                                                    <a href="#"><?php echo esc_html( $texto_order_confirm ); ?></a>
+                                                    <a href="<?php echo esc_url( $link_login_html_2 ); ?>"><?php echo esc_html( $texto_registration ); ?></a>
+                                                    <a href="#"><?php echo esc_html( $texto_coming_soon ); ?></a>
                                                 </div>
                                                 </div>
 
@@ -528,15 +696,15 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                                 <div class="mega-menu-pages-single-inner">
                                                 <div class="feature-box">
                                                     <div class="feature-content">
-                                                    <h2 class="title"><?php echo esc_html( $burger_get( 'texto_modern', 'Modern' ) ); ?></h2>
-                                                    <span><?php echo esc_html( $burger_get( 'texto_home_makeover', 'Home Makeover' ) ); ?></span>
+                                                    <h2 class="title"><?php echo esc_html( $texto_modern ); ?></h2>
+                                                    <span><?php echo esc_html( $texto_home_makeover ); ?></span>
                                                     <a class="read-more feature-contact" href="tel:8321890640">
                                                         <i class="tji-phone-3"></i>
                                                         <span>+8 (321) 890-640</span>
                                                     </a>
                                                     </div>
                                                     <div class="feature-images">
-                                                    <img src="<?php echo esc_url( $burger_get( 'imagen_assets_images_service_service_ad_webp', NAKAMA_THEME_URL . '/assets/images/service/service-ad.webp' ) ); ?>" alt="">
+                                                    <img src="<?php echo esc_url( $imagen_assets_images_service_service_ad_webp ); ?>" alt="">
                                                     </div>
                                                 </div>
                                                 </div>
@@ -546,62 +714,62 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                         </li>
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="<?php echo esc_url( $burger_get( 'link_service_html_2', 'service.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_servicios', 'Servicios' ) ); ?></a>
+                                    <li class="has-dropdown"><a href="<?php echo esc_url( $link_service_html_2 ); ?>"><?php echo esc_html( $texto_servicios ); ?></a>
                                         <ul class="sub-menu  mega-menu-service">
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_2', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_2 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-1"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_business_strategy_development', 'Business Strategy Development' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_business_strategy_development ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_3', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_3 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-2"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_customer_experience_solutions', 'Customer Experience Solutions' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_customer_experience_solutions ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_4', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_4 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-3"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_sustainability_and_esg_consulting', 'Sustainability and ESG Consulting' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_sustainability_and_esg_consulting ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_5', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_5 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-4"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_training_and_development_programs', 'Training and Development Programs' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_training_and_development_programs ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_6', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_6 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-5"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_it_support_maintenance', 'IT Support & Maintenance' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_it_support_maintenance ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
-                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $burger_get( 'link_service_details_html_7', 'service-details.html' ) ); ?>"> <span
+                                        <li> <a class="mega-menu-service-single" href="<?php echo esc_url( $link_service_details_html_7 ); ?>"> <span
                                                 class="mega-menu-service-icon">
                                                 <i class="tji-service-6"></i>
-                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $burger_get( 'texto_marketing_strategy_campaigns', 'Marketing Strategy & Campaigns' ) ); ?></span> <span
+                                            </span> <span class="mega-menu-service-title"><?php echo esc_html( $texto_marketing_strategy_campaigns ); ?></span> <span
                                                 class="mega-menu-service-nav"><i class="tji-arrow-right-long"></i><i
                                                 class="tji-arrow-right-long"></i></span></a></li>
 
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="<?php echo esc_url( $burger_get( 'link_portfolio_html_2', 'portfolio.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_productos', 'Productos' ) ); ?></a>
+                                    <li class="has-dropdown"><a href="<?php echo esc_url( $link_portfolio_html_2 ); ?>"><?php echo esc_html( $texto_productos ); ?></a>
                                         <ul class="sub-menu">
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_portfolio_html_3', 'portfolio.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_portfolio_2', 'Portfolio' ) ); ?></a></li>
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_portfolio_details_html_2', 'portfolio-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_portfolio_details_2', 'Portfolio Details' ) ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_portfolio_html_3 ); ?>"><?php echo esc_html( $texto_portfolio_2 ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_portfolio_details_html_2 ); ?>"><?php echo esc_html( $texto_portfolio_details_2 ); ?></a></li>
                                         </ul>
                                     </li>
-                                    <li class="has-dropdown"><a href="<?php echo esc_url( $burger_get( 'link_blog_html_2', 'blog.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog', 'Blog' ) ); ?></a>
+                                    <li class="has-dropdown"><a href="<?php echo esc_url( $link_blog_html_2 ); ?>"><?php echo esc_html( $texto_blog ); ?></a>
                                         <ul class="sub-menu">
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_blog_html_3', 'blog.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_2', 'Blog' ) ); ?></a></li>
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_blog_grid_html_2', 'blog-grid.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_grid_2', 'Blog Grid' ) ); ?></a></li>
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_blog_right_sidebar_html', 'blog-right-sidebar.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_right_sidebar', 'Blog Right Sidebar' ) ); ?></a></li>
-                                        <li><a href="<?php echo esc_url( $burger_get( 'link_blog_details_html_2', 'blog-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_blog_details_2', 'Blog Details' ) ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_blog_html_3 ); ?>"><?php echo esc_html( $texto_blog_2 ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_blog_grid_html_2 ); ?>"><?php echo esc_html( $texto_blog_grid_2 ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_blog_right_sidebar_html ); ?>"><?php echo esc_html( $texto_blog_right_sidebar ); ?></a></li>
+                                        <li><a href="<?php echo esc_url( $link_blog_details_html_2 ); ?>"><?php echo esc_html( $texto_blog_details_2 ); ?></a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="<?php echo esc_url( $burger_get( 'link_contacto', 'contacto' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_contacto_2', 'Contacto' ) ); ?></a></li>
+                                    <li><a href="<?php echo esc_url( $link_contacto ); ?>"><?php echo esc_html( $texto_contacto_2 ); ?></a></li>
                                 </ul>
                             </nav>
                         </div-->
@@ -624,8 +792,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                             </div>
 
                             <div class="header-button">
-                                <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_contact_html_2', 'contact.html' ) ); ?>">
-                                    <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_contacto_3', 'Contacto' ) ); ?></span></span>
+                                <a class="tj-primary-btn" href="<?php echo esc_url( $link_contact_html_2 ); ?>">
+                                    <span class="btn-text"><span><?php echo esc_html( $texto_contacto_3 ); ?></span></span>
                                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                 </a>
                             </div>
@@ -736,7 +904,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                                     <div class="tj-demo-button">
                                                                                         <a href="<?= $item['url'] ?>" class="tj-primary-btn header_btn">
-                                                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas_2', 'Ver más' ) ); ?></span></span>
+                                                                                            <span class="btn-text"><span><?php echo esc_html( $texto_ver_mas_2 ); ?></span></span>
                                                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                                                         </a>
                                                                                     </div>
@@ -904,7 +1072,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="header-button">
                             <a class="tj-primary-btn" href="">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_contacto_4', 'Contacto' ) ); ?></span></span>
+                                <span class="btn-text"><span><?php echo esc_html( $texto_contacto_4 ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                             </a>
                         </div>

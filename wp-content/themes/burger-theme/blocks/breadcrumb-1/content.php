@@ -1,8 +1,13 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'link_index_html' => '/',
+    'texto_inicio' => 'Inicio',
+    'imagen_assets_images_shape_pheader_overlay_webp' => NAKAMA_THEME_URL . '/assets/images/shape/pheader-overlay.webp',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <?php
@@ -27,7 +32,7 @@ global $post;
 
                         <span><i class="tji-home"></i></span>
                         <span>
-                            <a href="<?php echo esc_url( $burger_get( 'link_index_html', '/' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_inicio', 'Inicio' ) ); ?></a>
+                            <a href="<?php echo esc_url( $link_index_html ); ?>"><?php echo esc_html( $texto_inicio ); ?></a>
                         </span>
                         <span><i class="tji-arrow-right"></i></span>
                         <span>
@@ -44,7 +49,7 @@ global $post;
 
     </div>
 
-    <div class="page-header-overlay" data-bg-image="<?php echo esc_url( $burger_get( 'imagen_assets_images_shape_pheader_overlay_webp', NAKAMA_THEME_URL . '/assets/images/shape/pheader-overlay.webp' ) ); ?>"></div>
+    <div class="page-header-overlay" data-bg-image="<?php echo esc_url( $imagen_assets_images_shape_pheader_overlay_webp ); ?>"></div>
 
 </section>
 <!-- end: Breadcrumb Section -->

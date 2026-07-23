@@ -1,8 +1,16 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_ver_mas' => 'Ver más',
+    'link_contact_html' => 'contact.html',
+    'texto_contacto' => 'Contacto',
+    'texto_ver_mas_2' => 'Ver más',
+    'link_contact_html_2' => 'contact.html',
+    'texto_let_s_talk' => 'Let’s Talk',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 
@@ -70,7 +78,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                                     <div class="tj-demo-button">
                                                                                         <a href="<?= $item['url'] ?>" class="tj-primary-btn header_btn">
-                                                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas', 'Ver más' ) ); ?></span></span>
+                                                                                            <span class="btn-text"><span><?php echo esc_html( $texto_ver_mas ); ?></span></span>
                                                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                                                         </a>
                                                                                     </div>
@@ -225,8 +233,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                             <span class="call-text">1-888-452-1505</span>
                         </a>
                         <div class="header-button">
-                            <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_contact_html', 'contact.html' ) ); ?>">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_contacto', 'Contacto' ) ); ?></span></span>
+                            <a class="tj-primary-btn" href="<?php echo esc_url( $link_contact_html ); ?>">
+                                <span class="btn-text"><span><?php echo esc_html( $texto_contacto ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                             </a>
                         </div>
@@ -338,7 +346,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                                                                     <div class="tj-demo-button">
                                                                                         <a href="<?= $item['url'] ?>" class="tj-primary-btn header_btn">
-                                                                                            <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_ver_mas_2', 'Ver más' ) ); ?></span></span>
+                                                                                            <span class="btn-text"><span><?php echo esc_html( $texto_ver_mas_2 ); ?></span></span>
                                                                                             <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                                                                                         </a>
                                                                                     </div>
@@ -493,8 +501,8 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                             <span class="call-text">1-888-452-1505</span>
                         </a>
                         <div class="header-button">
-                            <a class="tj-primary-btn" href="<?php echo esc_url( $burger_get( 'link_contact_html_2', 'contact.html' ) ); ?>">
-                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_let_s_talk', 'Let’s Talk' ) ); ?></span></span>
+                            <a class="tj-primary-btn" href="<?php echo esc_url( $link_contact_html_2 ); ?>">
+                                <span class="btn-text"><span><?php echo esc_html( $texto_let_s_talk ); ?></span></span>
                                 <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
                             </a>
                         </div>

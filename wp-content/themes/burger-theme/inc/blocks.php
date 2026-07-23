@@ -6,65 +6,63 @@ function generate_dynamic_css() {
 
     return "
         :root {
+            --tj-ff-body: $font_family;
+            --tj-ff-heading: $font_family;
+            --tj-ff-fontawesome: 'Font Awesome 6 Pro';
 
-        --tj-ff-body: $font_family;
-        --tj-ff-heading: $font_family;
-        --tj-ff-fontawesome: 'Font Awesome 6 Pro';
+            --tj-color-theme-primary: $tj_color_theme_primary;
+            --tj-color-theme-bg: $tj_color_theme_bg;
+            --tj-color-heading-primary: $tj_color_heading_primary;
 
-        --tj-color-theme-primary: $tj_color_theme_primary;
-        --tj-color-theme-bg: $tj_color_theme_bg;
-        --tj-color-heading-primary: $tj_color_heading_primary;
+            --tj-color-text-body: $tj_color_text_body;
+            --tj-color-text-body-2: $tj_color_text_body_2;
+            --tj-color-text-body-3: $tj_color_text_body_3;
+            --tj-color-text-body-4: $tj_color_text_body_4;
+            --tj-color-text-body-5: $tj_color_text_body_5;
 
-        --tj-color-text-body: $tj_color_text_body;
-        --tj-color-text-body-2: $tj_color_text_body_2;
-        --tj-color-text-body-3: $tj_color_text_body_3;
-        --tj-color-text-body-4: $tj_color_text_body_4;
-        --tj-color-text-body-5: $tj_color_text_body_5;
+            --tj-color-theme-bg-2: $tj_color_theme_bg_2;
+            --tj-color-theme-bg-3: $tj_color_theme_bg_3;
 
-        --tj-color-theme-bg-2: $tj_color_theme_bg_2;
-        --tj-color-theme-bg-3: $tj_color_theme_bg_3;
+            --tj-color-theme-dark: $tj_color_theme_dark;
+            --tj-color-theme-dark-2: $tj_color_theme_dark_2;
+            --tj-color-theme-dark-3: $tj_color_theme_dark_3;
+            --tj-color-theme-dark-4: $tj_color_theme_dark_4;
+            --tj-color-theme-dark-5: $tj_color_theme_dark_5;
 
-        --tj-color-theme-dark: $tj_color_theme_dark;
-        --tj-color-theme-dark-2: $tj_color_theme_dark_2;
-        --tj-color-theme-dark-3: $tj_color_theme_dark_3;
-        --tj-color-theme-dark-4: $tj_color_theme_dark_4;
-        --tj-color-theme-dark-5: $tj_color_theme_dark_5;
+            --tj-color-red-1: $tj_color_red_1;
 
-        --tj-color-red-1: $tj_color_red_1;
+            --tj-color-grey-1: $tj_color_grey_1;
+            --tj-color-grey-2: $tj_color_grey_2;
+            --tj-color-grey-3: $tj_color_grey_3;
 
-        --tj-color-grey-1: $tj_color_grey_1;
-        --tj-color-grey-2: $tj_color_grey_2;
-        --tj-color-grey-3: $tj_color_grey_3;
+            --tj-color-border-1: $tj_color_border_1;
+            --tj-color-border-2: $tj_color_border_2;
+            --tj-color-border-3: $tj_color_border_3;
+            --tj-color-border-4: $tj_color_border_4;
+            --tj-color-border-5: $tj_color_border_5;
 
-        --tj-color-border-1: $tj_color_border_1;
-        --tj-color-border-2: $tj_color_border_2;
-        --tj-color-border-3: $tj_color_border_3;
-        --tj-color-border-4: $tj_color_border_4;
-        --tj-color-border-5: $tj_color_border_5;
+            --tj-color-common-white: $tj_color_common_white;
+            --tj-color-common-black: $tj_color_common_black;
 
-        --tj-color-common-white: $tj_color_common_white;
-        --tj-color-common-black: $tj_color_common_black;
+            --tj-fw-normal: normal;
+            --tj-fw-thin: 100;
+            --tj-fw-elight: 200;
+            --tj-fw-light: 300;
+            --tj-fw-regular: 400;
+            --tj-fw-medium: 500;
+            --tj-fw-sbold: 600;
+            --tj-fw-bold: 700;
+            --tj-fw-ebold: 800;
+            --tj-fw-black: 900;
 
-        --tj-fw-normal: normal;
-        --tj-fw-thin: 100;
-        --tj-fw-elight: 200;
-        --tj-fw-light: 300;
-        --tj-fw-regular: 400;
-        --tj-fw-medium: 500;
-        --tj-fw-sbold: 600;
-        --tj-fw-bold: 700;
-        --tj-fw-ebold: 800;
-        --tj-fw-black: 900;
-
-        --tj-fs-body: 16px;
-        --tj-fs-p: 16px;
-        --tj-fs-h1: 74px;
-        --tj-fs-h2: 48px;
-        --tj-fs-h3: 32px;
-        --tj-fs-h4: 24px;
-        --tj-fs-h5: 20px;
-        --tj-fs-h6: 18px;
-
+            --tj-fs-body: 16px;
+            --tj-fs-p: 16px;
+            --tj-fs-h1: 74px;
+            --tj-fs-h2: 48px;
+            --tj-fs-h3: 32px;
+            --tj-fs-h4: 24px;
+            --tj-fs-h5: 20px;
+            --tj-fs-h6: 18px;
         }
     ";
 }
@@ -153,7 +151,6 @@ function nakama_render_blocks( $block ) {
     $content_png = $block_path . "/content.png";
     $content_php = $block_path . "/content.php";
 
-    // Si existe content.png y estamos en el admin (editor)
     if ( is_admin() && file_exists( $content_png ) ) {
 
         $url = get_stylesheet_directory_uri() . "/blocks/{$slug}/content.png";
@@ -171,40 +168,6 @@ function nakama_render_blocks( $block ) {
     }
 
 }
-
-/*
-function nakama_extend_blocks() {
-
-    if ( function_exists( 'acf_register_block' ) ) {
-
-        if( count( NAKAMA_OPTIONS['bloques_disponibles'] ) > 0 ){
-
-            foreach( NAKAMA_OPTIONS['bloques_disponibles'] as $bloque ){
-
-                if( $bloque['activo'] == 0 ) continue;
-                $slug = sanitize_title($bloque['nombre']);
-                $nombre = $bloque['nombre'];
-
-                acf_register_block( array(
-                    'name'              => $slug,
-                    'title'             => $nombre,
-                    'description'       => 'Imprime el '.$nombre.' del sitio',
-                    'render_callback'   => 'nakama_render_blocks',
-                    'category'          => 'layout',
-                    'icon'              => '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="20" height="20"></rect> <g> <path d="M15 6V4h-3v2H8V4H5v2H4c-.6 0-1 .4-1 1v8h14V7c0-.6-.4-1-1-1h-1z"></path> </g> </g></svg>',
-                    'enqueue_style'     => NAKAMA_THEME_URL.'/blocks/'.$slug.'/styles.css',
-                    'enqueue_script'    => NAKAMA_THEME_URL.'/blocks/'.$slug.'/scripts.js',
-                    'supports'          => array( 'align' => array( 'wide', 'full' ),'layout'  => true ),
-                ));
-
-            }
-
-        }
-
-    }
-
-}
-*/
 
 add_action('init', 'nakama_import_fields_json', 99);
 
@@ -289,6 +252,52 @@ function mg_get_default_preset_id( $block_name ) {
 
     return false;
 
+}
+
+/**
+ * Devuelve solamente los campos que un bloque declara como dependencias.
+ *
+ * @param array $fields Nombres de campos que utiliza el template.
+ * @return array
+ */
+
+function get_block_content_fields( $fields = array() ) {
+
+    $source = function_exists( 'get_fields' ) ? (array) get_fields() : array();
+    $result = array();
+
+    foreach ( $fields as $key => $default ) {
+        $field = is_int( $key ) ? $default : $key;
+        $value = $source[ $field ] ?? '';
+
+        if (
+            is_string( $value ) &&
+            preg_match( '/^NAKAMA_THEME_URL\s*\.\s*[\'"]([^\'"]+)[\'"]$/', trim( $value ), $matches )
+        ) {
+            $value = NAKAMA_THEME_URL . $matches[1];
+        } elseif (
+            is_string( $value ) &&
+            str_starts_with( ltrim( $value, '/' ), 'assets/' )
+        ) {
+            $value = NAKAMA_THEME_URL . '/' . ltrim( $value, '/' );
+        }
+
+        $result[ $field ] = '' !== $value && null !== $value && false !== $value
+            ? $value
+            : ( is_int( $key ) ? '' : $default );
+    }
+
+    if (
+        (
+            array_key_exists( 'encabezado', $fields ) ||
+            in_array( 'encabezado', $fields, true )
+        ) &&
+        empty( $result['encabezado'] )
+    ) {
+        $result['encabezado'] = 'h2';
+    }
+
+    return $result;
 }
 
 add_action( 'enqueue_block_editor_assets', function() {

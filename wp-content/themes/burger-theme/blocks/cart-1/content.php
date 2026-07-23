@@ -1,8 +1,33 @@
 <?php
-$burger_block_fields = function_exists( 'get_fields' ) ? (array) get_fields() : array();
-$burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
-    return isset( $burger_block_fields[ $key ] ) && $burger_block_fields[ $key ] !== '' ? $burger_block_fields[ $key ] : $default;
-};
+$content_fields = array(
+    'texto_product' => 'Product',
+    'texto_price' => 'Price',
+    'texto_quantity' => 'Quantity',
+    'texto_subtotal' => 'Subtotal',
+    'link_shop_details_html' => 'shop-details.html',
+    'imagen_assets_images_product_product_1_webp' => NAKAMA_THEME_URL . '/assets/images/product/product-1.webp',
+    'link_shop_details_html_2' => 'shop-details.html',
+    'texto_personal_holding_earbud' => 'Personal holding earbud',
+    'link_shop_details_html_3' => 'shop-details.html',
+    'imagen_assets_images_product_product_7_webp' => NAKAMA_THEME_URL . '/assets/images/product/product-7.webp',
+    'link_shop_details_html_4' => 'shop-details.html',
+    'texto_base_booster_speaker' => 'Base booster speaker',
+    'link_shop_details_html_5' => 'shop-details.html',
+    'imagen_assets_images_product_product_6_webp' => NAKAMA_THEME_URL . '/assets/images/product/product-6.webp',
+    'link_shop_details_html_6' => 'shop-details.html',
+    'texto_cool_mini_usb_fan' => 'Cool mini USB fan',
+    'texto_apply_coupon' => 'Apply coupon',
+    'texto_update_cart' => 'Update cart',
+    'texto_cart_totals' => 'Cart totals',
+    'texto_subtotal_2' => 'Subtotal',
+    'texto_total' => 'Total',
+    'link_checkout_html' => 'checkout.html',
+    'texto_proceed_to_checkout' => 'Proceed to checkout',
+);
+
+$fields = get_block_content_fields( $content_fields );
+extract( $fields, EXTR_SKIP );
+
 ?>
 
 <!-- start: Cart Section -->
@@ -23,11 +48,11 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                     class="shop_table shop_table_responsive cart woocommerce-cart-form__contents">
                                     <thead>
                                     <tr>
-                                        <th class="product-thumbnail"><?php echo esc_html( $burger_get( 'texto_product', 'Product' ) ); ?></th>
+                                        <th class="product-thumbnail"><?php echo esc_html( $texto_product ); ?></th>
                                         <th class="product-name"></th>
-                                        <th class="product-price"><?php echo esc_html( $burger_get( 'texto_price', 'Price' ) ); ?></th>
-                                        <th class="product-quantity"><?php echo esc_html( $burger_get( 'texto_quantity', 'Quantity' ) ); ?></th>
-                                        <th class="product-subtotal"><?php echo esc_html( $burger_get( 'texto_subtotal', 'Subtotal' ) ); ?></th>
+                                        <th class="product-price"><?php echo esc_html( $texto_price ); ?></th>
+                                        <th class="product-quantity"><?php echo esc_html( $texto_quantity ); ?></th>
+                                        <th class="product-subtotal"><?php echo esc_html( $texto_subtotal ); ?></th>
                                         <th class="product-remove">&nbsp;</th>
                                     </tr>
                                     </thead>
@@ -35,13 +60,13 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                     <tr class="woocommerce-cart-form__cart-item cart_item">
                                         <td class="product-thumbnail" data-title="Product">
-                                            <a href="<?php echo esc_url( $burger_get( 'link_shop_details_html', 'shop-details.html' ) ); ?>"><img
-                                                src="<?php echo esc_url( $burger_get( 'imagen_assets_images_product_product_1_webp', NAKAMA_THEME_URL . '/assets/images/product/product-1.webp' ) ); ?>"
+                                            <a href="<?php echo esc_url( $link_shop_details_html ); ?>"><img
+                                                src="<?php echo esc_url( $imagen_assets_images_product_product_1_webp ); ?>"
                                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                 alt="Personal holding earbud"></a>
                                         </td>
                                         <td class="product-name" data-title="Name">
-                                            <h5><a href="<?php echo esc_url( $burger_get( 'link_shop_details_html_2', 'shop-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_personal_holding_earbud', 'Personal holding earbud' ) ); ?></a></h5>
+                                            <h5><a href="<?php echo esc_url( $link_shop_details_html_2 ); ?>"><?php echo esc_html( $texto_personal_holding_earbud ); ?></a></h5>
                                         </td>
                                         <td class="product-price" data-title="Price">
                                             <span class="woocommerce-Price-amount amount"><bdi><span
@@ -74,13 +99,13 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                     </tr>
                                     <tr class="woocommerce-cart-form__cart-item cart_item">
                                         <td class="product-thumbnail" data-title="Product">
-                                            <a href="<?php echo esc_url( $burger_get( 'link_shop_details_html_3', 'shop-details.html' ) ); ?>"><img
-                                                src="<?php echo esc_url( $burger_get( 'imagen_assets_images_product_product_7_webp', NAKAMA_THEME_URL . '/assets/images/product/product-7.webp' ) ); ?>"
+                                            <a href="<?php echo esc_url( $link_shop_details_html_3 ); ?>"><img
+                                                src="<?php echo esc_url( $imagen_assets_images_product_product_7_webp ); ?>"
                                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                 alt="Base booster speaker"></a>
                                         </td>
                                         <td class="product-name" data-title="Name">
-                                            <h5><a href="<?php echo esc_url( $burger_get( 'link_shop_details_html_4', 'shop-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_base_booster_speaker', 'Base booster speaker' ) ); ?></a></h5>
+                                            <h5><a href="<?php echo esc_url( $link_shop_details_html_4 ); ?>"><?php echo esc_html( $texto_base_booster_speaker ); ?></a></h5>
                                         </td>
 
                                         <td class="product-price" data-title="Price">
@@ -118,14 +143,14 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                     <tr class="woocommerce-cart-form__cart-item cart_item">
 
                                         <td class="product-thumbnail" data-title="Product">
-                                            <a href="<?php echo esc_url( $burger_get( 'link_shop_details_html_5', 'shop-details.html' ) ); ?>"><img
-                                                src="<?php echo esc_url( $burger_get( 'imagen_assets_images_product_product_6_webp', NAKAMA_THEME_URL . '/assets/images/product/product-6.webp' ) ); ?>"
+                                            <a href="<?php echo esc_url( $link_shop_details_html_5 ); ?>"><img
+                                                src="<?php echo esc_url( $imagen_assets_images_product_product_6_webp ); ?>"
                                                 class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                 alt="Cool mini USB fan"></a>
                                         </td>
 
                                         <td class="product-name" data-title="Name">
-                                            <h5><a href="<?php echo esc_url( $burger_get( 'link_shop_details_html_6', 'shop-details.html' ) ); ?>"><?php echo esc_html( $burger_get( 'texto_cool_mini_usb_fan', 'Cool mini USB fan' ) ); ?></a></h5>
+                                            <h5><a href="<?php echo esc_url( $link_shop_details_html_6 ); ?>"><?php echo esc_html( $texto_cool_mini_usb_fan ); ?></a></h5>
                                         </td>
 
                                         <td class="product-price" data-title="Price">
@@ -174,7 +199,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                                             <button type="submit" class="tj-primary-btn" name="apply_coupon"
                                                 value="Apply coupon">
-                                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_apply_coupon', 'Apply coupon' ) ); ?></span></span>
+                                                <span class="btn-text"><span><?php echo esc_html( $texto_apply_coupon ); ?></span></span>
                                                 <span class="btn-icon"><i
                                                     class="tji-arrow-right-long"></i></span>
 
@@ -186,7 +211,7 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                         <div class="tj-cart-update-btn text-md-end">
                                             <button type="submit" class="update-cart tj-primary-btn"
                                                 name="update_cart" value="Update cart" disabled="">
-                                                <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_update_cart', 'Update cart' ) ); ?></span></span>
+                                                <span class="btn-text"><span><?php echo esc_html( $texto_update_cart ); ?></span></span>
                                                 <span class="btn-icon"><i
                                                     class="tji-arrow-right-long"></i></span>
 
@@ -204,18 +229,18 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
 
                         <div class="cart-collaterals">
                             <div class="cart_totals ">
-                                <h3><?php echo esc_html( $burger_get( 'texto_cart_totals', 'Cart totals' ) ); ?></h3>
+                                <h3><?php echo esc_html( $texto_cart_totals ); ?></h3>
                                 <table class="shop_table shop_table_responsive">
                                     <tbody>
                                     <tr class="cart-subtotal">
-                                        <th><?php echo esc_html( $burger_get( 'texto_subtotal_2', 'Subtotal' ) ); ?></th>
+                                        <th><?php echo esc_html( $texto_subtotal_2 ); ?></th>
                                         <td data-title="Subtotal"><span
                                                 class="woocommerce-Price-amount amount"><bdi><span
                                                     class="woocommerce-Price-currencySymbol">$</span>450.00</bdi></span>
                                         </td>
                                     </tr>
                                     <tr class="order-total">
-                                        <th><?php echo esc_html( $burger_get( 'texto_total', 'Total' ) ); ?></th>
+                                        <th><?php echo esc_html( $texto_total ); ?></th>
                                         <td data-title="Total"><strong><span
                                                 class="woocommerce-Price-amount amount"><bdi><span
                                                         class="woocommerce-Price-currencySymbol">$</span>450.00</bdi></span></strong>
@@ -227,9 +252,9 @@ $burger_get = function( $key, $default = '' ) use ( $burger_block_fields ) {
                                 </table>
 
                                 <div class="wc-proceed-to-checkout">
-                                    <a href="<?php echo esc_url( $burger_get( 'link_checkout_html', 'checkout.html' ) ); ?>"
+                                    <a href="<?php echo esc_url( $link_checkout_html ); ?>"
                                     class="tj-primary-btn checkout-button button alt wc-forward">
-                                    <span class="btn-text"><span><?php echo esc_html( $burger_get( 'texto_proceed_to_checkout', 'Proceed to checkout' ) ); ?></span></span>
+                                    <span class="btn-text"><span><?php echo esc_html( $texto_proceed_to_checkout ); ?></span></span>
                                     <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
 
                                     </a>
