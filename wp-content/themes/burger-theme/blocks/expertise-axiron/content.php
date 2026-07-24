@@ -1,0 +1,3 @@
+<section class="axiron-section axiron-expertise">
+    <div class="container axiron-expertise__grid"><div><p class="axiron-kicker"><span class="axiron-kicker__mark"></span>Nuestra experiencia</p><h2 class="axiron-title">Conocimiento aplicado a desafíos reales</h2></div><div class="axiron-expertise__list"><div><strong>01</strong><span>Fabricación avanzada</span><em>94%</em></div><div><strong>02</strong><span>Ingeniería de procesos</span><em>90%</em></div><div><strong>03</strong><span>Control de calidad</span><em>98%</em></div><div><strong>04</strong><span>Soporte operativo</span><em>92%</em></div></div></div>
+</section>

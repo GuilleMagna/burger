@@ -1,0 +1,3 @@
+<section class="axiron-section axiron-awards">
+    <div class="container"><header class="axiron-heading-split"><div><p class="axiron-kicker"><span class="axiron-kicker__mark"></span>Reconocimientos</p><h2 class="axiron-title">Excelencia industrial reconocida</h2></div><p class="axiron-copy">Hitos que reflejan nuestro compromiso con la innovación, la calidad y el desarrollo responsable.</p></header><div class="axiron-awards__list"><article><strong>2026</strong><h3>Premio a la innovación industrial</h3><span>Desarrollo tecnológico</span></article><article><strong>2024</strong><h3>Excelencia en manufactura</h3><span>Calidad y procesos</span></article><article><strong>2022</strong><h3>Producción responsable</h3><span>Sostenibilidad</span></article></div></div>
+</section>
