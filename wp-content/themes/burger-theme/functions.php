@@ -12,4 +12,33 @@ require_once NAKAMA_THEME_PATH . '/inc/tools.php';
 require_once NAKAMA_THEME_PATH . '/inc/setup.php';
 require_once NAKAMA_THEME_PATH . '/inc/blocks.php';
 
+add_action('wp_enqueue_scripts', function () {
+    $axiron_css = NAKAMA_THEME_PATH . '/assets/css/axiron-main.css';
+    if (file_exists($axiron_css)) {
+        wp_enqueue_style(
+            'axiron-main',
+            NAKAMA_THEME_URL . '/assets/css/axiron-main.css',
+            [],
+            filemtime($axiron_css)
+        );
+    }
+
+    $dcm_css = NAKAMA_THEME_PATH . '/assets/css/dcm-proposal.css';
+    $dcm_root = get_page_by_path('dcm', OBJECT, 'page');
+    $is_dcm_family = false;
+    if ($dcm_root && is_page()) {
+        $current_page_id = get_queried_object_id();
+        $is_dcm_family = ((int) $current_page_id === (int) $dcm_root->ID)
+            || in_array((int) $dcm_root->ID, array_map('intval', get_post_ancestors($current_page_id)), true);
+    }
+    if ($is_dcm_family && file_exists($dcm_css)) {
+        wp_enqueue_style(
+            'dcm-proposal',
+            NAKAMA_THEME_URL . '/assets/css/dcm-proposal.css',
+            [],
+            filemtime($dcm_css)
+        );
+    }
+});
+
 ?>

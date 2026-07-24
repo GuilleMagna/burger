@@ -1,0 +1,3 @@
+<section class="axiron-section axiron-contact" id="contacto">
+    <div class="container axiron-contact__grid"><div><p class="axiron-kicker"><span class="axiron-kicker__mark"></span>Contacto</p><h2 class="axiron-title">Conversemos sobre tu proyecto industrial</h2><p class="axiron-copy">Compartinos el alcance inicial y nuestro equipo se pondrá en contacto.</p></div><form class="axiron-contact__form"><label>Nombre<input type="text" placeholder="Tu nombre"></label><label>Correo<input type="email" placeholder="nombre@empresa.com"></label><label class="wide">Mensaje<textarea rows="5" placeholder="Contanos sobre el proyecto"></textarea></label><button type="button">Enviar consulta ↗</button></form></div>
+</section>

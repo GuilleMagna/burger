@@ -181,13 +181,19 @@ function nakama_import_fields_json() {
         return;
     }
 
-    if (get_option('nakama_acf_json_imported')) {
-        return;
-    }
-
     $files = glob(NAKAMA_THEME_PATH . '/blocks/*/fields.json');
 
     if (empty($files)) {
+        return;
+    }
+
+    $signature_parts = array();
+    foreach ($files as $file) {
+        $signature_parts[] = $file . ':' . filemtime($file);
+    }
+    $signature = md5(implode('|', $signature_parts));
+
+    if (get_option('nakama_acf_json_imported') === $signature) {
         return;
     }
 
@@ -226,7 +232,7 @@ function nakama_import_fields_json() {
         }
     }
 
-    update_option('nakama_acf_json_imported', time(), false);
+    update_option('nakama_acf_json_imported', $signature, false);
 
 }
 
@@ -321,7 +327,8 @@ function load_bootstrap_in_editor() {
 add_action('enqueue_block_editor_assets', 'load_bootstrap_in_editor');
 
 function get_block_classes( $block = '') {
-    $attributes = get_block_wrapper_attributes($block);
+    $extra_attributes = is_array($block) ? $block : array();
+    $attributes = get_block_wrapper_attributes($extra_attributes);
     preg_match('/class="([^"]+)"/', $attributes, $matches);
     return isset($matches[1]) ? $matches[1] : '';
 }
