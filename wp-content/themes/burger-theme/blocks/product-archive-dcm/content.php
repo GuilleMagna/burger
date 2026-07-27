@@ -34,14 +34,6 @@ $dcm_products = [
     ],
     [
         'number' => '05',
-        'category' => 'Tambo',
-        'title' => 'Accesorios para ordeñe',
-        'copy' => 'Colectores, filtros, casquillos, repuestos y componentes para mantener el sistema operativo.',
-        'class' => 'milking-detail',
-        'filter' => 'tambo',
-    ],
-    [
-        'number' => '06',
         'category' => 'Lechería',
         'title' => 'Placas enfriadoras',
         'copy' => 'Intercambiadores para enfriamiento de leche disponibles en diferentes capacidades.',
@@ -49,7 +41,7 @@ $dcm_products = [
         'filter' => 'tambo',
     ],
     [
-        'number' => '07',
+        'number' => '06',
         'category' => 'Taller',
         'title' => 'Herramientas neumáticas',
         'copy' => 'Llaves de impacto, criques y amoladoras para trabajar con potencia y precisión.',
@@ -57,7 +49,7 @@ $dcm_products = [
         'filter' => 'herramientas',
     ],
     [
-        'number' => '08',
+        'number' => '07',
         'category' => 'Agro y servicios',
         'title' => 'Equipos especiales',
         'copy' => 'Fumigadores, desagotadores, balones de inflado y desarrollos para necesidades concretas.',
@@ -90,11 +82,11 @@ $dcm_products = [
                     <p class="dcm-eyebrow"><span></span>Archivo de productos</p>
                     <h2>Encontrá la línea<br>que necesitás.</h2>
                 </div>
-                <p><strong>08</strong> categorías principales</p>
+                <p><strong>07</strong> categorías principales</p>
             </div>
 
             <div class="dcm-catalog-controls">
-                <p aria-live="polite"><strong data-dcm-results>08</strong> líneas disponibles</p>
+                <p aria-live="polite"><strong data-dcm-results>07</strong> líneas disponibles</p>
                 <div>
                     <label class="dcm-catalog-search">
                         <span class="screen-reader-text">Buscar en el catálogo</span>
@@ -126,8 +118,8 @@ $dcm_products = [
                     $anchor = '';
                     if ($index === 0) $anchor = 'aire-comprimido';
                     if ($index === 3) $anchor = 'tambo';
-                    if ($index === 6) $anchor = 'herramientas';
-                    if ($index === 7) $anchor = 'especiales';
+                    if ($index === 5) $anchor = 'herramientas';
+                    if ($index === 6) $anchor = 'especiales';
                     ?>
                     <article
                         class="dcm-catalog-card dcm-catalog-card--<?php echo esc_attr($product['class']); ?>"

@@ -17,6 +17,9 @@
 # User-generated content
 /wp-content/uploads/
 
+# Plugins are installed per environment and are not versioned
+/wp-content/plugins/
+
 # Generated files, caches, logs, and temporary upgrades
 /wp-content/cache/
 /wp-content/et-cache/
