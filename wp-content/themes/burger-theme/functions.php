@@ -50,6 +50,20 @@ add_action('wp_enqueue_scripts', function () {
             filemtime($dcm_css)
         );
     }
+
+    $troyplast_css = NAKAMA_THEME_PATH . '/assets/css/troyplast-proposal.css';
+    $has_troyplast_blocks = (bool) preg_match(
+        '/<!--\s+wp:acf\/troyplast-[a-z0-9-]+\b/i',
+        $current_content
+    );
+    if ($has_troyplast_blocks && file_exists($troyplast_css)) {
+        wp_enqueue_style(
+            'troyplast-proposal',
+            NAKAMA_THEME_URL . '/assets/css/troyplast-proposal.css',
+            [],
+            filemtime($troyplast_css)
+        );
+    }
 });
 
 ?>

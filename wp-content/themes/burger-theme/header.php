@@ -10,7 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <meta name="author" content="NAKAMA">
 
-    <title><?= NAKAMA_TITLE ?></title>
+    <?php
+    $troyplast_root = get_page_by_path('troyplast', OBJECT, 'page');
+    $current_page_id = get_queried_object_id();
+    $is_troyplast_page = $troyplast_root && (
+        (int) $current_page_id === (int) $troyplast_root->ID
+        || in_array((int) $troyplast_root->ID, array_map('intval', get_post_ancestors($current_page_id)), true)
+    );
+    ?>
+    <title><?= $is_troyplast_page ? esc_html((int) $current_page_id === (int) $troyplast_root->ID ? 'Troyplast · Mangueras y perfiles en PVC' : get_the_title() . ' · Troyplast') : NAKAMA_TITLE ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="<?= NAKAMA_THEME_URL ?>/assets/images/fav.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

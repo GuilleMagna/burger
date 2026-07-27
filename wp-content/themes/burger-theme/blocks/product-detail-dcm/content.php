@@ -99,9 +99,9 @@
                 <a href="<?php echo esc_url(home_url('/dcm/productos/')); ?>">Ver catálogo completo <span>→</span></a>
             </div>
             <div class="dcm-product-related__grid">
-                <a href="<?php echo esc_url(home_url('/dcm/productos/#aire-comprimido')); ?>"><span>01 · Aire comprimido</span><strong>Compresores de aire</strong><i>↗</i></a>
-                <a href="<?php echo esc_url(home_url('/dcm/productos/#tambo')); ?>"><span>02 · Tambo</span><strong>Ordeñadoras</strong><i>↗</i></a>
-                <a href="<?php echo esc_url(home_url('/dcm/productos/#herramientas')); ?>"><span>03 · Taller</span><strong>Herramientas neumáticas</strong><i>↗</i></a>
+                <a href="<?php echo esc_url(home_url('/dcm/productos/#aire-comprimido')); ?>"><img src="<?php echo esc_url(NAKAMA_THEME_URL . '/assets/images/dcm/line-compresores.jpg'); ?>" alt="Compresores de aire"><span>01 · Aire comprimido</span><strong>Compresores de aire</strong><i>↗</i></a>
+                <a href="<?php echo esc_url(home_url('/dcm/productos/#tambo')); ?>"><img src="<?php echo esc_url(NAKAMA_THEME_URL . '/assets/images/dcm/line-ordenadoras.jpg'); ?>" alt="Ordeñadoras"><span>02 · Tambo</span><strong>Ordeñadoras</strong><i>↗</i></a>
+                <a href="<?php echo esc_url(home_url('/dcm/repuestos/')); ?>"><img src="<?php echo esc_url(NAKAMA_THEME_URL . '/assets/images/dcm/spare-colector.jpg'); ?>" alt="Repuestos para ordeñadoras"><span>03 · Mantenimiento</span><strong>Repuestos</strong><i>↗</i></a>
             </div>
         </div>
     </section>
