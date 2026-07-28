@@ -64,6 +64,26 @@ add_action('wp_enqueue_scripts', function () {
             filemtime($troyplast_css)
         );
     }
+
+    $rodeg_css = NAKAMA_THEME_PATH . '/assets/css/rodeg-proposal.css';
+    $has_rodeg_blocks = (bool) preg_match(
+        '/<!--\s+wp:acf\/rodeg-[a-z0-9-]+\b/i',
+        $current_content
+    );
+    if ($has_rodeg_blocks && file_exists($rodeg_css)) {
+        wp_enqueue_style(
+            'rodeg-fonts',
+            'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap',
+            [],
+            null
+        );
+        wp_enqueue_style(
+            'rodeg-proposal',
+            NAKAMA_THEME_URL . '/assets/css/rodeg-proposal.css',
+            ['rodeg-fonts'],
+            filemtime($rodeg_css)
+        );
+    }
 });
 
 ?>
