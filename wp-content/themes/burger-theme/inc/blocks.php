@@ -68,17 +68,16 @@ function generate_dynamic_css() {
 }
 
 function add_editor_dynamic_styles() {
-    $custom_css = generate_dynamic_css();
-    wp_add_inline_style( 'wp-block-css', $custom_css );
+    wp_register_style( 'nakama-editor-vars', false );
+    wp_enqueue_style( 'nakama-editor-vars' );
+    wp_add_inline_style( 'nakama-editor-vars', generate_dynamic_css() );
 }
 
 add_action( 'enqueue_block_editor_assets', 'add_editor_dynamic_styles' );
 
-function nakama_enqueue_editor_styles() {
-    add_editor_style('themes/css/blocks.css');
-}
-
-add_action('admin_init', 'nakama_enqueue_editor_styles');
+add_action('admin_init', function() {
+    add_editor_style('assets/css/editor.css');
+});
 
 add_action( 'after_setup_theme', function() {
     add_theme_support( 'editor-styles' );
@@ -306,25 +305,85 @@ function get_block_content_fields( $fields = array() ) {
     return $result;
 }
 
-add_action( 'enqueue_block_editor_assets', function() {
+/**
+ * Carga en el editor de bloques el mismo stack de CSS que usa el front
+ * (header.php), más las hojas de estilo condicionales por propuesta
+ * (DCM / Troyplast / RODEG) según el contenido del post que se está editando.
+ * Así el preview del editor queda visualmente igual al front, sin depender
+ * de capturas estáticas (content.png).
+ */
+function nakama_enqueue_editor_frontend_styles() {
 
-    wp_enqueue_style(
-        'nakama-editor-styles',
-        get_stylesheet_directory_uri() . '/assets/css/editor.css',
-        [],
-        filemtime( get_stylesheet_directory() . '/assets/css/editor.css' )
-    );
+    $css_dir = NAKAMA_THEME_PATH . '/assets/css/';
+    $css_url = NAKAMA_THEME_URL . '/assets/css/';
 
-});
+    $stylesheets = [
+        'bootstrap.min.css',
+        'font-awesome-pro.min.css',
+        'animate.min.css',
+        'bexon-icons.css',
+        'nice-select.css',
+        'swiper.min.css',
+        'venobox.min.css',
+        'odometer-theme-default.css',
+        'meanmenu.css',
+        'main.css',
+        'shop.css',
+        'axiron-main.css',
+        'editor.css',
+    ];
 
-function load_bootstrap_in_editor() {
-    wp_enqueue_style( 'bootstrap-css',     NAKAMA_THEME_URL . '/vendors/bootstrap5.2/css/bootstrap.min.css', array() );
-    wp_enqueue_style( 'theme-fonts-css',   NAKAMA_THEME_URL . '/themes/css/fonts.css', array() );
-    wp_enqueue_style( 'theme-colors-css',  NAKAMA_THEME_URL . '/themes/css/colors.css', array() );
-    wp_enqueue_style( 'theme-styler-css',  NAKAMA_THEME_URL . '/themes/css/styler.css', array() );
+    foreach ($stylesheets as $file) {
+        $path = $css_dir . $file;
+        if (!file_exists($path)) {
+            continue;
+        }
+        wp_enqueue_style(
+            'nakama-editor-' . sanitize_title($file),
+            $css_url . $file,
+            [],
+            filemtime($path)
+        );
+    }
+
+    if (!empty(NAKAMA_OPTIONS['url_font_family'])) {
+        wp_enqueue_style('nakama-editor-fonts', NAKAMA_OPTIONS['url_font_family'], [], null);
+    }
+
+    global $post;
+    $post_id = $post ? $post->ID : 0;
+    $content = $post_id ? (string) get_post_field('post_content', $post_id) : '';
+
+    $proposal_stylesheets = [
+        'dcm-proposal.css'       => '/<!--\s+wp:acf\/[a-z0-9-]*-dcm\b/i',
+        'troyplast-proposal.css' => '/<!--\s+wp:acf\/troyplast-[a-z0-9-]+\b/i',
+        'rodeg-proposal.css'     => '/<!--\s+wp:acf\/rodeg-[a-z0-9-]+\b/i',
+    ];
+
+    foreach ($proposal_stylesheets as $file => $pattern) {
+        if (!preg_match($pattern, $content)) {
+            continue;
+        }
+        $path = $css_dir . $file;
+        if (!file_exists($path)) {
+            continue;
+        }
+        wp_enqueue_style(
+            'nakama-editor-' . sanitize_title($file),
+            $css_url . $file,
+            [],
+            filemtime($path)
+        );
+    }
+
+    // wow.js nunca corre dentro del iframe del editor, así que los elementos
+    // .wow (pensados para revelarse al hacer scroll) quedarían invisibles.
+    wp_register_style( 'nakama-editor-overrides', false );
+    wp_enqueue_style( 'nakama-editor-overrides' );
+    wp_add_inline_style( 'nakama-editor-overrides', '.wow { visibility: visible !important; }' );
 }
 
-add_action('enqueue_block_editor_assets', 'load_bootstrap_in_editor');
+add_action('enqueue_block_editor_assets', 'nakama_enqueue_editor_frontend_styles');
 
 function get_block_classes( $block = '') {
     $extra_attributes = is_array($block) ? $block : array();
